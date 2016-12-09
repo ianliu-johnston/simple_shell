@@ -1,0 +1,8 @@
+.TH man 1 "12 December 2016" "0.01" "hsh man page"
+.SH NAME
+.B hsh
+- Simple Shell for Holberton School
+.SH SYNOPSIS
+Simple Shell Environment
+.SH DESCRIPTION
+Simple Shell Environment
