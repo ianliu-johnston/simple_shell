@@ -1,0 +1,2198 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="Holberton School">
+    <link rel="icon" href="../../favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+    <title>Holberton School's awesome intranet</title>
+
+	<link rel="stylesheet" media="all" href="/assets/application-db3812a3f2ca9d0bad785735e12c914d1cd84a76ea29dae954e190aef0d9dbcc.css" />
+	<script src="/assets/application-7f24172e9c69ce683f5b5aed00b3a1bb9ab1852088ced3d01230fd1a0b4b64f4.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/favicon-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.ico" />
+	<meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="xEO1e14inHoPkRP73svGuDMbx7wxyeKm+6g+X5SphVfF4lSmrHVOj2x/JDz4QnSlG1DiaDcxm2zwB4suEGFcOA==" />
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body class="signed_in">
+
+      <nav id="nav-left" class="hidden-xs title-font">
+        <a href="/">
+          <div id="holberton-logo">
+            <img alt="Holberton School" src="/assets/holberton-logo-simplified-d4e8a1e8bf5ad93c8c3ce32895b4b53749b477b7ba7342d7f064e6883bcd3be2.png" />
+          </div>
+</a>        <ul>
+            <li>
+    <a href="/dashboards/my_planning">
+        <div class="icon">
+          <i class="fa fa-calendar"></i>
+        </div>
+      My planning
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_current_projects">
+        <div class="icon">
+          <i class="fa fa-list"></i>
+        </div>
+      My projects
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_concepts">
+        <div class="icon">
+          <i class="fa fa-file-text"></i>
+        </div>
+      My concepts
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_batchmates">
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
+      My batchmates
+</a>  </li>
+  <li>
+    <a href="/dashboards/corrections_i_can_make">
+        <div class="icon">
+          <i class="fa fa-check"></i>
+        </div>
+      QA reviews I can make
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_captain_log">
+        <div class="icon">
+          <i class="fa fa-book"></i>
+        </div>
+      My Captain's Logs
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_officers">
+        <div class="icon">
+          <i class="fa fa-building"></i>
+        </div>
+      My Officers
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_speakers_of_the_day">
+        <div class="icon">
+          <i class="fa fa-microphone"></i>
+        </div>
+      My Speakers of the day
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_server">
+        <div class="icon">
+          <i class="fa fa-server"></i>
+        </div>
+      My Servers
+</a>  </li>
+
+<li>
+  <a href="/users/my_profile">
+      <div class="icon">
+        <i class="fa fa-user"></i>
+      </div>
+    My profile
+</a></li>
+
+        </ul>
+      </nav>
+
+    <main>
+
+        <nav class="navbar navbar-default navbar-main visible-xs">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="/">
+                  <img alt="Holberton School" src="/assets/holberton-logo-simplified-d4e8a1e8bf5ad93c8c3ce32895b4b53749b477b7ba7342d7f064e6883bcd3be2.png" />
+</a>            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                  <li>
+    <a href="/dashboards/my_planning">
+      My planning
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_current_projects">
+      My projects
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_concepts">
+      My concepts
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_batchmates">
+      My batchmates
+</a>  </li>
+  <li>
+    <a href="/dashboards/corrections_i_can_make">
+      QA reviews I can make
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_captain_log">
+      My Captain's Logs
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_officers">
+      My Officers
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_speakers_of_the_day">
+      My Speakers of the day
+</a>  </li>
+  <li>
+    <a href="/dashboards/my_server">
+      My Servers
+</a>  </li>
+
+<li>
+  <a href="/users/my_profile">
+    My profile
+</a></li>
+
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Ian Liu-Johnston <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a rel="nofollow" data-method="delete" href="/auth/sign_out">Log out</a></li>
+                  </ul>
+                </li>
+              </ul>
+
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
+
+
+        <div id="captains_log_alert">
+          <a href="/captain_logs/1218/edit">
+            <div class="container">
+              <p>
+                You have a captain's log due before 2016-12-11 (in 3 days)! Log it now!
+              </p>
+            </div>
+</a>        </div>
+
+      <article class="pending_logs">
+
+        
+<h1 class="gap">0x15. C - Simple Shell</h1>
+
+<div id="project_id" style="display: none" data-project-id="235"></div>
+
+<p class="sm-gap">
+  <small>
+    <i class="fa fa-folder-open"></i>
+    Low-level programming &amp; Algorithm ― Linux and Unix system programming
+  </small>
+</p>
+
+  <p>
+    <em>
+      <small>
+        <i class="fa fa-user"></i> by Julien Barbier, co-founder at Holberton School
+      </small>
+    </em>
+  </p>
+
+
+  <p>
+    <em>
+      <small>
+        <i class="fa fa-users"></i> Project to be done in teams of 2 people
+          (your team will be updated here soon)
+      </small>
+    </em>
+  </p>
+
+  <p>
+    <small>
+      <i class="fa fa-calendar"></i>
+        Ongoing project - started 12-09-2016, must end by 12-22-2016 (in 13 days)
+        - <span id="student_task_done_percentage">you're 0</span>% done.
+    </small>
+  </p>
+
+  <p>
+    <small>
+      <i class="fa fa-check-square"></i>
+        <strong>Manual QA review must be done</strong>
+        (request it when you are done on the project)
+    </small>
+  </p>
+
+
+
+
+<article id="description" class="gap formatted-content">
+  <p>Write a simple UNIX command interpreter.</p>
+
+<p><img src="https://s3.amazonaws.com/intranet-projects-files/holbertonschool-low_level_programming/235/shell.png" /></p>
+
+<h2>Readme</h2>
+
+<p>Read or watch: <a href="https://en.wikipedia.org/wiki/Unix_shell">Unix shell</a>, <a href="https://en.wikipedia.org/wiki/Thompson_shell">Thompson shell</a>, <a href="https://en.wikipedia.org/wiki/Ken_Thompson">Ken Thompson</a>, <a href="https://intranet.hbtn.io/concepts/64">Everything you need to know to start coding your own shell</a>.</p>
+
+<p>Run <code>sh</code>.</p>
+
+<p>man: see bellow.</p>
+
+<h2>What you should learn from this project</h2>
+
+<p>At the end of this project you are expected to be able to explain to anyone, without the help of Google:</p>
+
+<ul>
+<li>Who designed and implemented the original Unix operating system</li>
+<li>Who wrote the first version of the UNIX shell</li>
+<li>Who invented the B programming language (the direct predecessor to the C programming language)</li>
+<li>Who is Ken Thompson</li>
+<li>How does a shell work</li>
+<li>What is a pid and an ppid</li>
+<li>How to manipulate the environment of the current process</li>
+<li>What is the difference between a function and a system call</li>
+<li>How to create processes</li>
+<li>What are the three prototypes of <code>main</code></li>
+<li>How does the shell use the <code>PATH</code> to find the programs</li>
+<li>How to execute another program with the <code>execve</code> system call</li>
+<li>How to suspend the execution of a process until one of its children terminates</li>
+<li>What is <code>EOF</code> / &quot;end-of-file&quot;?</li>
+</ul>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>Allowed editors: <code>vi</code>, <code>vim</code>, <code>emacs</code></li>
+<li>All your files will be compiled on Ubuntu 14.04 LTS</li>
+<li>Your programs and functions will be compiled with <code>gcc 4.8.4</code> using the flags <code>-Wall</code> <code>-Werror</code> <code>-Wextra</code> <code>and -pedantic</code></li>
+<li>All your files should end with a new line</li>
+<li>A <code>README.md</code> file, at the root of the folder of the project is mandatory</li>
+<li>Your code should use the <code>Betty</code> style. It will be checked using <a href="https://github.com/holbertonschool/Betty/blob/master/betty-style.pl">betty-style.pl</a> and <a href="https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl">betty-doc.pl</a></li>
+<li>No more than 5 functions per file</li>
+<li>In the following examples, the <code>main.c</code> files are showed as examples. You can use them to test your functions, but you don&#39;t have to push them to your repo (if you do we won&#39;t take them into account). We will use our own <code>main.c</code> files at compilation. Our <code>main.c</code> files might be different from the one showed in the examples</li>
+<li>All your header files should be include guarded</li>
+</ul>
+
+<h2>List of allowed functions and system calls</h2>
+
+<ul>
+<li><code>access</code> (man 2 access)</li>
+<li><code>chdir</code> (man 2 chdir)</li>
+<li><code>close</code> (man 2 close)</li>
+<li><code>closedir</code> (man 3 closedir)</li>
+<li><code>execve</code> (man 2 execve)</li>
+<li><code>exit</code> (man 3 exit)</li>
+<li><code>fork</code> (man 2 fork)</li>
+<li><code>free</code> (man 3 free)</li>
+<li><code>fstat</code> (man 2 fstat)</li>
+<li><code>getcwd</code> (man 3 getcwd)</li>
+<li><code>getline</code> (man 3 getline)</li>
+<li><code>kill</code> (man 2 kill)</li>
+<li><code>lstat</code> (man 2 lstat)</li>
+<li><code>malloc</code> (man 3 malloc)</li>
+<li><code>open</code> (man 2 open)</li>
+<li><code>opendir</code> (man 3 opendir)</li>
+<li><code>perror</code> (man 3 perror)</li>
+<li><code>read</code> (man 2 read)</li>
+<li><code>readdir</code> (man 3 readdir)</li>
+<li><code>signal</code> (man 2 signal)</li>
+<li><code>stat</code> (man 2 stat)</li>
+<li><code>strtok</code> (man 3 strtok)</li>
+<li><code>wait</code> (man 2 wait)</li>
+<li><code>waitpid</code> (man 2 waitpid)</li>
+<li><code>wait3</code> (man 2 wait3)</li>
+<li><code>wait4</code> (man 2 wait4)</li>
+<li><code>write</code> (man 2 write)</li>
+<li><code>_exit</code> (man 2 _exit)</li>
+</ul>
+
+<h2>Compilation</h2>
+
+<p>Your shell will be compiled this way:</p>
+
+<pre><code>gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+</code></pre>
+
+<h2>Checks</h2>
+
+<p>There will be no checks released before the deadline. We <strong>strongly</strong> encourage the entire class to work together to create a suite of checks covering both regular tests and edged cases for each task. See task <code>22. Test suite</code> (#advanced).</p>
+
+</article>
+
+  <hr class="gap">
+  <h2 class="gap">Tasks</h2>
+  <section class="formatted-content">
+        <div data-role="task1055" data-position="0">
+            <div class=" clearfix gap" id="task-1055">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1055">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1055" data-toggle="modal" data-target="#task-1055-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1055-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "README, man, AUTHORS"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1055/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1055" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    0. README, man, AUTHORS
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <ul>
+<li>Write a <code>README</code></li>
+<li>Write a <code>man</code> for your shell.</li>
+<li>You should have an <code>AUTHORS</code> file at the root of your repository, listing all individuals having contributed content to the repository. Format, see <a href="https://github.com/docker/docker/blob/master/AUTHORS">Docker</a></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+        <li>File: <code>README.md, man_1_simple_shell, AUTHORS</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1033" data-position="1">
+            <div class=" clearfix gap" id="task-1033">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1033">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1033" data-toggle="modal" data-target="#task-1033-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1033-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Betty would be proud"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1033/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1033" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    1. Betty would be proud
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Write a beautiful code that passes the Betty checks</p>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1034" data-position="2">
+            <div class=" clearfix gap" id="task-1034">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1034">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1034" data-toggle="modal" data-target="#task-1034-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1034-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.1"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1034/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1034" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    2. Simple shell 0.1
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Write a UNIX command line interpreter.</p>
+
+<ul>
+<li>Usage: <code>simple_shell</code></li>
+</ul>
+
+<p>Your Shell should:</p>
+
+<ul>
+<li>Display a prompt and wait for the user to type a command. A command line always ends with a new line.</li>
+<li>The prompt is displayed again each time a command has been executed.</li>
+<li>The command lines are simple, no semi-columns, no pipes, no redirections or any other advanced features.</li>
+<li>The command lines are made only of one word. No arguments will be passed to programs.</li>
+<li>If an executable cannot be found, print an error message and display the prompt again.</li>
+<li>Handle errors.</li>
+<li>You have to handle the &quot;end of file&quot; condition (<code>Ctrl+D</code>). Exit with code <code>0</code></li>
+</ul>
+
+<p>You don&#39;t have to:</p>
+
+<ul>
+<li>use the <code>PATH</code></li>
+<li>implement built-ins</li>
+<li>handle special characters : <code>&quot;</code>, <code>&#39;</code>, <code>`</code>, <code>\</code>, <code>*</code>, <code>&amp;</code>, <code>#</code></li>
+<li>be able to move the cursor</li>
+<li>handle commands with arguments</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ ./shell 
+#cisfun$ ls
+./shell: No such file or directory
+#cisfun$ /bin/ls
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c  stat.c         wait
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
+#cisfun$ /bin/ls -l
+./shell: No such file or directory
+#cisfun$ ^[[D^[[D^[[D
+./shell: No such file or directory
+#cisfun$ ^[[C^[[C^[[C^[[C
+./shell: No such file or directory
+#cisfun$ exit
+./shell: No such file or directory
+#cisfun$ ^C
+julien@ubuntu:~/shell$ echo &quot;/bin/ls&quot; | ./shell
+#cisfun$ barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell.c stat.c         wait
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     stat test_scripting.sh  wait.c
+#cisfun$ julien@ubuntu:~/shell$
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1035" data-position="3">
+            <div class=" clearfix gap" id="task-1035">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1035">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1035" data-toggle="modal" data-target="#task-1035-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1035-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.1.1"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1035/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1035" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    3. Simple shell 0.1.1
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.1 +</p>
+
+<ul>
+<li>Write your own <code>getline</code> function</li>
+<li>Use a buffer to read many chars at once and call the least possible the <code>read</code> system call</li>
+<li>You will need to use <code>static</code> variables</li>
+<li>You are not allowed to use <code>getline</code></li>
+</ul>
+
+<p>You don&#39;t have to:</p>
+
+<ul>
+<li>be able to move the cursor</li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1036" data-position="4">
+            <div class=" clearfix gap" id="task-1036">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1036">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1036" data-toggle="modal" data-target="#task-1036-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1036-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.2"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1036/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1036" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    4. Simple shell 0.2
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.1 +</p>
+
+<ul>
+<li>Handle command lines with arguments</li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1037" data-position="5">
+            <div class=" clearfix gap" id="task-1037">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1037">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1037" data-toggle="modal" data-target="#task-1037-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1037-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.2.1"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1037/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1037" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    5. Simple shell 0.2.1
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.2 +</p>
+
+<ul>
+<li>You are not allowed to use <code>strtok</code></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1038" data-position="6">
+            <div class=" clearfix gap" id="task-1038">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1038">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1038" data-toggle="modal" data-target="#task-1038-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1038-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.3"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1038/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1038" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    6. Simple shell 0.3
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.2 +</p>
+
+<ul>
+<li>Handle the <code>PATH</code></li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ ./shell_0.3
+:) /bin/ls
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     shell.c    stat.c  wait
+:) ls
+barbie_j       env-main.c  exec.c  fork.c  pid.c  ppid.c    prompt   prompt.c  shell_0.3  stat    test_scripting.sh  wait.c
+env-environ.c  exec    fork    mypid   ppid   printenv  promptc  shell     shell.c    stat.c  wait
+:) ls -l /tmp 
+total 20
+-rw------- 1 julien julien    0 Dec  5 12:09 config-err-aAMZrR
+drwx------ 3 root   root   4096 Dec  5 12:09 systemd-private-062a0eca7f2a44349733e78cb4abdff4-colord.service-V7DUzr
+drwx------ 3 root   root   4096 Dec  5 12:09 systemd-private-062a0eca7f2a44349733e78cb4abdff4-rtkit-daemon.service-ANGvoV
+drwx------ 3 root   root   4096 Dec  5 12:07 systemd-private-062a0eca7f2a44349733e78cb4abdff4-systemd-timesyncd.service-CdXUtH
+-rw-rw-r-- 1 julien julien    0 Dec  5 12:09 unity_support_test.0
+:) ^C
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1039" data-position="7">
+            <div class=" clearfix gap" id="task-1039">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1039">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1039" data-toggle="modal" data-target="#task-1039-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1039-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.4"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1039/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1039" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    7. Simple shell 0.4
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.3 +</p>
+
+<ul>
+<li>Implement the <code>exit</code> buit-in, that exits the shell</li>
+<li>Usage: <code>exit</code></li>
+<li>You don&#39;t have to handle any argument to the built-in <code>exit</code></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1040" data-position="8">
+            <div class=" clearfix gap" id="task-1040">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1040">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1040" data-toggle="modal" data-target="#task-1040-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1040-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.4.1"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1040/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1040" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    8. Simple shell 0.4.1
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.4 +</p>
+
+<ul>
+<li>handle arguments for the built-in <code>exit</code></li>
+<li>Usage: <code>exit status</code>, where <code>status</code> is an integer used to exit the shell</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ ./shell_0.4.1
+$ exit 98
+julien@ubuntu:~/shell$ echo $?
+98
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1041" data-position="9">
+            <div class=" clearfix gap" id="task-1041">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1041">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1041" data-toggle="modal" data-target="#task-1041-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1041-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 0.4.2"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1041/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1041" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    9. Simple shell 0.4.2
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.4 +</p>
+
+<ul>
+<li>Handle <code>Ctrl+C</code>: your shell should not quit when the user inputs <code>^C</code></li>
+</ul>
+
+<p>man 2 <code>signal</code>.</p>
+
+<pre><code>julien@ubuntu:~/shell$ ./shell_0.4.2
+$ ^C
+$ ^C
+$ ^C
+$ ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  snap  spool  tmp
+$ ^C
+$ ^C
+$ ^C
+$ exit
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1042" data-position="10">
+            <div class=" clearfix gap" id="task-1042">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1042">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1042" data-toggle="modal" data-target="#task-1042-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1042-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Simple shell 1.0"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1042/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1042" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    10. Simple shell 1.0
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 4.0 +</p>
+
+<ul>
+<li>Implement the <code>env</code> <strong>built-in</strong>, that prints the current environment</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ ./simple_shell
+$ env
+USER=julien
+LANGUAGE=en_US
+SESSION=ubuntu
+COMPIZ_CONFIG_PROFILE=ubuntu
+SHLVL=1
+HOME=/home/julien
+C_IS=Fun_:)
+DESKTOP_SESSION=ubuntu
+LOGNAME=julien
+TERM=xterm-256color
+PATH=/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+DISPLAY=:0
+$ exit
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1043" data-position="11">
+            <div class=" clearfix gap" id="task-1043">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1043">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1043" data-toggle="modal" data-target="#task-1043-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1043-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "setenv, unsetenv"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1043/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1043" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    11. setenv, unsetenv
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<p>Implement the <code>setenv</code> and <code>unsetenv</code> builtin commands</p>
+
+<ul>
+<li><code>setenv</code>
+
+<ul>
+<li>Initialize a new environment variable, or modify an existing one</li>
+<li>Command syntax: <code>setenv VARIABLE VALUE</code></li>
+</ul></li>
+<li><code>unsetenv</code>
+
+<ul>
+<li>Remove a environment variable</li>
+<li>Command syntax: <code>unsetenv VARIABLE</code></li>
+</ul></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1044" data-position="12">
+            <div class=" clearfix gap" id="task-1044">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1044">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1044" data-toggle="modal" data-target="#task-1044-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1044-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "cd"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1044/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1044" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    12. cd
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<p>Implement the builtin command <code>cd</code>:</p>
+
+<ul>
+<li>Changes the current directory of the process.</li>
+<li>Command syntax: <code>cd [DIRECTORY]</code></li>
+<li>If no argument is given to <code>cd</code> the command must be interpreted like <code>cd $HOME</code></li>
+<li>You have to handle the command <code>cd -</code></li>
+<li>You have to update the environment variable <code>PWD</code> when you change directory</li>
+</ul>
+
+<p><code>man chdir</code>, <code>man getcwd</code></p>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1045" data-position="13">
+            <div class=" clearfix gap" id="task-1045">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1045">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1045" data-toggle="modal" data-target="#task-1045-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1045-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with ";"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1045/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1045" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    13. ;
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<p>Handle the commands separator <code>;</code></p>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1046" data-position="14">
+            <div class=" clearfix gap" id="task-1046">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1046">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1046" data-toggle="modal" data-target="#task-1046-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1046-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "&amp;&amp; and ||"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1046/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1046" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    14. &amp;&amp; and ||
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<p>Handle the <code>&amp;&amp;</code> and <code>||</code> shell logical operators.</p>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1047" data-position="15">
+            <div class=" clearfix gap" id="task-1047">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1047">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1047" data-toggle="modal" data-target="#task-1047-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1047-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "alias"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1047/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1047" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    15. alias
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<ul>
+<li>Handle aliases</li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1048" data-position="16">
+            <div class=" clearfix gap" id="task-1048">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1048">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1048" data-toggle="modal" data-target="#task-1048-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1048-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Variables"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1048/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1048" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    16. Variables
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<ul>
+<li>Handle variables replacement</li>
+<li>Handle the $? variable</li>
+<li>Handle the $$ variable</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ ./shell_2.0
+$ ls /var
+backups  cache  crash  lib  local  lock  log  mail  metrics  opt  run  snap  spool  tmp
+$ echo $?
+0
+$ echo $$
+5104
+$ echo $PATH
+/home/julien/bin:/home/julien/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+$ exit 
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1049" data-position="17">
+            <div class=" clearfix gap" id="task-1049">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1049">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1049" data-toggle="modal" data-target="#task-1049-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1049-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Comments"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1049/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1049" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    17. Comments
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<ul>
+<li>Handle comments (<code>#</code>)</li>
+</ul>
+
+<pre><code>julien@ubuntu:~/shell$ sh
+$ echo $$ # ls -la
+5114
+$ exit
+julien@ubuntu:~/shell$ 
+</code></pre>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1050" data-position="18">
+            <div class=" clearfix gap" id="task-1050">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1050">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1050" data-toggle="modal" data-target="#task-1050-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1050-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "help"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1050/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1050" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    18. help
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<ul>
+<li>Implement the <code>help</code> buit-in</li>
+<li>Usage: <code>help [BUILTIN]</code></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1051" data-position="19">
+            <div class=" clearfix gap" id="task-1051">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1051">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1051" data-toggle="modal" data-target="#task-1051-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1051-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "history"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1051/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1051" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    19. history
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 1.0 +</p>
+
+<ul>
+<li>Implement the history built-in, without any argument</li>
+<li>The <code>history</code> built-in displays the history list, one command by line, preceded with line numbers (starting at <code>0</code>)</li>
+<li>On <code>exit</code>, write the entire history, without line numbers, to a file named <code>.simple_shell_history</code> in the directory <code>$HOME</code></li>
+<li>When the shell starts, read the file <code>.simple_shell_history</code> in the directory <code>$HOME</code> if it exists, and set the first line number to the total number of lines in the file modulo <code>4096</code></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1052" data-position="20">
+            <div class=" clearfix gap" id="task-1052">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1052">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1052" data-toggle="modal" data-target="#task-1052-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1052-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "File as input"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1052/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1052" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    20. File as input
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Simple shell 0.1 +</p>
+
+<ul>
+<li>Usage: <code>simple_shell [filename]</code></li>
+<li>Your shell can take a file as an argument</li>
+<li>The file contains all the commands that the shell should run before exiting</li>
+<li>The file should contain one command per line</li>
+<li>In this mode, the shell should not print a prompt and should not read from <code>stdin</code></li>
+</ul>
+
+
+    <p class="sm-gap"><strong>Repo:</strong></p>
+    <ul>
+      <li>GitHub repository: <code>simple_shell</code></li>
+    </ul>
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1053" data-position="21">
+            <div class=" clearfix gap" id="task-1053">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1053">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1053" data-toggle="modal" data-target="#task-1053-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1053-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "What happens when you type ls -l in the shell"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1053/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1053" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    21. What happens when you type ls -l in the shell
+    <span class="alert alert-warning mandatory-optional">
+      mandatory
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Write a blog post describing step by step what happens when you type <code>ls -l</code> and hit Enter in a shell.
+Try to explain every step you know of, going in as much details as you can, give examples and draw diagrams when needed.
+You should merge your previous knowledge of the shell with the specifics of how it works under the hoods (including syscalls).</p>
+
+<ul>
+<li>Have at least one picture, at the top of the blog post</li>
+<li>Publish your blog post on Medium or LinkedIn</li>
+<li>Share your blog post at least on Twitter and LinkedIn</li>
+</ul>
+
+<p>When done, please <a href="https://goo.gl/forms/Gj0PMklHaJlgHZG73">fill this form</a></p>
+
+
+
+
+
+  
+      
+</div>
+
+        </div>
+        <div data-role="task1054" data-position="22">
+            <div class=" clearfix gap" id="task-1054">
+<span id="user_id" data-id="62"></span>
+
+    <div class="student_task_controls">
+      
+      <!-- button Done -->
+        <button class="student_task_done btn btn-default no" data-task-id="1054">
+          <span class="no"><i class="fa fa-square-o"></i></span>
+          <span class="yes"><i class="fa fa-check-square-o"></i></span>
+          <span class="pending"><i class="fa fa-spinner fa-pulse"></i></span>
+          Done<span class="no pending">?</span><span class="yes">!</span>
+        </button>
+        <br>
+      
+      <!-- button Who is done? -->
+      <button class="users_done_for_task btn btn-default btn-sm" data-task-id="1054" data-toggle="modal" data-target="#task-1054-users-done-modal">
+        Who is done?
+      </button>
+      <div class="modal fade users-done-modal" id="task-1054-users-done-modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title">Batchmates who are done with "Test suite"</h4>
+            </div>
+            <div class="modal-body">
+              <div class="list-group">
+              </div>
+                  <a class="btn btn-default btn-sm student_task_help" data-confirm="Are you sure you wish to notify people?" href="/tasks/1054/mark_as_help">Help!</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- button Help! / Canel help -->
+          <button class="student_task_help btn btn-default btn-sm" data-task-id="1054" >
+            Help!
+          </button>
+    </div>
+
+  <h4 class="task">
+    22. Test suite
+    <span class="alert alert-info mandatory-optional">
+      #advanced
+    </span>
+  </h4>
+
+
+  <!-- Progress vs Score -->
+
+  
+
+  <p>Build a test suite for your shell.</p>
+
+<ul>
+<li>The test suite should cover every tasks from <code>0.</code> to <code>20.</code></li>
+<li>The test suite should cover every regular cases (many different examples) and edge cases possible</li>
+<li>The entire class will work on the same test suite. Use only one repository (don&#39;t forget the <code>README.md</code> file)</li>
+<li>Start adding tests asap and not just before the deadline in order to help everyone from day 0</li>
+<li>You can take (or fork) inspiration from <a href="https://github.com/holbertonschool/0x15.c/">this example</a>, but it is not mandatory to follow this format/way</li>
+<li>Adopt a style and be consisten. You can for instance follow this <a href="https://google.github.io/styleguide/shell.xml">style guide</a>. If you chose a style that already exist, add it to the README in a style section. If you write your own, create a wiki page attached to the project and refer to it in the README style section.
+
+<ul>
+<li>If you choose to use <a href="https://github.com/holbertonschool/0x15.c/">this code</a>, make sure to update the style accordingly</li>
+</ul></li>
+<li>You should have an <code>AUTHORS</code> file, listing all individuals having contributed content to the repository. Format, see <a href="https://github.com/docker/docker/blob/master/AUTHORS">Docker</a></li>
+</ul>
+
+<p>This is a task shared by everyone in the class. Everyone will get the same score for this task. <strong>Go team!</strong></p>
+
+
+
+
+
+  
+      
+</div>
+
+        </div>
+  </section>
+
+
+
+
+
+
+      </article>
+
+    </main>
+
+
+
+
+
+    
+
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-67152800-6', 'auto');
+        ga('send', 'pageview');
+      </script>
+
+  </body>
+</html>
+
