@@ -11,8 +11,9 @@
 	* ``git reset --hard origin/master`` Resets your local repository changes to reflect the public repository and deletes any changes from your local repository.
 	* ``git checkout -- <file>`` Resets local changes on <file> to reflect what is in the public repo.
 	* ``git checkout <hash> <file>`` Rolls back changes on <file> to the commit with hash value <hash>
-	* ``git fetch origin`` Gets changes from public repository, without changing the current working tree
-	* ``git merge`` Merges two branches together
+	* ``git fetch`` Gets changes from public repository, without merging them into the current working tree
+	* ``git merge`` Merges two branches together.
+	* ``git pull`` Automatically merges commits from the remote repository without letting you review them first
 
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
