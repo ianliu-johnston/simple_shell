@@ -2,7 +2,7 @@
 
 ## Repository Management with Git
 * [README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
-* [Github Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+* [Github Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 * [Merge conflicts, Updating repos with multiple changes to the same file](https://githowto.com/resolving_conflicts)
 * Git repository management commands: 
 	* ``git diff <file>`` -- displays the differences between your local repository and what is in the public repo
