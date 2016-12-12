@@ -5,7 +5,6 @@
 * [Github Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 * [Resolving Merge Conflicts](https://githowto.com/resolving_conflicts)
 * [Differences between git fetch and git pull](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
-* [
 * git repository management commands: 
 	* ``git diff <file>`` Displays the differences between your local repository and what is in the public repo
 	* ``git reset`` Resets your local repository to the current working state. 
@@ -20,6 +19,7 @@
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
 * [The Story of Linux](https://www.youtube.com/watch?v=XMm0HsmOTFI)
 * [Linux Kernel source code](http://lxr.free-electrons.com/source/kernel/sys.c#L832)
+
 ## C Programming 
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
