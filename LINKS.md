@@ -19,7 +19,7 @@
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
 * [The Story of Linux](https://www.youtube.com/watch?v=XMm0HsmOTFI)
-
+* [Linux Kernel source code](http://lxr.free-electrons.com/source/kernel/sys.c#L832)
 ## C Programming 
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
