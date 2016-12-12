@@ -5,6 +5,10 @@
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
 * [The Story of Linux](https://www.youtube.com/watch?v=XMm0HsmOTFI)
+<<<<<<< HEAD
 ## C Programming 
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
+=======
+* [Purdue CS Overview of Shell Structure](https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf)
+>>>>>>> f1f8942e9200ee506f69cc62474ec534b8fb3832
