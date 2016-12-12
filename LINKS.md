@@ -1,7 +1,8 @@
 # Links for Learning
 
-## Git Stuff
+## Repository Management with Git
 * [README template](https://gist.github.com/PurpleBooth/109311bb0361f32d87a2)
+* [Merge conflicts, Updating repos with multiple changes to the same file](https://githowto.com/resolving_conflicts)
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
 * [The Story of Linux](https://www.youtube.com/watch?v=XMm0HsmOTFI)
