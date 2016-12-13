@@ -2,6 +2,20 @@
 #include "utilities.h"
 #include <stdlib.h>
 #include <sys/wait.h>
+#include <unistd.h>
+/**
+ * cmdprompt - prompts the user for a command
+ *
+ * Return: none
+ */
+void cmdprompt()
+{
+	char *str;
+
+	str = "And baby says: ";
+	write(0, str, _strlen(str));
+}
+
 /**
   * executor - executes a command from an array of tokens
   * @argv: array of tokens, ie. argument vectors
@@ -11,7 +25,6 @@ int executor(char *argv[])
 {
 	pid_t child_status = 0;
 	static char * const env[] = {
-		"PS2=$$$$>",
 		"PATH=/bin:/usr/bin:/sbin",
 		NULL
 	};
@@ -72,13 +85,12 @@ void reader(void)
 	int bytes_read;
 	size_t len;
 	char *str;
-	char *prompt = "~~> ";
 	char *ex = "exit";
 
 	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
-		write(STDOUT_FILENO, prompt, _strlen(prompt));
+		cmdprompt();
 		bytes_read = _getline(&str, &len, stdin);
 		if (_strncmp(ex, str, 4)) /*or string == ^D*/
 			executor(parser(str));
