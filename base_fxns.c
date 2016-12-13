@@ -71,15 +71,16 @@ void reader(void)
 {
 	int bytes_read;
 	size_t len;
-	char *str, *PS2 = _getenv("PS2");
+	char *str;
+	char *prompt = "~~> ";
 	char *ex = "exit";
 
 	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
-		write(STDOUT_FILENO, PS2, _strlen(PS2));
+		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		bytes_read = _getline(&str, &len, stdin);
-		if (_strncmp(ex, str, 4))
+		if (_strncmp(ex, str, 4)) /*or string == ^D*/
 			executor(parser(str));
 		else
 			exit(0);
