@@ -57,6 +57,11 @@ $~> ^C
 vagrant:simple_shell$ 
 ```
 
+## BUGS
+1. If a space is before any tokens, function fails
+2. Any tokens beyond the first is NULL.
+3. There are sooo many more bugs...
+
 ## Test Suite
 Describe
 
