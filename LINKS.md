@@ -24,3 +24,5 @@
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
 * [Purdue CS Overview of Shell Structure](https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf)
+### strtok() function
+* [Tutorials point simple example](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
