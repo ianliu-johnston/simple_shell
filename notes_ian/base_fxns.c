@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
-
+#include <sys/wait.h>
 /**
   * executor - executes a command from an array of tokens
   * @argv: array of tokens, ie. argument vectors
@@ -13,20 +13,8 @@
   */
 int executor(char *argv[])
 {
-	int i;
 	pid_t child_status = 0;
 	char *env[] = { "PATH=/bin", NULL };
-
-	printf("Command: %s\n", argv[0]);
-	i = 1;
-	if (argv[i])
-		printf("Flags: ");
-	while (argv[i])
-	{
-		printf("argv[%d]: %s, ", i, argv[i]);
-		i++;
-	}
-	printf("\n");
 
 	switch(child_status = fork()) {
 	case -1:
@@ -34,11 +22,11 @@ int executor(char *argv[])
 		exit(99);
 	case 0:
 		if (execve(argv[0], argv, env) == -1)
-			printf("ERROR\n");
-		exit(99);
+			printf("ERROR\n"), exit(99);
 		break;
 	default:
-		sleep(1);
+		if (wait(NULL) == -1)
+			printf("Parent Jumped the Gun\n"), exit(100);
 		break;
 	}
 	free(argv);
@@ -51,7 +39,10 @@ int executor(char *argv[])
   * Return: Double pointer to array of tokens
   */
 char **parser(char *str)
-{ char **tokenized, *token; char *delimit = " \n\t"; unsigned int i, wc, flag;
+{
+	char **tokenized, *token;
+	char *delimit = " \n\t";
+   	unsigned int i, wc, flag;
 
 	for (i = 0, wc = 1; str[i]; i++)
 	{
@@ -81,13 +72,17 @@ void reader(void)
 {
 	int bytes_read;
 	size_t len;
-	char *str,*PS2 = getenv("PS2");
+	char *str, *PS2 = getenv("PS2");
+	char *ex = "exit";
 
 	bytes_read =  len = 0;
 	while (bytes_read != -1)
 	{
 		write(STDOUT_FILENO, PS2, _strlen(PS2));
 		bytes_read = getline(&str, &len, stdin);
-		executor(parser(str));
+		if (strncmp(ex, str, 4))
+			executor(parser(str));
+		else
+			exit(0);
 	}
 }
