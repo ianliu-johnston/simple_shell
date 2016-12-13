@@ -11,6 +11,7 @@ int executor(char *argv[])
 {
 	pid_t child_status = 0;
 	static char * const env[] = {
+		"PS2=$$$$>",
 		"PATH=/bin:/usr/bin:/sbin",
 		NULL
 	};
@@ -73,7 +74,7 @@ void reader(void)
 	char *str, *PS2 = _getenv("PS2");
 	char *ex = "exit";
 
-	bytes_read =  len = 0;
+	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
 		write(STDOUT_FILENO, PS2, _strlen(PS2));
