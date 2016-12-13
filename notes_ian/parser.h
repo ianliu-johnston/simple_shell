@@ -6,8 +6,8 @@
 #include <stdio.h>
 */
 
-int executor(int *ac, char *argv[]);
-char **parser(int *ac, char *str);
+int executor(char *argv[]);
+char **parser(char *str);
 void reader(void);
 /*
 size_t _getline(char **line, size_t *n, FILE *stream);

@@ -1,10 +1,8 @@
 #include "parser.h"
 
-int main(int ac, char *av[])
+int main(void)
 {
 	reader();
-	ac++;
-	av++;
 	/*
 	int bytes_read;
 	size_t len;

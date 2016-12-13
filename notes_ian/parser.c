@@ -5,17 +5,27 @@
 #include <unistd.h>
 #include <string.h>
 
-int executor(int *ac, char *argv[])
+/**
+  * executor - executes a command from an array of tokens
+  * @argv: array of tokens, ie. argument vectors
+  * @envp: environment variables
+  * Return: 0 on success, -1 on failure
+  */
+int executor(char *argv[])
 {
-	/*
-	*argv[] = {"/bin/ls", "-l", "/usr/", NULL};
-	*/
 	int i;
 	pid_t child_status = 0;
+	char *env[] = { "PATH=/bin", NULL };
 
-	printf("Command: %s\nFlags: ", argv[0]);
-	for (i = 0; i < *ac; i++)
+	printf("Command: %s\n", argv[0]);
+	i = 1;
+	if (argv[i])
+		printf("Flags: ");
+	while (argv[i])
+	{
 		printf("argv[%d]: %s, ", i, argv[i]);
+		i++;
+	}
 	printf("\n");
 
 	switch(child_status = fork()) {
@@ -23,7 +33,7 @@ int executor(int *ac, char *argv[])
 		printf("Error.");
 		exit(99);
 	case 0:
-		if (execve(argv[0], argv, NULL) == -1)
+		if (execve(argv[0], argv, env) == -1)
 			printf("ERROR\n");
 		exit(99);
 		break;
@@ -31,77 +41,53 @@ int executor(int *ac, char *argv[])
 		sleep(1);
 		break;
 	}
-	printf("AFTER\n");
+	free(argv);
 	return (0);
 }
 
-char **parser(int *count, char *str)
-{
-	unsigned int i, j, wc, flag;
-	char **tokenized;
+/**
+  * parser - parses a string into tokens
+  * @str: string to parse
+  * Return: Double pointer to array of tokens
+  */
+char **parser(char *str)
+{ char **tokenized, *token; char *delimit = " \n\t"; unsigned int i, wc, flag;
 
 	for (i = 0, wc = 1; str[i]; i++)
 	{
 		if (str[i] == ' ' && flag == 0)
-		{
-			flag = 1;
-			wc++;
-		}
+			flag = 1, wc++;
 		if (str[i] != ' ')
 			flag = 0;
 	}
-	*count = wc;
-	if ((tokenized = malloc((wc * sizeof(char *)) + 1)) == NULL)
+	if ((tokenized = malloc((wc + 1) * sizeof(char *))) == NULL)
 		printf("Malloc Error\n"), exit(99);
-
-	for (i = 0, flag = 0; str[i]; i++)
+	token = strtok(str, delimit);
+	tokenized[0] = token;
+	i = 1;
+	while (token != NULL)
 	{
-		if (str[i] == ' ' && flag == 0)
-			flag = 1;
-		if (str[i] != ' ' && str[i + 1] != ' ')
-		{
-			for (j = 0; str[i + j] && str[i + j] != ' '; j++)
-				printf("str[%d] = %c\n", i + j, str[i + j]);
-			if ((tokenized[i] = malloc(j * sizeof(char) + 1)) == NULL)
-			{
-				free(tokenized);
-				printf("Malloc Error\n"), exit(99);
-			}
-			for (j = 0; str[i + j] && str[i + j] != ' '; j++)
-			{
-				printf("%c\n", str[i+j]);
-				tokenized[i][j] = str[i + j];
-			}
-			tokenized[i][j] = '\0';
-			printf("tokenized[%d] = %s\n", i, tokenized[i]);
-			i += j;
-			flag = 0;
-		}
+		token = strtok(NULL, delimit);
+		tokenized[i] = token;
+		i++;
 	}
-	tokenized[wc + 1] = NULL;
 	return (tokenized);
 }
-
+/**
+  * reader - reads user input and forms it into a string.
+  * @envp: environment variables inherited from calling shell
+  */
 void reader(void)
 {
-	int bytes_read, c;
-	int *ac;
+	int bytes_read;
 	size_t len;
-	char *str;
-	char **token;
-	char *PS2 = getenv("PS2");
+	char *str,*PS2 = getenv("PS2");
 
-	bytes_read =  len = c = 0;
-	ac = &c;
-	token = malloc(3 * sizeof(void *));
+	bytes_read =  len = 0;
 	while (bytes_read != -1)
 	{
 		write(STDOUT_FILENO, PS2, _strlen(PS2));
 		bytes_read = getline(&str, &len, stdin);
-		printf("%s\n", str);
-
-		token = parser(ac, str);
-
-		executor(ac, token);
+		executor(parser(str));
 	}
 }
