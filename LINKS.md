@@ -20,6 +20,7 @@
 * [The Story of Linux](https://www.youtube.com/watch?v=XMm0HsmOTFI)
 * [Linux Kernel source code](http://lxr.free-electrons.com/source/kernel/sys.c#L832)
 * [GNU Shell Walkthrough](https://www.gnu.org/software/libc/manual/html_node/Initializing-the-Shell.html#Initializing-the-Shell)
+* [In-depth "What happens when you type ls"](http://sysadvent.blogspot.com/2010/12/day-15-down-ls-rabbit-hole.html)
 ## C Programming 
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
