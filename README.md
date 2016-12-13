@@ -38,25 +38,31 @@ _exit (man 2 _exit)
 ```
 
 ### Installing
-How to install
+Currently, the program segfaults unless you set the ``PS2`` variable.
 ```
-step by step
+export PS2="~> "
+```
+Compile like this:
+```
+gcc -Wall -Wextra -Werror -pedantic parser.c utilities.c main.c
 ```
 
 ## Usage
-How do I use this?
+Currently, when run it looks like this:
 ```
-Here's how.
+vagrant:simple_shell $ ./a.out
+$~> /bin/ls -l
+exec.c main.c parser.c parser_functions.c
+$~> ^C
+vagrant:simple_shell$ 
 ```
 
 ## Test Suite
 Describe
-
-## Built With
-Anything special?
 
 ## Process
 The process of building the shell is detailed in [process.md](process.md). For a list of resources and commands used, refer to [links.md](links.md)
 
 ## Authors
 * **Ian Liu-Johnston** [Personal Website:](http://ianxaunliu-johnston.com) || [Twitter](https://twitter.com/Concativerse)
+* **David Knoppers** [LinkedIn](https://www.linkedin.com/in/dknoppers) || [Twitter](https://twitter.com/dxknoppers)
