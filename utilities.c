@@ -1,3 +1,5 @@
+/* remove this library call later */
+#include <string.h>
 int _strlen(char *s)
 {
 	int i;
@@ -6,10 +8,17 @@ int _strlen(char *s)
 		;
 	return (i);
 }
-/* FUNCTIONS TO IMPLEMENT*/
-/**
-  * ssize_t getline(char **lineptr, size_t *n, FILE *stream)
-  * int strncmp(char *s1, char *s2, unsigned int byes)
-  * printf()
-  * char *strtok(char *str, const char *delim)
-  **/
+int _strncmp(char *s1, char *s2, size_t bytes)
+{
+	unsigned int i;
+
+	for (i = 0; s1[i] && s2[i] && s2[i] == s1[i] && i < bytes - 1; i++)
+		;
+	return (s2[i] - s1[i]);
+}
+/** All Functions below are unimplemented **/
+/*** They are all here as place holders ***/
+char *_strtok(char *str, const char *delim)
+{
+	return (strtok(str, delim));
+}
