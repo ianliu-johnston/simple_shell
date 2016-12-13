@@ -48,7 +48,7 @@ gcc -Wall -Wextra -Werror -pedantic parser.c utilities.c main.c
 ```
 
 ## Usage
-Currently, when run it looks like this:
+Currently, when run, it looks like this:
 ```
 vagrant:simple_shell $ ./a.out
 $~> /bin/ls -l
