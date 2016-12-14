@@ -90,6 +90,7 @@ void reader(void)
 	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
+		signal(SIGINT, SIG_IGN);
 		cmdprompt();
 		bytes_read = _getline(stdin, buffer, 1024);
 		if (_strncmp(ex, buffer, 4)) /*or string == ^D*/

@@ -3,6 +3,7 @@
 
 #include <unistd.h>
 #include <stdio.h>
+#include <signal.h>
 
 int executor(char *argv[]);
 char **parser(char *str);
