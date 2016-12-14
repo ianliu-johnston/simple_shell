@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include <string.h>
 
 /**
  * _realloc - reallocates memory based on inputs
@@ -71,6 +70,11 @@ char * _getline(int file)
 	while (i >= 1024)
 	{
 		_realloc(buffer, buffer_size, buffer_size + 1024);
+		if (buffer == NULL)
+		{
+			printf("realloc failed\n");
+			return (NULL);
+		}
 		i = read(STDIN_FILENO, buffer + (buffer_size - 1024), 1024);
 		total += i;
 	}
