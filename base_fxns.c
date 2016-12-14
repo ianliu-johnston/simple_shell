@@ -86,14 +86,17 @@ void reader(void)
 	size_t len;
 	char buffer[1024];
 	char *ex = "exit";
+	char end = EOF;
 
 	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
+		/*
 		signal(SIGINT, SIG_IGN);
+		*/
 		cmdprompt();
 		bytes_read = _getline(stdin, buffer, 1024);
-		if (_strncmp(ex, buffer, 4)) /*or string == ^D*/
+		if (_strncmp(ex, buffer, 5))
 			executor(parser(buffer));
 		else
 			exit(0);
