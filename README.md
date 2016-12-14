@@ -56,6 +56,32 @@ exec.c main.c parser.c parser_functions.c
 $~> ^C
 vagrant:simple_shell$ 
 ```
+## TODO
+### Mandatory
+- [ ] Deal with EOF -- Is is correct?
+- [ ] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
+- [ ] Deal with path
+- [ ] Build env function
+### Advanced
+- [ ] ``exit`` handles arguments to exit -- What is ``exit status 4``?
+#### Parser
+- [ ] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
+- [ ] Handle ``;``
+- [ ] Handle ``&&``, and ``||``
+- [ ] Handle ``#`` Comments
+#### Recreate standard library functions
+- [x] getline
+- [ ] strtok
+- [ ] getenv
+- [ ] setenv
+- [ ] unsetenv
+#### Shell Builtins
+- [ ] cd
+- [ ] alias
+- [ ] help
+- [ ] history
+- [ ] Deal with variables
+- [ ] Scripts as input
 
 ## BUGS
 1. If a space is before any tokens, function fails
@@ -65,8 +91,8 @@ vagrant:simple_shell$
 ## Test Suite
 Describe
 
-## Process
-The process of building the shell is detailed in [process.md](process.md). For a list of resources and commands used, refer to [links.md](links.md)
+## Links
+For a list of resources and commands used, refer to [links.md](links.md)
 
 ## Authors
 * **Ian Liu-Johnston** [Personal Website:](http://ianxaunliu-johnston.com) || [Twitter](https://twitter.com/Concativerse)
