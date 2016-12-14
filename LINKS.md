@@ -5,6 +5,8 @@
 * [Github Markdown Cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
 * [Resolving Merge Conflicts](https://githowto.com/resolving_conflicts)
 * [Differences between git fetch and git pull](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
+* [Manage and create new branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
+* [Basics of branching and merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * git repository management commands: 
 	* ``git diff <file>`` Displays the differences between your local repository and what is in the public repo
 	* ``git reset`` Resets your local repository to the current working state. 
@@ -30,3 +32,6 @@
 
 ### strtok() function
 * [Tutorials point simple example](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
+
+### Data types
+* [Difference between size_t and unsigned int](http://stackoverflow.com/questions/19732319/difference-between-size-t-and-unsigned-int) -- size_t is an unsigned struct definition that can accomodate any data types. ssize_t is the signed version of size_t.
