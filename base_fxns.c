@@ -4,19 +4,6 @@
 #include <sys/wait.h>
 #include <unistd.h>
 /**
- * cmdprompt - prompts the user for a command
- *
- * Return: none
- */
-void cmdprompt()
-{
-	char *str;
-
-	str = "And baby says: ";
-	write(STDOUT_FILENO, str, _strlen(str));
-}
-
-/**
   * executor - executes a command from an array of tokens
   * @argv: array of tokens, ie. argument vectors
   * Return: 0 on success, -1 on failure
@@ -82,18 +69,19 @@ char **parser(char *str)
   */
 void reader(void)
 {
-	char *buffer;
+	char *prompt, *buffer;
 	char *ex = "exit";
 	char end = EOF;
 	int file;
 
 	file = STDIN_FILENO;
+	prompt = "And baby says: ";
 /**
 	signal(SIGINT, SIG_IGN);
 */
 	while (1)
 	{
-		cmdprompt();
+		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(file);
 		if (_strncmp(ex, buffer, 5))
 			executor(parser(buffer));
