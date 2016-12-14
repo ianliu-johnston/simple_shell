@@ -82,20 +82,19 @@ char **parser(char *str)
   */
 void reader(void)
 {
-	size_t bytes_read;
-	size_t len;
-	char buffer[1024];
+	char *buffer;
 	char *ex = "exit";
 	char end = EOF;
+	int file;
 
-	bytes_read = len = 0;
-	while (bytes_read != -1)
+	file = STDIN_FILENO;
+/**
+	signal(SIGINT, SIG_IGN);
+*/
+	while (1)
 	{
-		/*
-		signal(SIGINT, SIG_IGN);
-		*/
 		cmdprompt();
-		bytes_read = _getline(stdin, buffer, 1024);
+		buffer = _getline(file);
 		if (_strncmp(ex, buffer, 5))
 			executor(parser(buffer));
 		else
