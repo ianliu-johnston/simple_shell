@@ -82,18 +82,18 @@ char **parser(char *str)
   */
 void reader(void)
 {
-	int bytes_read;
+	size_t bytes_read;
 	size_t len;
-	char *str;
+	char buffer[1024];
 	char *ex = "exit";
 
 	bytes_read = len = 0;
 	while (bytes_read != -1)
 	{
 		cmdprompt();
-		bytes_read = _getline(&str, &len, stdin);
-		if (_strncmp(ex, str, 4)) /*or string == ^D*/
-			executor(parser(str));
+		bytes_read = _getline(stdin, buffer, 1024);
+		if (_strncmp(ex, buffer, 4)) /*or string == ^D*/
+			executor(parser(buffer));
 		else
 			exit(0);
 	}

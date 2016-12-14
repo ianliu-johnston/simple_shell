@@ -1,9 +1,34 @@
 #include "base_fxns.h"
 #include <stdlib.h>
-size_t _getline(char **line, size_t *n, FILE *stream)
+#include <stdio.h>
+#include <unistd.h>
+
+char _getc(FILE *stream, char *buf)
 {
-	return (getline(line, n, stream));
+        ssize_t i;
+
+        i = read(STDIN_FILENO, buf, 1);
+        if (buf[0] == '\n')
+        {
+                buf[0] = '\0';
+                return ('\n');
+        }
+        if (i != 1)
+                printf("read error\n");
+        return (buf[0]);
 }
+size_t _getline(FILE *stream, char *buf, size_t size)
+{
+        size_t count = 0;
+
+        while (_getc(stream, buf) != '\n' && count < size -1)
+        {
+                count++;
+                buf++;
+        }
+        return count;
+}
+
 char *_getenv(const char *name)
 {
 	return (getenv(name));
