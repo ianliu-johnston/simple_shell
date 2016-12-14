@@ -4,6 +4,12 @@
 #include <unistd.h>
 #include <string.h>
 
+void _memset(char *str, int fill, int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+		str[i] = fill;
+}
 char * _getline(int file)
 {
         int i;
@@ -12,14 +18,19 @@ char * _getline(int file)
 	unsigned int buffer_size = 1024;
 
 	buffer = malloc(sizeof(char) * 1024);
-	memset(buffer, '\0', 1024);
+	if (buffer == NULL)
+	{
+		printf("malloc for buffer failed\n");
+		return (NULL);
+	}
+	_memset(buffer, '\0', 1024);
 	i = read(STDIN_FILENO, buffer, 1024);
 	total += i;
 	while (i >= 1024)
 	{
 		buffer_size += 1024;
 		temp = malloc((buffer_size) * sizeof(char));
-		memset(temp, '\0', buffer_size);
+		_memset(temp, '\0', buffer_size);
 		memcpy(temp, buffer, (buffer_size - 1024));
 		free(buffer);
 		buffer = temp;
