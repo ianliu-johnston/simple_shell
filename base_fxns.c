@@ -13,7 +13,7 @@ void cmdprompt()
 	char *str;
 
 	str = "And baby says: ";
-	write(0, str, _strlen(str));
+	write(STDOUT_FILENO, str, _strlen(str));
 }
 
 /**
