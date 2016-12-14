@@ -1,8 +1,5 @@
 # Holberton School - Holberton Shell(hsh)
-Simple shell
-
-## Getting Started
-Brief intro on how to get the project up and running
+Code a simple shell for [Holberton School](https://www.holbertonschool.com/). This assignment incorporates all topics covered so far, and marks the conclusion of the section of the course that is strictly about learning C programming.
 
 ### Prerequisites
 Only use the following functions and system calls:
@@ -38,43 +35,44 @@ _exit (man 2 _exit)
 ```
 
 ### Installing
-Currently, the program segfaults unless you set the ``PS2`` variable.
-```
-export PS2="~> "
-```
 Compile like this:
 ```
-gcc -Wall -Wextra -Werror -pedantic parser.c utilities.c main.c
+gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
 ```
 
 ## Usage
 Currently, when run, it looks like this:
 ```
-vagrant:simple_shell $ ./a.out
-$~> /bin/ls -l
+vagrant:simple_shell $ ./hsh
+and baby says: /bin/ls -l
 exec.c main.c parser.c parser_functions.c
-$~> ^C
+and baby says: ^C
 vagrant:simple_shell$ 
 ```
+
 ## TODO
 ### Mandatory
 - [ ] Deal with EOF -- Is is correct?
 - [ ] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
 - [ ] Deal with path
 - [ ] Build env function
+
 ### Advanced
 - [ ] ``exit`` handles arguments to exit -- What is ``exit status 4``?
+
 #### Parser
 - [ ] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
 - [ ] Handle ``;``
 - [ ] Handle ``&&``, and ``||``
 - [ ] Handle ``#`` Comments
+
 #### Recreate standard library functions
 - [x] getline
 - [ ] strtok
 - [ ] getenv
 - [ ] setenv
 - [ ] unsetenv
+
 #### Shell Builtins
 - [ ] cd
 - [ ] alias
@@ -82,14 +80,6 @@ vagrant:simple_shell$
 - [ ] history
 - [ ] Deal with variables
 - [ ] Scripts as input
-
-## BUGS
-1. If a space is before any tokens, function fails
-2. Any tokens beyond the first is NULL.
-3. There are sooo many more bugs...
-
-## Test Suite
-Describe
 
 ## Links
 For a list of resources and commands used, refer to [links.md](links.md)
