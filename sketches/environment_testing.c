@@ -16,25 +16,6 @@ typedef struct environ_path
 	struct environ_path *next;
 } env_path_t;
 /**
-  * _strdup - duplicates a string
-  * @src: source to copy from
-  * Return: pointer to malloc'd space
-  **/
-void *_strdup(char *src)
-{
-	int len, i;
-	char *dest;
-
-	len = strlen(src);
-	dest = malloc((len + 1) * sizeof(char));
-	if (dest == NULL)
-		return (NULL);
-	for (i = 0; src[i]; i++)
-		dest[i] = src[i];
-	dest[i] = '\0';
-	return (dest);
-}
-/**
   * add_node - adds a new node to the end of a linked list
   * @head: head of the linked list
   * @str: string
@@ -48,7 +29,7 @@ env_path_t *add_node(env_path_t **head, char *str, unsigned int len)
 
 	if (str == NULL)
 		return (NULL);
-	dupstr = _strdup(str);
+	dupstr = strdup(str);
 	if (dupstr == NULL)
 		return (NULL);
 	new = malloc(sizeof(env_path_t));
@@ -131,7 +112,7 @@ char *search_os(char *cmd)
 
 	while (ep)
 	{
-		abs_path = _strdup(ep->str);
+		abs_path = strdup(ep->str);
 		abs_path = strcat(abs_path, cmd);
 		/*
 		printf("abs_path: %s\n", abs_path);
