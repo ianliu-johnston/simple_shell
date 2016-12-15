@@ -35,3 +35,6 @@
 
 ### Data types
 * [Difference between size_t and unsigned int](http://stackoverflow.com/questions/19732319/difference-between-size-t-and-unsigned-int) -- size_t is an unsigned struct definition that can accomodate any data types. ssize_t is the signed version of size_t.
+
+### File Access
+* [Testing File Access - GNU](https://www.gnu.org/software/libc/manual/html_node/Testing-File-Access.html)
