@@ -25,6 +25,8 @@
 * [In-depth "What happens when you type ls"](http://sysadvent.blogspot.com/2010/12/day-15-down-ls-rabbit-hole.html)
 
 ## C Programming
+* [Primary Resource, The Linux Programming Interface](https://www.nostarch.com/tlpi) Kerrisk, Michael. <em>The Linux Programming Interface: A Linux and UNIX System Programming Handbook.<em> San Francisco: No Starch, 2010. Print. 
+
 ### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
 * [Purdue CS Overview of Shell Structure](https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf)
