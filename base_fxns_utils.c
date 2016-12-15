@@ -1,4 +1,5 @@
 #include "base_fxns.h"
+#include "utilities.h"
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
@@ -9,6 +10,7 @@ char * _getline(int file)
 	static unsigned int total = 0;
 	unsigned int buffer_size = 1024;
 
+	file++;
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{

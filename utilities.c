@@ -1,3 +1,4 @@
+#include <stdlib.h>
 /* remove this library call later */
 #include <string.h>
 int _strlen(char *s)
@@ -18,7 +19,6 @@ int _strncmp(char *s1, char *s2, size_t bytes)
 }
 /**
  * _realloc - reallocates memory based on inputs
- *
  * @old_size: old memory size
  * @new_size: new memory size
  * @ptr: pointer to original memory address
@@ -63,6 +63,25 @@ void _memset(char *str, int fill, int n)
 	int i;
 	for (i = 0; i < n; i++)
 		str[i] = fill;
+}
+/**
+  * _strdup - duplicates a string
+  * @src: source to copy from
+  * Return: pointer to malloc'd space
+  **/
+void *_strdup(char *src)
+{
+	int len, i;
+	char *dest;
+
+	len = strlen(src);
+	dest = malloc((len + 1) * sizeof(char));
+	if (dest == NULL)
+		return (NULL);
+	for (i = 0; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
+	return (dest);
 }
 /** All Functions below are unimplemented **/
 /*** They are all here as place holders ***/

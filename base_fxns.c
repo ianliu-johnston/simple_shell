@@ -71,7 +71,9 @@ void reader(void)
 {
 	char *prompt, *buffer;
 	char *ex = "exit";
+	/*
 	char end = EOF;
+	*/
 	int file;
 
 	file = STDIN_FILENO;
