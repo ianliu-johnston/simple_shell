@@ -95,6 +95,7 @@ char *search_os(char *cmd, env_path_t *linkedlist_path)
 		status = access(abs_path, X_OK);
 		if (status == 0)
 			return(abs_path);
+		free(abs_path);
 		ep = ep->next;
 	}
 	return (NULL);

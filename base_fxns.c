@@ -59,12 +59,12 @@ char **parser(char *str)
 	if (tokenized == NULL)
 	{
 		perror("malloc failed\n");
-		return (0);
+		return (NULL);
 	}
 	token = _strtok(str, delimit);
 	tokenized[0] = token;
 	i = 1;
-	while (token != NULL)
+	while (token)
 	{
 		token = _strtok(NULL, delimit);
 		tokenized[i] = token;
@@ -77,7 +77,7 @@ char **parser(char *str)
   */
 void reader(void)
 {
-	char *prompt, *buffer;
+	char *prompt, *buffer, **tokens;
 	char *ex = "exit";
 	env_path_t *linkedlist_path;
 
@@ -88,8 +88,16 @@ void reader(void)
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(STDIN_FILENO);
 		if (_strncmp(ex, buffer, 5))
-			executor(parser(buffer), linkedlist_path);
+		{
+			tokens = parser(buffer);
+			executor(tokens, linkedlist_path);
+		}
 		else
+		{
+			free_list(linkedlist_path);
+			linkedlist_path = NULL;
+			free(buffer);
 			exit(0);
+		}
 	}
 }

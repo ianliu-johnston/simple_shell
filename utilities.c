@@ -92,7 +92,9 @@ char *_strcat_realloc(char *dest, char *src)
 
 	dest_len = _strlen(dest);
 	src_len = _strlen(src);
-	dest = _realloc(dest, dest_len, dest_len + src_len);
+	dest = _realloc(dest, dest_len, dest_len + src_len + 1);
+	if (dest == NULL)
+		return (NULL);
 	for (i = 0; i < src_len; i++)
 	{
 		dest[i + dest_len] = src[i];

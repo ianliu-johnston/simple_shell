@@ -17,6 +17,7 @@ typedef struct environ_path
 
 env_path_t *add_node(env_path_t **head, char *str, unsigned int len);
 env_path_t *list_from_path(void);
+void free_list(env_path_t *head);
 char *search_os(char *cmd, env_path_t *linkedlist_path);
 
 #endif
