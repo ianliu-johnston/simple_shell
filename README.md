@@ -37,23 +37,45 @@ _exit (man 2 _exit)
 ### Installing
 Compile like this:
 ```
-gcc -Wall -Wextra -Werror -pedantic *.c -o hsh
+gcc -Wall -Wextra -Werror -pedantic -g *.c -o hsh
 ```
+The ``-g`` is for tracing Valgrind errors
 
 ## Usage
 Currently, when run, it looks like this:
 ```
 vagrant:simple_shell $ ./hsh
-and baby says: /bin/ls -l
-exec.c main.c parser.c parser_functions.c
-and baby says: ^C
+Dance Magic Dance
+and baby says: cat main.c
+#include "shell.h"
+
+int main(void)
+{
+	printf("Dance Magic Dance\n");
+	reader();
+	return(0);
+}
+and baby says: exit 
 vagrant:simple_shell$ 
 ```
+
+## Description of File Structure
+1. [shell.h](shell.h) - Header file: Contains all struct definitions, macros, standard library includes, and function prototypes.
+2. [main.c](main.c) - Entry point to program. May be deleted. 
+3. [parser.c](parser.c) - Includes all string parsing related functions: ``_getline()``, ``_strtok()``, ``parser()``, ``reader()``
+4. [executor.c](executor.c) - Includes all functions related to executing an external program from the simple shell: ``executor()``
+5. [environment.c](environment.c) - Includes all functions that deal with the environment and linked lists: ``add_node()``, ``list_from_path()``, ``free_list()``, ``search_os()``. The following are not built: ``_getenv()``, ``_setenv()``, ``_unsetenv()`` <em>(NOTE: there are a little too many functions in there.)</em>
+6. [memory_management.c](memory_management.c) - Includes all utility functions that deal with memory management: ``_realloc()``, ``_memset()``
+8. [string_operations.c](string_operations.c) - Includes all utility functions that deal with string operations: ``_strlen()``, ``_strcmp()``, ``_strdup()``, ``_strcat_realloc()`` 
+7. [builtins.c](builtins.c) - Includes all builtin functions: <em>Currently, none have been built</em> ``env``, ``cd``, ``alias``, ``history``, and ``help`` are planned. 
+9. [man_1_simple_shell](man_1_simple_shell) - Basic manual page. Currently does not have much in it, and is not very descriptive.
+10. [LINKS.md](LINKS.md) - List of links used for learning how to make this project.
+11. [AUTHORS](AUTHORS) - List of contributors.
 
 ## TODO
 ### Mandatory
 - [ ] Deal with EOF -- Is is correct?
-- [ ] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
+- [x] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
 - [x] Deal with path
 - [ ] Build env function
 
@@ -61,14 +83,14 @@ vagrant:simple_shell$
 - [x] ``exit`` handles arguments to exit -- What is ``exit status 4``?
 
 #### Parser
-- [x] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
+- [~] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
 - [ ] Handle ``;``
 - [ ] Handle ``&&``, and ``||``
 - [ ] Handle ``#`` Comments
 
 #### Recreate standard library functions
 - [x] getline
-- [ ] strtok
+- [~] strtok
 - [ ] getenv
 - [ ] setenv
 - [ ] unsetenv
@@ -82,10 +104,13 @@ vagrant:simple_shell$
 - [ ] Scripts as input
 
 ## Bugs
-- [ ] 
+- [ ] When ``enter`` is hit, it segfaults
+- [ ] When ``^C`` is hit, it stays on one line.
+- [ ] EOF (``^D``) it segfaults
+- [ ] Two unfreed mallocs somewhere. (Check with Valgrind.)
 
 ## Links
-For a list of resources and commands used, refer to [links.md](links.md)
+For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
 
 ## Authors
 * **Ian Liu-Johnston** [Personal Website:](http://ianxaunliu-johnston.com) || [Twitter](https://twitter.com/Concativerse)
