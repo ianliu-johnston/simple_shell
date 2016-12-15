@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-char * _getline(int file)
+char *_getline(int file)
 {
 	unsigned int i;
 	char *buffer;

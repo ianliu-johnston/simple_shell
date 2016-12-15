@@ -19,9 +19,9 @@ int _strncmp(char *s1, char *s2, size_t bytes)
 }
 /**
  * _realloc - reallocates memory based on inputs
+ * @ptr: pointer to original memory address
  * @old_size: old memory size
  * @new_size: new memory size
- * @ptr: pointer to original memory address
  * Return: new memory address
  */
 void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
@@ -29,6 +29,13 @@ void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
 	char *tmp, *buff;
 	unsigned int i;
 
+	if (ptr == NULL)
+	{
+		buff = malloc(new_size);
+		if (buff == NULL)
+			return(NULL);
+		return (buff);
+	}
 	if (new_size == old_size)
 		return (ptr);
 	if (new_size == 0 && ptr != NULL)
@@ -36,26 +43,16 @@ void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
 		free(ptr);
 		return (NULL);
 	}
-	buff = malloc(new_size);
-	if (buff == NULL)
+	if (new_size > old_size)
 	{
+		buff = malloc(new_size * sizeof(char));
+		tmp = ptr;
+		for (i = 0; i < old_size; i++)
+			buff[i] = tmp[i];
 		free(ptr);
-		return (NULL);
+		return(buff);
 	}
-	if (ptr == NULL)
-	{
-		free(ptr);
-		return (buff);
-	}
-	tmp = ptr;
-	for (i = 0; i < old_size; i++)
-	{
-		buff[i] = tmp[i];
-	}
-	for (; i < new_size; i++)
-		buff[i] = '\0';
-	free(ptr);
-	return (buff);
+	return (ptr);
 }
 
 void _memset(char *str, int fill, int n)
@@ -83,14 +80,29 @@ void *_strdup(char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+/**
+  * _strcat_realloc - concatenates 2 strings and reallocates automatically
+  * @dest: destination to copy to
+  * @src: source to copy from
+  * Return: pointer to concatenated strings
+  **/
+char *_strcat_realloc(char *dest, char *src)
+{
+	unsigned int dest_len, src_len, i;
+
+	dest_len = _strlen(dest);
+	src_len = _strlen(src);
+	dest = _realloc(dest, dest_len, dest_len + src_len);
+	for (i = 0; i < src_len; i++)
+	{
+		dest[i + dest_len] = src[i];
+	}
+	dest[i+dest_len] = '\0';
+	return (dest);
+}
 /** All Functions below are unimplemented **/
 /*** They are all here as place holders ***/
 char *_strtok(char *str, const char *delim)
 {
 	return (strtok(str, delim));
-}
-char *_strcat_realloc(char *dest, char *src)
-{
-	_realloc();
-	return (dest);
 }

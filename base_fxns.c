@@ -77,19 +77,16 @@ char **parser(char *str)
   */
 void reader(void)
 {
-	size_t len;
-	int bytes_read;
 	char *prompt, *buffer;
 	char *ex = "exit";
 	env_path_t *linkedlist_path;
 
 	prompt = "And baby says: ";
-	bytes_read = 0;
 	linkedlist_path = list_from_path();
-	while (bytes_read != -1)
+	while (1)
 	{
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
-		bytes_read = getline(&buffer, &len, stdin);
+		buffer = _getline(STDIN_FILENO);
 		if (_strncmp(ex, buffer, 5))
 			executor(parser(buffer), linkedlist_path);
 		else
