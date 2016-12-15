@@ -54,14 +54,14 @@ vagrant:simple_shell$
 ### Mandatory
 - [ ] Deal with EOF -- Is is correct?
 - [ ] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
-- [ ] Deal with path
+- [x] Deal with path
 - [ ] Build env function
 
 ### Advanced
-- [ ] ``exit`` handles arguments to exit -- What is ``exit status 4``?
+- [x] ``exit`` handles arguments to exit -- What is ``exit status 4``?
 
 #### Parser
-- [ ] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
+- [x] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
 - [ ] Handle ``;``
 - [ ] Handle ``&&``, and ``||``
 - [ ] Handle ``#`` Comments
@@ -80,6 +80,9 @@ vagrant:simple_shell$
 - [ ] history
 - [ ] Deal with variables
 - [ ] Scripts as input
+
+## Bugs
+- [ ] 
 
 ## Links
 For a list of resources and commands used, refer to [links.md](links.md)
