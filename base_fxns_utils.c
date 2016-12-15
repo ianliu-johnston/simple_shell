@@ -10,7 +10,6 @@ char * _getline(int file)
 	static unsigned int total = 0;
 	unsigned int buffer_size = 1024;
 
-	file++;
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
@@ -18,7 +17,7 @@ char * _getline(int file)
 		return (NULL);
 	}
 	_memset(buffer, '\0', 1024);
-	i = read(STDIN_FILENO, buffer, 1024);
+	i = read(file, buffer, 1024);
 	total += i;
 	while (i >= 1024)
 	{
@@ -28,7 +27,7 @@ char * _getline(int file)
 			printf("realloc failed\n");
 			return (NULL);
 		}
-		i = read(STDIN_FILENO, buffer + (buffer_size - 1024), 1024);
+		i = read(file, buffer + buffer_size, 1024);
 		total += i;
 	}
 	i = 0;

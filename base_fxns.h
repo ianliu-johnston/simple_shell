@@ -4,9 +4,10 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <signal.h>
+#include "environment.h"
 
 /* In base_fxns.c */
-int executor(char *argv[]);
+void executor(char *argv[], env_path_t *linkedlist_path);
 char **parser(char *str);
 void reader(void);
 /* In base_fxns_utils.c */

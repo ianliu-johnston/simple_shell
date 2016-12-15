@@ -66,25 +66,43 @@ env_path_t *list_from_path(void)
 		}
 		env++;
 	}
+	printf("Linked List has been created.\n");
 	return (ep);
 }
-char *search_os(char *cmd)
+void free_list(env_path_t *head)
 {
+	if (head == NULL)
+		return;
+	printf("Reached end of while in search_os\n");
+	free_list(head->next);
+	free(head->str);
+	free(head);
+}
+char *search_os(char *cmd, env_path_t *linkedlist_path)
+{
+	int status;
 	char *abs_path;
 	env_path_t *ep;
 
-	ep = list_from_path();
+	ep = linkedlist_path;
 	if (ep == NULL)
 	{
 		perror("List empty.\n");
 		return(NULL);
 	}
-	while (ep)
+	while (ep != NULL)
 	{
 		abs_path = _strdup(ep->str);
-		abs_path = _strcat(abs_path, cmd);
-		if (access(abs_path, X_OK) == 0)
+		abs_path = _strcat_realloc(abs_path, cmd);
+		status = access(abs_path, X_OK);
+		printf("%d\n", status);
+		if (status == 0)
+		{
+			printf("Found a command: %s\n", abs_path);
 			return(abs_path);
+		}
+		printf("didn't find command: %s\n", abs_path);
+		free(abs_path);
 		ep = ep->next;
 	}
 	return (NULL);

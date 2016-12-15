@@ -89,3 +89,8 @@ char *_strtok(char *str, const char *delim)
 {
 	return (strtok(str, delim));
 }
+char *_strcat_realloc(char *dest, char *src)
+{
+	_realloc();
+	return (dest);
+}

@@ -1,5 +1,6 @@
 #include "base_fxns.h"
 #include "utilities.h"
+#include "environment.h"
 #include <stdlib.h>
 #include <sys/wait.h>
 #include <unistd.h>
@@ -8,29 +9,33 @@
   * @argv: array of tokens, ie. argument vectors
   * Return: 0 on success, -1 on failure
   */
-int executor(char *argv[])
+void executor(char *argv[], env_path_t *linkedlist_path)
 {
 	pid_t child_status = 0;
-	static char * const env[] = {
-		"PATH=/bin:/usr/bin:/sbin",
-		NULL
-	};
+	char *abs_path;
+
+	abs_path = search_os(argv[0], linkedlist_path);
+	if (!abs_path)
+	{
+		perror("command not found\n");
+		return;
+	}
 
 	switch (child_status = fork())
 	{
 	case -1:
-		perror("fork failed\n"), exit(98);
+		perror("fork failed\n");
+		break;
 	case 0:
-		if (execve(argv[0], argv, env) == -1)
-			perror("command not found\n"), exit(99);
+		if (execve(abs_path, argv, environ) == -1)
+			perror("execution failed\n");
 		break;
 	default:
+		free(abs_path);
 		if (wait(NULL) == -1)
-			perror("wait failed\n"), exit(100);
+			perror("wait failed\n");
 		break;
 	}
-	free(argv);
-	return (0);
 }
 /**
   * parser - parses a string into tokens
@@ -52,7 +57,10 @@ char **parser(char *str)
 	}
 	tokenized = malloc((wc + 1) * sizeof(char *));
 	if (tokenized == NULL)
-		perror("malloc failed\n"), exit(97);
+	{
+		perror("malloc failed\n");
+		return (0);
+	}
 	token = _strtok(str, delimit);
 	tokenized[0] = token;
 	i = 1;
@@ -69,24 +77,21 @@ char **parser(char *str)
   */
 void reader(void)
 {
+	size_t len;
+	int bytes_read;
 	char *prompt, *buffer;
 	char *ex = "exit";
-	/*
-	char end = EOF;
-	*/
-	int file;
+	env_path_t *linkedlist_path;
 
-	file = STDIN_FILENO;
 	prompt = "And baby says: ";
-/**
-	signal(SIGINT, SIG_IGN);
-*/
-	while (1)
+	bytes_read = 0;
+	linkedlist_path = list_from_path();
+	while (bytes_read != -1)
 	{
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
-		buffer = _getline(file);
+		bytes_read = getline(&buffer, &len, stdin);
 		if (_strncmp(ex, buffer, 5))
-			executor(parser(buffer));
+			executor(parser(buffer), linkedlist_path);
 		else
 			exit(0);
 	}
