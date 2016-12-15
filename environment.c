@@ -1,8 +1,4 @@
-#include "utilities.h"
-#include "environment.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
+#include "shell.h"
 /**
   * add_node - adds a new node to the end of a linked list
   * @head: head of the linked list
@@ -99,4 +95,17 @@ char *search_os(char *cmd, env_path_t *linkedlist_path)
 		ep = ep->next;
 	}
 	return (NULL);
+}
+char *_getenv(const char *name)
+{
+	return (getenv(name));
+}
+
+int _setenv(const char *name, const char *value, int overwrite)
+{
+	return (setenv(name, value, overwrite));
+}
+int _unsetenv(const char *name)
+{
+	return (unsetenv(name));
 }

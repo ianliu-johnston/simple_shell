@@ -1,41 +1,46 @@
-#include "base_fxns.h"
-#include "utilities.h"
-#include "environment.h"
-#include <stdlib.h>
-#include <sys/wait.h>
-#include <unistd.h>
-/**
-  * executor - executes a command from an array of tokens
-  * @argv: array of tokens, ie. argument vectors
-  * Return: 0 on success, -1 on failure
-  */
-void executor(char *argv[], env_path_t *linkedlist_path)
+#include "shell.h"
+char *_getline(int file)
 {
-	pid_t child_status = 0;
-	char *abs_path;
+	unsigned int i;
+	char *buffer;
+	static unsigned int total = 0;
+	unsigned int buffer_size = 1024;
 
-	abs_path = search_os(argv[0], linkedlist_path);
-	if (!abs_path)
+	buffer = malloc(sizeof(char) * 1024);
+	if (buffer == NULL)
 	{
-		perror("command not found\n");
-		return;
+		printf("malloc for buffer failed\n");
+		return (NULL);
 	}
-
-	switch (child_status = fork())
+	_memset(buffer, '\0', 1024);
+	i = read(file, buffer, 1024);
+	total += i;
+	while (i >= 1024)
 	{
-	case -1:
-		perror("fork failed\n");
-		break;
-	case 0:
-		if (execve(abs_path, argv, environ) == -1)
-			perror("execution failed\n");
-		break;
-	default:
-		free(abs_path);
-		if (wait(NULL) == -1)
-			perror("wait failed\n");
-		break;
+		_realloc(buffer, buffer_size, buffer_size + 1024);
+		if (buffer == NULL)
+		{
+			printf("realloc failed\n");
+			return (NULL);
+		}
+		i = read(file, buffer + buffer_size, 1024);
+		total += i;
 	}
+	i = 0;
+	while (i <= total)
+	{
+		if (buffer[i] == ';' || buffer[i] == EOF || buffer[i] == '\n')
+			buffer[i] = '\0';
+		i++;
+	}
+	i = 0;
+	while (buffer[i] != '\0')
+		i++;
+	return (buffer);
+}
+char *_strtok(char *str, const char *delim)
+{
+	return (strtok(str, delim));
 }
 /**
   * parser - parses a string into tokens
