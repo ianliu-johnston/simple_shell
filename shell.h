@@ -33,7 +33,7 @@ typedef struct environ_path
   */
 typedef struct builtin_commands
 {
-	char *cmd_str;	
+	char *cmd_str;
 	int (*fun)();
 } builtin_cmds_t;
 
@@ -65,11 +65,11 @@ void _memset(char *str, int fill, int n);
 
 /* In parser.c */
 char *_getline(int file);
-char *_strtok(char *str, const char *delim);
+char *_strtok_r(char *str, char *delim, char **saveptr);
 char **parser(char *str);
 void reader(void);
 
-/* In string_operations.h */
+/* In string_operations.c */
 int _strlen(char *s);
 int _strncmp(char *s1, char *s2, size_t bytes);
 void *_strdup(char *src);

@@ -26,6 +26,7 @@ char *_getline(int file)
 		i = read(file, buffer + buffer_size, 1024);
 		total += i;
 	}
+/**
 	i = 0;
 	while (i <= total)
 	{
@@ -36,12 +37,15 @@ char *_getline(int file)
 	i = 0;
 	while (buffer[i] != '\0')
 		i++;
+*/
 	return (buffer);
 }
+/**
 char *_strtok(char *str, const char *delim)
 {
 	return (strtok(str, delim));
 }
+*/
 /**
   * parser - parses a string into tokens
   * @str: string to parse
@@ -49,8 +53,8 @@ char *_strtok(char *str, const char *delim)
   */
 char **parser(char *str)
 {
-	char **tokenized, *token;
-	char *delimit = "\n \t";
+	char **tokenized, *saveptr, *token;
+	char *delimit = "\n ";
 	unsigned int i, wc, flag;
 
 	for (i = 0, wc = 1; str[i]; i++)
@@ -66,13 +70,15 @@ char **parser(char *str)
 		perror("malloc failed\n");
 		return (NULL);
 	}
-	token = _strtok(str, delimit);
+	token = _strtok_r(str, delimit, &saveptr);
 	tokenized[0] = token;
+	printf("Token 0:%s\n", token);
 	i = 1;
 	while (token)
 	{
-		token = _strtok(NULL, delimit);
+		token = _strtok_r(NULL, delimit, &saveptr);
 		tokenized[i] = token;
+		printf("Token %d:%s\n", i, token);
 		i++;
 	}
 	return (tokenized);
