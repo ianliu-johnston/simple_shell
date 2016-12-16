@@ -42,6 +42,7 @@ int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
 	free_list(linkedlist_path);
 	free(buffer);
 	linkedlist_path = NULL;
+	tokens++;
 	tokens = NULL;
 	exit(exit_status);
 	return(exit_status);
