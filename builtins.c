@@ -19,7 +19,7 @@ int (*is_builtin(char *cmd))()
 
 	/*
 	   other useful shell builtins:
-	   fg, echo, pushd, popd
+	   fg, echo, pushd, popd, type
 	 */
 	i = 0;
 	while (*builds[i].fun != NULL)
@@ -38,7 +38,7 @@ int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
 {
 	int exit_status;
 
-	exit_status = 0;
+	exit_status = tokens[1] ? _atoi(tokens[1]) : 0;
 	free_list(linkedlist_path);
 	free(buffer);
 	linkedlist_path = NULL;
@@ -96,5 +96,8 @@ int _history(char *str)
 int _help(char *str)
 {
 	printf("help skeleton works: %s\n", str);
+	printf("help with no arguments prints a list of builtins\n");
+	printf("Options: -d, -s, -m, Arguments: PATTERN\n");
+	printf("If no arguments match PATTERN, return 1\n");
 	return (0);
 }

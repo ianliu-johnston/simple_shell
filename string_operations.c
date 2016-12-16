@@ -56,3 +56,25 @@ char *_strcat_realloc(char *dest, char *src)
 	dest[i+dest_len] = '\0';
 	return (dest);
 }
+/**
+ * _atoi - converts a string to an integer
+ * @s: the input string
+ * Return: the converted int
+ */
+int _atoi(char *s)
+{
+	int n, sign, result;
+
+	for (n = result = 0, sign = 1; s[n]; n++)
+	{
+		if (s[n] == '-')
+			sign *= -1;
+		if (s[n] >= '0' && s[n] <= '9')
+			result = 10 * result - (s[n] - '0');
+		if (result < 0 && (s[n] < '0' || s[n] > '9'))
+			break;
+	}
+	if (sign > 0)
+		result *= -1;
+	return (result);
+}
