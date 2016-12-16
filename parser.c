@@ -27,26 +27,8 @@ char *_getline(int file)
 		i = read(file, buffer + buffer_size, 1024);
 		total += i;
 	}
-/**
-	i = 0;
-	while (i <= total)
-	{
-		if (buffer[i] == ';' || buffer[i] == EOF || buffer[i] == '\n')
-			buffer[i] = '\0';
-		i++;
-	}
-	i = 0;
-	while (buffer[i] != '\0')
-		i++;
-*/
 	return (buffer);
 }
-/**
-char *_strtok(char *str, const char *delim)
-{
-	return (strtok(str, delim));
-}
-*/
 /**
   * parser - parses a string into tokens
   * @str: string to parse
@@ -94,16 +76,9 @@ int is_alias(char *cmd)
   */
 void reader(void)
 {
-	/*
-	int exit_status;
-	char *ex = "exit";
-	*/
 	char *prompt, *buffer, **tokens;
 	env_path_t *linkedlist_path;
 
-	/*
-	exit_status = 0;
-	*/
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
@@ -117,24 +92,5 @@ void reader(void)
 			is_builtin(tokens[0])(linkedlist_path, buffer, tokens);
 		else
 			executor(tokens, linkedlist_path);
-		/*
-		if (_strncmp(ex, buffer, 5))
-		{
-			tokens = parser(buffer);
-			if (is_alias(tokens[0]))
-				is_alias(tokens[0]);
-			else if (is_builtin(tokens[0]))
-				is_builtin(tokens[0])(tokens);
-			else
-				executor(tokens, linkedlist_path);
-		}
-		else
-		{
-			free_list(linkedlist_path);
-			linkedlist_path = NULL;
-			free(buffer);
-			exit(exit_status);
-		}
-		*/
 	}
 }
