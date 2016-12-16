@@ -9,7 +9,7 @@ char *_getline(int file)
 	buffer = malloc(sizeof(char) * 1024);
 	if (buffer == NULL)
 	{
-		printf("malloc for buffer failed\n");
+		perror("malloc for buffer failed\n");
 		return (NULL);
 	}
 	_memset(buffer, '\0', 1024);
@@ -20,7 +20,7 @@ char *_getline(int file)
 		_realloc(buffer, buffer_size, buffer_size + 1024);
 		if (buffer == NULL)
 		{
-			printf("realloc failed\n");
+			perror("realloc failed\n");
 			return (NULL);
 		}
 		i = read(file, buffer + buffer_size, 1024);
@@ -77,15 +77,22 @@ char **parser(char *str)
 	}
 	return (tokenized);
 }
+int is_alias(char *cmd)
+{
+	cmd++;
+	return (0);
+}
 /**
   * reader - reads user input and forms it into a string.
   */
 void reader(void)
 {
+	int exit_status;
 	char *prompt, *buffer, **tokens;
 	char *ex = "exit";
 	env_path_t *linkedlist_path;
 
+	exit_status = 0;
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
@@ -95,14 +102,19 @@ void reader(void)
 		if (_strncmp(ex, buffer, 5))
 		{
 			tokens = parser(buffer);
-			executor(tokens, linkedlist_path);
+			if (is_alias(tokens[0]))
+				is_alias(tokens[0]);
+			else if (get_cmd_fun(tokens[0]))
+				get_cmd_fun(tokens[0])(tokens);
+			else
+				executor(tokens, linkedlist_path);
 		}
 		else
 		{
 			free_list(linkedlist_path);
 			linkedlist_path = NULL;
 			free(buffer);
-			exit(0);
+			exit(exit_status);
 		}
 	}
 }
