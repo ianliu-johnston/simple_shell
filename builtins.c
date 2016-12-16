@@ -4,7 +4,7 @@
   * @cmd: command to find
   * Return: Result of command on success, -1 on failure
   */
-int (*get_cmd_fun(char *cmd))()
+int (*is_builtin(char *cmd))()
 {
 	unsigned int i;
 	builtin_cmds_t builds[] = {
@@ -34,25 +34,17 @@ int (*get_cmd_fun(char *cmd))()
   * _env - prints out the current environment
   * @str: argument list
   */
-int _exit_with_grace(env_path_t *linkedlist_path, char *buffer)
+int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
 {
 	int exit_status;
 
-	printf("goin\n");
 	exit_status = 0;
 	free_list(linkedlist_path);
-	linkedlist_path = NULL;
-			/* Exit been found. If numbers after, use those as exit status */
-			/*
-			   if(isdigit(buffer[6]))
-			   {
-				   while(isdigit(buffer[6+i]) && buffer[6+i])
-						exit_status = strtoi(buffer[6+i]);
-			   }
-		   */
 	free(buffer);
+	linkedlist_path = NULL;
+	tokens = NULL;
 	exit(exit_status);
-	return(0);
+	return(exit_status);
 }
 /**
   * _env - prints out the current environment

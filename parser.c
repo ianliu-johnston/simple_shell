@@ -1,4 +1,5 @@
 #include "shell.h"
+
 char *_getline(int file)
 {
 	unsigned int i;
@@ -93,25 +94,37 @@ int is_alias(char *cmd)
   */
 void reader(void)
 {
+	/*
 	int exit_status;
-	char *prompt, *buffer, **tokens;
 	char *ex = "exit";
+	*/
+	char *prompt, *buffer, **tokens;
 	env_path_t *linkedlist_path;
 
+	/*
 	exit_status = 0;
+	*/
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(STDIN_FILENO);
+		tokens = parser(buffer);
+		if (is_alias(tokens[0]))
+			;
+		else if (is_builtin(tokens[0]))
+			is_builtin(tokens[0])(linkedlist_path, buffer, tokens);
+		else
+			executor(tokens, linkedlist_path);
+		/*
 		if (_strncmp(ex, buffer, 5))
 		{
 			tokens = parser(buffer);
 			if (is_alias(tokens[0]))
 				is_alias(tokens[0]);
-			else if (get_cmd_fun(tokens[0]))
-				get_cmd_fun(tokens[0])(tokens);
+			else if (is_builtin(tokens[0]))
+				is_builtin(tokens[0])(tokens);
 			else
 				executor(tokens, linkedlist_path);
 		}
@@ -122,5 +135,6 @@ void reader(void)
 			free(buffer);
 			exit(exit_status);
 		}
+		*/
 	}
 }

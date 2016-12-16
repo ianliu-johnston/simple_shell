@@ -38,9 +38,9 @@ typedef struct builtin_commands
 } builtin_cmds_t;
 
 /* In builtins.h */
-int (*get_cmd_fun(char *cmd))();
+int (*is_builtin(char *cmd))();
 int _env(void);
-int _exit_with_grace(env_path_t *linkedlist_path, char *buffer);
+int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens);
 int _cd(char *str);
 int _alias(char *str);
 int _history(char *str);
