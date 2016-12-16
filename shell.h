@@ -65,14 +65,18 @@ void _memset(char *str, int fill, int n);
 
 /* In parser.c */
 char *_getline(int file);
-char *_strtok_r(char *str, char *delim, char **saveptr);
 char **parser(char *str);
 void reader(void);
+
+/* In strtok.c */
+/* Other functions in this file do not need to be referenced elsewhere. */
+char *_strtok_r(char *str, char *delim, char **saveptr);
 
 /* In string_operations.c */
 int _strlen(char *s);
 int _strncmp(char *s1, char *s2, size_t bytes);
 void *_strdup(char *src);
 char *_strcat_realloc(char *dest, char *src);
+int _atoi(char *s)
 
 #endif
