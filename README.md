@@ -66,6 +66,7 @@ vagrant:simple_shell$
 4. [executor.c](executor.c) - Includes all functions related to executing an external program from the simple shell: ``executor()``
 5. [environment.c](environment.c) - Includes all functions that deal with the environment and linked lists: ``add_node()``, ``list_from_path()``, ``free_list()``, ``search_os()``. The following are not built: ``_getenv()``, ``_setenv()``, ``_unsetenv()`` <em>(NOTE: there are a little too many functions in there.)</em>
 6. [memory_management.c](memory_management.c) - Includes all utility functions that deal with memory management: ``_realloc()``, ``_memset()``
+7. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere.
 8. [string_operations.c](string_operations.c) - Includes all utility functions that deal with string operations: ``_strlen()``, ``_strcmp()``, ``_strdup()``, ``_strcat_realloc()`` 
 7. [builtins.c](builtins.c) - Includes all builtin functions: <em>Currently, none have been built</em> ``env``, ``cd``, ``alias``, ``history``, and ``help`` are planned. 
 9. [man_1_simple_shell](man_1_simple_shell) - Basic manual page. Currently does not have much in it, and is not very descriptive.
