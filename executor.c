@@ -4,7 +4,7 @@
   * @argv: array of tokens, ie. argument vectors
   * Return: 0 on success, -1 on failure
   */
-void executor(char *argv[], env_path_t *linkedlist_path)
+void executor(char *argv[], env_t *linkedlist_path)
 {
 	pid_t child_status = 0;
 	char *abs_path;

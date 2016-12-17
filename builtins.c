@@ -37,7 +37,7 @@ int (*is_builtin(char *cmd))()
   * @tokens: Check for other inputs
   * Return: DON't NEED RETURN. Fix.
   */
-int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
+int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens)
 {
 	int exit_status;
 
@@ -45,7 +45,6 @@ int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
 	free_list(linkedlist_path);
 	free(buffer);
 	linkedlist_path = NULL;
-	tokens++;
 	tokens = NULL;
 	exit(exit_status);
 	return(exit_status);

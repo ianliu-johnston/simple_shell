@@ -79,7 +79,7 @@ int is_alias(char *cmd)
 void reader(void)
 {
 	char *prompt, *buffer, **tokens;
-	env_path_t *linkedlist_path;
+	env_t *linkedlist_path;
 
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();

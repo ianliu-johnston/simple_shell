@@ -24,7 +24,7 @@ typedef struct environ_path
 	char *str;
 	unsigned int len;
 	struct environ_path *next;
-} env_path_t;
+} env_t;
 
 /**
   * builtin_commands - stuct for function pointers to builtin commands 
@@ -40,24 +40,24 @@ typedef struct builtin_commands
 /* In builtins.h */
 int (*is_builtin(char *cmd))();
 int _env(void);
-int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens);
+int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens);
 int _cd(char *str);
 int _alias(char *str);
 int _history(char *str);
 int _help(char *str);
 
 /* in environment.c */
-env_path_t *add_node(env_path_t **head, char *str, unsigned int len);
-env_path_t *list_from_path(void);
-void free_list(env_path_t *head);
-char *search_os(char *cmd, env_path_t *linkedlist_path);
+env_t *add_node(env_t **head, char *str, unsigned int len);
+env_t *list_from_path(void);
+void free_list(env_t *head);
+char *search_os(char *cmd, env_t *linkedlist_path);
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 int _unsetenv(const char *name);
 
 
 /* In executor.c */
-void executor(char *argv[], env_path_t *linkedlist_path);
+void executor(char *argv[], env_t *linkedlist_path);
 
 /* In memory_management.c */
 void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);

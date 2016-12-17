@@ -6,9 +6,9 @@
   * @len: length of the string
   * Return: pointer to the current position in the list
   **/
-env_path_t *add_node(env_path_t **head, char *str, unsigned int len)
+env_t *add_node(env_t **head, char *str, unsigned int len)
 {
-	env_path_t *new, *walk;
+	env_t *new, *walk;
 	char *dupstr;
 
 	if (str == NULL)
@@ -16,7 +16,7 @@ env_path_t *add_node(env_path_t **head, char *str, unsigned int len)
 	dupstr = _strdup(str);
 	if (dupstr == NULL)
 		return (NULL);
-	new = malloc(sizeof(env_path_t));
+	new = malloc(sizeof(env_t));
 	if (new == NULL)
 		return (NULL);
 	new->str = dupstr;
@@ -38,12 +38,12 @@ env_path_t *add_node(env_path_t **head, char *str, unsigned int len)
   * list_from_path - builds a linked list from PATH
   * Return: pointer to linked list
   */
-env_path_t *list_from_path(void)
+env_t *list_from_path(void)
 {
 	unsigned int len, i, j;
 	char *env;
 	char buffer[BUFSIZE];
-	env_path_t *ep;
+	env_t *ep;
 
 	ep = NULL;
 	len = i = j = 0;
@@ -64,7 +64,7 @@ env_path_t *list_from_path(void)
 	}
 	return (ep);
 }
-void free_list(env_path_t *head)
+void free_list(env_t *head)
 {
 	if (head == NULL)
 		return;
@@ -72,11 +72,11 @@ void free_list(env_path_t *head)
 	free(head->str);
 	free(head);
 }
-char *search_os(char *cmd, env_path_t *linkedlist_path)
+char *search_os(char *cmd, env_t *linkedlist_path)
 {
 	int status;
 	char *abs_path;
-	env_path_t *ep;
+	env_t *ep;
 
 	ep = linkedlist_path;
 	if (ep == NULL)

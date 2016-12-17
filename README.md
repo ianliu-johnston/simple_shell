@@ -84,7 +84,7 @@ vagrant:simple_shell$
 - [x] ``exit`` handles arguments to exit -- What is ``exit status 4``?
 
 #### Parser
-- [~] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? 
+- [~] Catch ``^C`` (CTRL + C) -- Find the signal and how to ignore it? Disabled for development. 
 - [ ] Handle ``;``
 - [ ] Handle ``&&``, and ``||``
 - [ ] Handle ``#`` Comments
@@ -113,6 +113,10 @@ vagrant:simple_shell$
 - [ ] Only delimiters handled are spaces and newlines.
 - [ ] Optimization: Change the linked list for path to an array of strings
 - [ ] ``_exit_with_grace()`` should have a void type.
+- [ ] Change input type for ``_exit_with_grace()`` to a variadic function, instead of declaring each free call separately.
+
+## Features to Add:
+- [ ] 
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
