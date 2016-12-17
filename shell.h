@@ -77,6 +77,6 @@ int _strlen(char *s);
 int _strncmp(char *s1, char *s2, size_t bytes);
 void *_strdup(char *src);
 char *_strcat_realloc(char *dest, char *src);
-int _atoi(char *s)
+int _atoi(char *s);
 
 #endif
