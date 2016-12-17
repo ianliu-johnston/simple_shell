@@ -31,8 +31,11 @@ int (*is_builtin(char *cmd))()
 	return (NULL);
 }
 /**
-  * _env - prints out the current environment
-  * @str: argument list
+  * _exit_with_grace - prints out the current environment
+  * @linkedlist_path: Linked list to free.
+  * @buffer: buffer to free
+  * @tokens: Check for other inputs
+  * Return: DON't NEED RETURN. Fix.
   */
 int _exit_with_grace(env_path_t *linkedlist_path, char *buffer, char **tokens)
 {

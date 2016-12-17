@@ -111,7 +111,8 @@ vagrant:simple_shell$
 - [ ] EOF (``^D``) it segfaults
 - [ ] Two unfreed mallocs somewhere. (Check with Valgrind.)
 - [ ] Only delimiters handled are spaces and newlines.
-- [ ] (Optimization) Change the linked list for path to an array of strings
+- [ ] Optimization: Change the linked list for path to an array of strings
+- [ ] ``_exit_with_grace()`` should have a void type.
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
