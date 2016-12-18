@@ -81,7 +81,6 @@ int is_alias(char *cmd)
 {
 	if(cmd == NULL)
 		return (1);
-	cmd++;
 	return (0);
 }
 /**

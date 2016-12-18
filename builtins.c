@@ -1,9 +1,15 @@
 #include "shell.h"
 /**
-  * get_cmd_fun - gets commands
+  * is_builtin - checks if cmd is a builtin
   * @cmd: command to find
-  * Return: Result of command on success, -1 on failure
-  */
+  * Return: On success - pointer to function, On Failure - NULL pointer
+ (* other useful shell builtins:
+ (* pwd, echo, pushd, popd, type
+ (* * requires ^Z
+ (* fg, bg
+ (*  * Requires ^R
+ (* reverse-i-search **HISTORY**
+*/
 int (*is_builtin(char *cmd))()
 {
 	unsigned int i;
@@ -17,10 +23,6 @@ int (*is_builtin(char *cmd))()
 		{NULL, NULL}
 	};
 
-	/*
-	   other useful shell builtins:
-	   fg, echo, pushd, popd, type
-	 */
 	i = 0;
 	while (*builds[i].fun != NULL)
 	{
@@ -31,11 +33,12 @@ int (*is_builtin(char *cmd))()
 	return (NULL);
 }
 /**
-  * _exit_with_grace - prints out the current environment
+  * _exit_with_grace - Frees any remaining malloc'd spaces, and exits
   * @linkedlist_path: Linked list to free.
   * @buffer: buffer to free
   * @tokens: Check for other inputs
-  * Return: DON't NEED RETURN. Fix.
+ (* * CHANGE TO VARIADIC LIST.
+  * Return: -1 if exit fails.
   */
 int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens)
 {
@@ -47,16 +50,20 @@ int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens)
 	linkedlist_path = NULL;
 	tokens = NULL;
 	exit(exit_status);
-	return(exit_status);
+	return(-1);
 }
 /**
   * _env - prints out the current environment
-  * @str: argument list
+  * Return: 0 on success, -1 on catastrophic failure
   */
 int _env(void)
 {
 	char **envir;
-	for (envir = environ; *envir; envir++)
+
+	envir = environ;
+	if (!envir || !environ)
+		return (-1);
+	for ( ; *envir; envir++)
 	{
 		write(STDOUT_FILENO, *envir, _strlen(*envir));
 		write(STDOUT_FILENO, "\n", 1);
@@ -67,9 +74,14 @@ int _env(void)
   * _cd - changes working directory
   * @str: argument list
   */
-int _cd(char *str)
+int _cd(env_t *linkedlist_path, char *buffer, char **tokens)
 {
-	printf("cd skeleton works: %s\n", str);
+	printf("Changes the current working directory.\n");
+	printf("The default location is $HOME\n");
+	printf("'cd', 'cd -' and 'cd $HOME' all change to the default location\n");
+	printf("%p\n", (void *)linkedlist_path);
+	printf("%s\n", buffer);
+	printf("%p\n", tokens);
 	return (0);
 }
 /**
@@ -86,18 +98,21 @@ int _alias(char *str)
   *  or does other operations on the history file
   * @str: argument list
   */
-int _history(char *str)
+int _history(void)
 {
-	printf("history skeleton works: %s\n", str);
+	printf("history: manipulate or view the history of commands\n ");
+	printf("'history', without any options, displays the list");
+	printf("of previously used commands, and the number of those commands.\n");
+	printf("'history -c' clears the history\n");
+	printf("See the list of history entries in bash with 'help history'\n");
 	return (0);
 }
 /**
   * _help - display help pages for builtin commands
   * @str: argument list
   */
-int _help(char *str)
+int _help(void)
 {
-	printf("help skeleton works: %s\n", str);
 	printf("help with no arguments prints a list of builtins\n");
 	printf("Options: -d, -s, -m, Arguments: PATTERN\n");
 	printf("If no arguments match PATTERN, return 1\n");

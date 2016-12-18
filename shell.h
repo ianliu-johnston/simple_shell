@@ -41,10 +41,10 @@ typedef struct builtin_commands
 int (*is_builtin(char *cmd))();
 int _env(void);
 int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens);
-int _cd(char *str);
+int _cd(env_t *linkedlist_path, char *buffer, char **tokens);
 int _alias(char *str);
-int _history(char *str);
-int _help(char *str);
+int _history(void);
+int _help(void);
 
 /* in environment.c */
 env_t *add_node(env_t **head, char *str, unsigned int len);
