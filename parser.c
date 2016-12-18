@@ -2,31 +2,42 @@
 
 char *_getline(int file)
 {
-	unsigned int i;
+	unsigned int i, index;
 	char *buffer;
-	static unsigned int total = 0;
-	unsigned int buffer_size = 1024;
+	static unsigned int buffer_size = BUFSIZE;
 
-	buffer = malloc(sizeof(char) * 1024);
+	buffer = malloc(sizeof(char) * buffer_size);
 	if (buffer == NULL)
 	{
 		perror("malloc for buffer failed\n");
 		return (NULL);
 	}
-	_memset(buffer, '\0', 1024);
-	i = read(file, buffer, 1024);
-	total += i;
-	while (i >= 1024)
+	index = 0;
+	_memset(buffer, '\0', buffer_size);
+	while ((i = read(file, buffer + index, buffer_size - index)) > 0)
 	{
-		_realloc(buffer, buffer_size, buffer_size + 1024);
+
+		if (i < (buffer_size - index))
+		{
+			printf("in buffer: %s\n", buffer);
+			return (buffer);
+		}
+		buffer_size *= 2;
+		_realloc(buffer, buffer_size, buffer_size / 2);
 		if (buffer == NULL)
 		{
 			perror("realloc failed\n");
 			return (NULL);
 		}
-		i = read(file, buffer + buffer_size, 1024);
-		total += i;
+		index += i;
 	}
+	if (i == 0)
+	{
+		printf("i == 0 happened\n");
+		free(buffer);
+		exit(0);
+	}
+	printf("in buffer: %s\n", buffer);
 	return (buffer);
 }
 /**
