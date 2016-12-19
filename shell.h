@@ -62,6 +62,7 @@ void executor(char *argv[], env_t *linkedlist_path);
 /* In memory_management.c */
 void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size);
 void _memset(char *str, int fill, int n);
+void _memcpy(char *dest, char *src, unsigned int bytes);
 
 /* In parser.c */
 char *_getline(int file);

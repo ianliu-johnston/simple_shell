@@ -45,12 +45,19 @@ int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens)
 	int exit_status;
 
 	exit_status = tokens[1] ? _atoi(tokens[1]) : 0;
+	printf("exit status = %d\n", exit_status);
 	free_list(linkedlist_path);
-	free(buffer);
 	linkedlist_path = NULL;
+	printf("linked list freed\n");
+	free(buffer);
+	buffer = NULL;
+	printf("*buffer freed\n");
 	free(tokens);
 	tokens = NULL;
+	printf("**tokens freed\n");
+	printf("All frees successful!\n");
 	exit(exit_status);
+	perror("Exit failed\n");
 	return(-1);
 }
 /**

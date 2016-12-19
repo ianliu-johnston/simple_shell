@@ -33,9 +33,9 @@ char *_getline(int file)
 	}
 	if (i == 0)
 	{
-		printf("i == 0 happened\n");
-		free(buffer);
-		exit(0);
+		printf("EOF happened\n");
+		_memcpy(buffer, "exit", 5);
+		return (buffer);
 	}
 	printf("in buffer: %s\n", buffer);
 	return (buffer);

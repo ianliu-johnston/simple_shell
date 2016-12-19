@@ -45,4 +45,10 @@ void _memset(char *str, int fill, int n)
 	for (i = 0; i < n; i++)
 		str[i] = fill;
 }
+void _memcpy(char *dest, char *src, unsigned int bytes)
+{
+	unsigned int i;
 
+	for (i = 0; i < bytes; i++)
+		dest[i] = src[i];
+}
