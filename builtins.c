@@ -81,7 +81,7 @@ int _cd(env_t *linkedlist_path, char *buffer, char **tokens)
 	printf("'cd', 'cd -' and 'cd $HOME' all change to the default location\n");
 	printf("%p\n", (void *)linkedlist_path);
 	printf("%s\n", buffer);
-	printf("%p\n", tokens);
+	printf("%p\n", *tokens);
 	return (0);
 }
 /**
