@@ -75,7 +75,7 @@ vagrant:simple_shell$
 
 ## TODO
 ### Mandatory
-- [ ] Deal with EOF -- Is is correct?
+- [x] Deal with EOF -- Is is correct?
 - [x] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
 - [x] Deal with path
 - [x] Build env function
@@ -108,15 +108,12 @@ vagrant:simple_shell$
 ## Bugs
 - [x] When ``enter`` is hit, it segfaults
 - [ ] When ``^C`` is hit, it stays on one line.
-- [ ] EOF (``^D``) it segfaults
-- [ ] Two unfreed mallocs somewhere. (Check with Valgrind.)
+- [x] EOF (``^D``) it segfaults
+- [x] Two unfreed mallocs somewhere. (Check with Valgrind.)
 - [ ] Only delimiters handled are spaces and newlines.
 - [ ] Optimization: Change the linked list for path to an array of strings
 - [ ] ``_exit_with_grace()`` should have a void type.
 - [ ] Change input type for ``_exit_with_grace()`` to a variadic function, instead of declaring each free call separately.
-
-## Features to Add:
-- [ ] 
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
