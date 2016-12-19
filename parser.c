@@ -45,12 +45,12 @@ char *_getline(int file)
   * @str: string to parse
   * Return: Double pointer to array of tokens
   */
-char **parser(char *str, char *delimit)
+char **parser(char *str, char *delimit, char wd)
 {
 	char **tokenized, *saveptr, *token;
 	unsigned int i, wc;
 
-	wc = word_count(str, ' ');
+	wc = word_count(str, wd);
 	tokenized = malloc((wc + 1) * sizeof(char *));
 	if (tokenized == NULL)
 	{
@@ -85,13 +85,21 @@ void reader(void)
 	env_t *linkedlist_path;
 	char *delimit = "\n ";
 
+	/* start TEST
+	int i;
+	char *env, **path_array;
+	env = getenv("PATH");
+	path_array = parser(env, ":", ':');
+	for (i = 0; path_array[i]; i++)
+		printf("path_array[%d] = %s @ %p\n", i, path_array[i], path_array[i]);
+	 END TEST */
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
 	{
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(STDIN_FILENO);
-		tokens = parser(buffer, delimit);
+		tokens = parser(buffer, delimit, ' ');
 		if (is_alias(tokens[0]))
 			;
 		else if (is_builtin(tokens[0]))

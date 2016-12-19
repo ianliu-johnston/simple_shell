@@ -66,7 +66,7 @@ void _memcpy(char *dest, char *src, unsigned int bytes);
 
 /* In parser.c */
 char *_getline(int file);
-char **parser(char *str, char *delim);
+char **parser(char *str, char *delim, char wd);
 void reader(void);
 
 /* In strtok.c */
