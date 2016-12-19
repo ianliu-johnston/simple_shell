@@ -7,6 +7,7 @@
 * [Differences between git fetch and git pull](https://longair.net/blog/2009/04/16/git-fetch-and-merge/)
 * [Manage and create new branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 * [Basics of branching and merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+* [Branch Management](https://git-scm.com/book/en/v2/Git-Branching-Branch-Management)
 * git repository management commands: 
 	* ``git diff <file>`` Displays the differences between your local repository and what is in the public repo
 	* ``git reset`` Resets your local repository to the current working state. 
@@ -16,6 +17,8 @@
 	* ``git fetch`` Gets changes from public repository, without merging them into the current working tree
 	* ``git merge`` Merges two branches together.
 	* ``git pull`` Automatically merges commits from the remote repository without letting you review them first
+	* ``git branch -d <branch_name>`` Deletes a branch that has been merged.
+	* ``git branch -D <branch_name>`` Force deletes a branch that has not been fully merged. May loose unmerged work!
 
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
