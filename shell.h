@@ -65,7 +65,7 @@ void _memset(char *str, int fill, int n);
 
 /* In parser.c */
 char *_getline(int file);
-char **parser(char *str);
+char **parser(char *str, char *delim);
 void reader(void);
 
 /* In strtok.c */
@@ -78,5 +78,8 @@ int _strncmp(char *s1, char *s2, size_t bytes);
 void *_strdup(char *src);
 char *_strcat_realloc(char *dest, char *src);
 int _atoi(char *s);
+
+/* In string_operations_2.c */
+unsigned int word_count(char *str, char delim);
 
 #endif

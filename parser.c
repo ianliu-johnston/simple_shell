@@ -45,19 +45,12 @@ char *_getline(int file)
   * @str: string to parse
   * Return: Double pointer to array of tokens
   */
-char **parser(char *str)
+char **parser(char *str, char *delimit)
 {
 	char **tokenized, *saveptr, *token;
-	char *delimit = "\n ";
-	unsigned int i, wc, flag;
+	unsigned int i, wc;
 
-	for (i = 0, wc = 1; str[i]; i++)
-	{
-		if (str[i] == ' ' && flag == 0)
-			flag = 1, wc++;
-		if (str[i] != ' ')
-			flag = 0;
-	}
+	wc = word_count(str, ' ');
 	tokenized = malloc((wc + 1) * sizeof(char *));
 	if (tokenized == NULL)
 	{
@@ -90,6 +83,7 @@ void reader(void)
 {
 	char *prompt, *buffer, **tokens;
 	env_t *linkedlist_path;
+	char *delimit = "\n ";
 
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
@@ -97,12 +91,14 @@ void reader(void)
 	{
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(STDIN_FILENO);
-		tokens = parser(buffer);
+		tokens = parser(buffer, delimit);
 		if (is_alias(tokens[0]))
 			;
 		else if (is_builtin(tokens[0]))
 			is_builtin(tokens[0])(linkedlist_path, buffer, tokens);
 		else
 			executor(tokens, linkedlist_path);
+		free(tokens);
+		free(buffer);
 	}
 }
