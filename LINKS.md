@@ -44,5 +44,8 @@
 ### File Access
 * [Testing File Access - GNU](https://www.gnu.org/software/libc/manual/html_node/Testing-File-Access.html)
 
+### MISC C programming
+* [Differences between `exit()` and `_exit()`](http://www.unixguide.net/unix/programming/1.1.3.shtml)
+
 ## MISC
 * [Picture to ASCII Art](http://picascii.com/)
