@@ -37,14 +37,15 @@ typedef struct builtin_commands
 	int (*fun)();
 } builtin_cmds_t;
 
-/* In builtins.h */
+/* In builtins.c */
 int (*is_builtin(char *cmd))();
-int _env(void);
 int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer);
+int _env(void);
 int _cd(char **tokens);
-int _alias(char *str);
+int _help(char **tokens);
+/* In builtins_2.c */
+int _alias(void);
 int _history(void);
-int _help(void);
 int bowie(void);
 
 /* in environment.c */

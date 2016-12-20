@@ -14,12 +14,14 @@ int (*is_builtin(char *cmd))()
 {
 	unsigned int i;
 	builtin_cmds_t builds[] = {
-		{"exit", _exit_with_grace},
-		{"env", _env},
-		{"cd", _cd},
 		{"alias", _alias},
-		{"history", _history},
+		{"cd", _cd},
+		{"env", _env},
+		{"exit", _exit_with_grace},
 		{"help", _help},
+		{"history", _history},
+		{"setenv", _setenv},
+		{"unsetenv", _unsetenv},
 		{"bowie", bowie},
 		{NULL, NULL}
 	};
@@ -119,63 +121,51 @@ int _cd(char **tokens)
 	return (0);
 }
 /**
-  * _alias - sets aliases or prints them out when no options are supplied
-  * @str: argument list
-  */
-int _alias(char *str)
-{
-	printf("alias skeleton works: %s\n", str);
-	return (0);
-}
-/**
-  * _history - prints out history with no options,
-  *  or does other operations on the history file
-  * @str: argument list
-  */
-int _history(void)
-{
-	printf("history: manipulate or view the history of commands\n ");
-	printf("'history', without any options, displays the list");
-	printf("of previously used commands, and the number of those commands.\n");
-	printf("'history -c' clears the history\n");
-	printf("See the list of history entries in bash with 'help history'\n");
-	return (0);
-}
-/**
   * _help - display help pages for builtin commands
-  * @str: argument list
+  * @tokens: list of arguments. tokens[1] is the only one needed
+  * Return: 0 on success, 1 if PATTERN not found.
   */
-int _help(void)
+int _help(char **tokens)
 {
-	printf("help with no arguments prints a list of builtins\n");
-	printf("Options: -d, -s, -m, Arguments: PATTERN\n");
-	printf("If no arguments match PATTERN, return 1\n");
-	return (0);
-}
-int bowie(void)
-{
-	int txt_file, total, read_status;
-	size_t letters = 7483;
-	char *filename = "bowie.txt";
-	char buffer[BUFSIZE];
-
-	if (filename == NULL)
-		return (0);
-	txt_file = open(filename, O_RDONLY);
-	if (txt_file == -1)
-		return (0);
-	total = 0;
-	read_status = 1;
-	while (letters > BUFSIZE && read_status != 0)
+	if (!tokens[1])
 	{
-		read_status = read(txt_file, buffer, BUFSIZE);
-		write(STDOUT_FILENO, buffer, read_status);
-		total += read_status;
-		letters -= BUFSIZE;
+		printf("These shell commands are defined internally.\n");
+		printf("\texit <RETURN_CODE>\n\tcd [ - | ~ ] <DIRECTORY>\n\tenv\n\thelp <BUILTIN>\n");
 	}
-	read_status = read(txt_file, buffer, letters);
-	write(STDOUT_FILENO, buffer, read_status);
-	total += read_status;
-	close(txt_file);
-	return (total);
+	else if(!_strncmp(tokens[1], "help", 5))
+	{
+		printf("help: usage: help <BUILTIN>\n");
+		printf("\tDisplays a help page for builtin functions.\n");
+		printf("\tWith no arguments, print a list of all builtins\n");
+		printf("\tIf no arguments match BUILTIN, return 1\n");
+	}
+	else if(!_strncmp(tokens[1], "cd", 3))
+	{
+		printf("cd: usage: cd [ - | ~ ] [DIRECTORY]\n");
+		printf("\tChange working directory to [DIRECTORY]\n");
+		printf("\t'cd' without any arguments or 'cd ~' brings the user to $HOME\n");
+		printf("\t'cd -' brings the user to the last accessed directory\n");
+	}
+	else if (!_strncmp(tokens[1], "env", 4))
+	{
+		printf("env: usage: env\n");
+		printf("\tPrints out the current environment\n\tAccepts no arguments\n");
+	}
+	else if (!_strncmp(tokens[1], "exit", 5))
+	{
+		printf("exit: usage: exit [n]\n\tExits the shell.\n");
+		printf("\tIf [n] is supplied, exit with status of [n], ");
+		printf("otherwise, exit status is 0\n");
+	}
+	else if (!_strncmp(tokens[1], "history", 8))
+	{
+		printf("history: usage: history [-c]\n\tView the history of commands\n");
+		printf("\t'history -c' clears the history\n");
+	}
+	else
+	{
+		printf("No help topics found for %s.\n", tokens[1]);
+		return (1);
+	}
+	return (0);
 }
