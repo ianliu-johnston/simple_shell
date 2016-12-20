@@ -47,7 +47,7 @@ env_t *list_from_path(void)
 
 	ep = NULL;
 	len = i = j = 0;
-	env = getenv("PATH");
+	env = _getenv("PATH");
 	while (*env)
 	{
 		buffer[j++] = *env;
