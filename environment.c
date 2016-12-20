@@ -47,7 +47,7 @@ env_t *list_from_path(void)
 
 	ep = NULL;
 	len = i = j = 0;
-	env = getenv("PATH");
+	env = _getenv("PATH");
 	while (*env)
 	{
 		buffer[j++] = *env;
@@ -109,7 +109,18 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 }
 char *_getenv(const char *name)
 {
-	return (getenv(name));
+	int i;
+	char *token, *saveptr, *tmpname, **env;
+
+	env = environ;
+	tmpname = _strdup((char *)name);
+	for (i = 0; env[i] != NULL; i++)
+	{
+		token = _strtok_r(env[i], "=", &saveptr);
+		if (_strncmp(tmpname, token, _strlen(token)) == 0)
+			return (_strtok_r(NULL, "=", &saveptr));
+	}
+	return (NULL);
 }
 
 int _setenv(const char *name, const char *value, int overwrite)
