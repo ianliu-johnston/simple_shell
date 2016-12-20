@@ -118,8 +118,12 @@ char *_getenv(const char *name)
 	{
 		token = _strtok_r(env[i], "=", &saveptr);
 		if (_strncmp(tmpname, token, _strlen(token)) == 0)
+		{
+			free(tmpname);
 			return (_strtok_r(NULL, "=", &saveptr));
+		}
 	}
+	free(tmpname);
 	return (NULL);
 }
 
