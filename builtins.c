@@ -20,6 +20,7 @@ int (*is_builtin(char *cmd))()
 		{"alias", _alias},
 		{"history", _history},
 		{"help", _help},
+		{"bowie", bowie},
 		{NULL, NULL}
 	};
 
@@ -40,7 +41,7 @@ int (*is_builtin(char *cmd))()
  (* * CHANGE TO VARIADIC LIST.
   * Return: -1 if exit fails.
   */
-int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens)
+int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 {
 	int exit_status;
 
@@ -82,14 +83,20 @@ int _env(void)
   * _cd - changes working directory
   * @str: argument list
   */
-int _cd(env_t *linkedlist_path, char *buffer, char **tokens)
+int _cd(char **tokens)
 {
-	printf("Changes the current working directory.\n");
-	printf("The default location is $HOME\n");
-	printf("'cd', 'cd -' and 'cd $HOME' all change to the default location\n");
-	printf("%p\n", (void *)linkedlist_path);
-	printf("%s\n", buffer);
-	printf("%p\n", *tokens);
+	int dir_exists;
+	char *target;
+	char *home;
+
+	home = getenv("HOME");
+	target = tokens[1] ? (_strncmp(tokens[1], "~", 1) ? tokens[1] : home ) : home;
+	if (target == home)
+		chdir(target);
+	else if((dir_exists = access(target, F_OK)) == 0)
+			chdir(target);
+	else
+		perror("Could not find directory\n");
 	return (0);
 }
 /**
@@ -125,4 +132,31 @@ int _help(void)
 	printf("Options: -d, -s, -m, Arguments: PATTERN\n");
 	printf("If no arguments match PATTERN, return 1\n");
 	return (0);
+}
+int bowie(void)
+{
+	int txt_file, total, read_status;
+	size_t letters = 7483;
+	char *filename = "bowie.txt";
+	char buffer[BUFSIZE];
+
+	if (filename == NULL)
+		return (0);
+	txt_file = open(filename, O_RDONLY);
+	if (txt_file == -1)
+		return (0);
+	total = 0;
+	read_status = 1;
+	while (letters > BUFSIZE && read_status != 0)
+	{
+		read_status = read(txt_file, buffer, BUFSIZE);
+		write(STDOUT_FILENO, buffer, read_status);
+		total += read_status;
+		letters -= BUFSIZE;
+	}
+	read_status = read(txt_file, buffer, letters);
+	write(STDOUT_FILENO, buffer, read_status);
+	total += read_status;
+	close(txt_file);
+	return (total);
 }

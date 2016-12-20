@@ -88,7 +88,7 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 	{
 		abs_path = _strdup(ep->str);
 		abs_path = _strcat_realloc(abs_path, cmd);
-		status = access(abs_path, X_OK);
+		status = access(abs_path, F_OK | X_OK);
 		if (status == 0)
 			return(abs_path);
 		free(abs_path);

@@ -94,7 +94,7 @@ void reader(void)
 		if (is_alias(tokens[0]))
 			;
 		else if (is_builtin(tokens[0]))
-			is_builtin(tokens[0])(linkedlist_path, buffer, tokens);
+			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
 			executor(tokens, linkedlist_path);
 		free(tokens);

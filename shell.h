@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include <signal.h>
 #include <sys/wait.h>
+#include <fcntl.h>
 /* delete when functions are built */
 #include <string.h>
 /* end delete when functions are built */
@@ -40,11 +41,12 @@ typedef struct builtin_commands
 /* In builtins.h */
 int (*is_builtin(char *cmd))();
 int _env(void);
-int _exit_with_grace(env_t *linkedlist_path, char *buffer, char **tokens);
-int _cd(env_t *linkedlist_path, char *buffer, char **tokens);
+int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer);
+int _cd(char **tokens);
 int _alias(char *str);
 int _history(void);
 int _help(void);
+int bowie(void);
 
 /* in environment.c */
 env_t *add_node(env_t **head, char *str, unsigned int len);
