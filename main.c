@@ -3,7 +3,7 @@
 
 int main(void)
 {
-	printf("Dance Magic Dance\n");
+	write(STDOUT_FILENO, "Dance Magic Dance\n", 18);
 	reader();
 	return (0);
 }

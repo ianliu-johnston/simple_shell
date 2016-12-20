@@ -72,9 +72,24 @@ char **parser(char *str, char *delimit, char wd)
 }
 int is_alias(char *cmd)
 {
-	if(cmd == NULL)
+	if (cmd == NULL)
 		return (1);
 	return (0);
+}
+/** Global variable: Flag, to handle interrupt signals **/
+unsigned char flag = 0;
+/**
+  * sighandler - handles signals from keyboard interrupts
+  * @sig: the signal caught
+  */
+static void sighandler(int sig)
+{
+	char *prompt = "\nAnd baby says: ";
+
+	if (sig == SIGINT && flag == 0)
+		write(STDOUT_FILENO, prompt, _strlen(prompt));
+	else if (flag != 0)
+		write(STDOUT_FILENO, "\n", 1);
 }
 /**
   * reader - reads user input and forms it into a string.
@@ -83,11 +98,13 @@ void reader(void)
 {
 	char *prompt, *buffer, **tokens;
 	env_t *linkedlist_path;
-
+	if (signal(SIGINT, sighandler) == SIG_ERR)
+		perror("signal error\n");
 	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
 	{
+		flag = 0;
 		write(STDOUT_FILENO, prompt, _strlen(prompt));
 		buffer = _getline(STDIN_FILENO);
 		tokens = parser(buffer, "\n ", ' ');
@@ -96,7 +113,10 @@ void reader(void)
 		else if (is_builtin(tokens[0]))
 			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
+		{
+			flag = 1;
 			executor(tokens, linkedlist_path);
+		}
 		free(tokens);
 		free(buffer);
 	}

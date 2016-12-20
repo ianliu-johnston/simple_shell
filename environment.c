@@ -79,15 +79,26 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 	env_t *ep;
 
 	ep = linkedlist_path;
-	if (ep == NULL)
+	if (ep == NULL || cmd == NULL)
 	{
-		perror("List empty.\n");
+		perror("Essential pointers in search_os were NULL\n");
 		return(NULL);
+	}
+	if((_strncmp(cmd, "/", 1) == 0
+			|| _strncmp(cmd, "./", 2) == 0)
+			&& access(cmd, F_OK | X_OK) == 0)
+	{
+		abs_path = _strdup(cmd);
+		return (abs_path);
 	}
 	while (ep != NULL)
 	{
 		abs_path = _strdup(ep->str);
+		if (abs_path == NULL)
+			return (NULL);
 		abs_path = _strcat_realloc(abs_path, cmd);
+		if (abs_path == NULL)
+			return (NULL);
 		status = access(abs_path, F_OK | X_OK);
 		if (status == 0)
 			return(abs_path);
