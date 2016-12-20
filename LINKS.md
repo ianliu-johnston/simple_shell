@@ -34,9 +34,9 @@
 * [Some crazy in-depth thoughts on handling user input](http://www.azillionmonkeys.com/qed/userInput.html)
 * [Tutorials point simple strtok() example](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
 * [Difference between size_t and unsigned int](http://stackoverflow.com/questions/19732319/difference-between-size-t-and-unsigned-int) -- size_t is an unsigned struct definition that can accomodate any data types. ssize_t is the signed version of size_t.
-* [What are static functions?](http://www.geeksforgeeks.org/what-are-static-functions-in-c/)
+* [What are static functions?](http://www.geeksforgeeks.org/what-are-static-functions-in-c/) -- They are functions that are restricted to the source file they are referenced in.
 * [Testing File Access - GNU](https://www.gnu.org/software/libc/manual/html_node/Testing-File-Access.html)
-* [Differences between `exit()` and `_exit()`](http://www.unixguide.net/unix/programming/1.1.3.shtml)
+* [Differences between `exit()` and `_exit()`](http://www.unixguide.net/unix/programming/1.1.3.shtml) -- ``exit()`` is usually called only once in a function. ``_exit()`` is usually called by child processes from ``fork()``
 
 ## MISC
 * [Picture to ASCII Art](http://picascii.com/)
