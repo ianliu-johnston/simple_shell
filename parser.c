@@ -33,7 +33,7 @@ char *_getline(int file)
 	}
 	if (i == 0)
 	{
-		printf("EOF happened\n");
+		simple_print("EOF happened\n");
 		_memcpy(buffer, "exit", 5);
 		return (buffer);
 	}
@@ -84,12 +84,11 @@ unsigned char flag = 0;
   */
 static void sighandler(int sig)
 {
-	char *prompt = "\nAnd baby says: ";
 
 	if (sig == SIGINT && flag == 0)
-		write(STDOUT_FILENO, prompt, _strlen(prompt));
+		simple_print("\nAnd baby says: ");
 	else if (flag != 0)
-		write(STDOUT_FILENO, "\n", 1);
+		simple_print("\n");
 }
 /**
   * reader - reads user input and forms it into a string.
@@ -100,12 +99,11 @@ void reader(void)
 	env_t *linkedlist_path;
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
-	prompt = "And baby says: ";
 	linkedlist_path = list_from_path();
 	while (1)
 	{
 		flag = 0;
-		write(STDOUT_FILENO, prompt, _strlen(prompt));
+		simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
 		tokens = parser(buffer, "\n ", ' ');
 		if (is_alias(tokens[0]))

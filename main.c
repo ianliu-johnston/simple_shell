@@ -1,9 +1,8 @@
 #include "shell.h"
-#include <stdio.h>
 
 int main(void)
 {
-	write(STDOUT_FILENO, "Dance Magic Dance\n", 18);
+	simple_print("Dance Magic Dance!\n");
 	reader();
 	return (0);
 }

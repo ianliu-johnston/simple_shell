@@ -52,7 +52,7 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 	{
 		if (!_isdigit(tokens[1][i]))
 		{
-			write(STDIN_FILENO, "numeric argument required, exiting\n", 35);
+			simple_print("numeric argument required, exiting\n");
 			break;
 		}
 	}
@@ -63,7 +63,7 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 	buffer = NULL;
 	free(tokens);
 	tokens = NULL;
-	printf("All frees successful!\n");
+	simple_print("All frees successful!\n");
 	exit(exit_status);
 	perror("Exit failed\n");
 	return(-1);
@@ -129,38 +129,38 @@ int _help(char **tokens)
 {
 	if (!tokens[1])
 	{
-		printf("These shell commands are defined internally.\n");
-		printf("\texit <RETURN_CODE>\n\tcd [ - | ~ ] <DIRECTORY>\n\tenv\n\thelp <BUILTIN>\n");
+		simple_print("These shell commands are defined internally.\n");
+		simple_print("\texit <RETURN_CODE>\n\tcd [ - | ~ ] <DIRECTORY>\n\tenv\n\thelp <BUILTIN>\n");
 	}
 	else if(!_strncmp(tokens[1], "help", 5))
 	{
-		printf("help: usage: help <BUILTIN>\n");
-		printf("\tDisplays a help page for builtin functions.\n");
-		printf("\tWith no arguments, print a list of all builtins\n");
-		printf("\tIf no arguments match BUILTIN, return 1\n");
+		simple_print("help: usage: help <BUILTIN>\n");
+		simple_print("\tDisplays a help page for builtin functions.\n");
+		simple_print("\tWith no arguments, print a list of all builtins\n");
+		simple_print("\tIf no arguments match BUILTIN, return 1\n");
 	}
 	else if(!_strncmp(tokens[1], "cd", 3))
 	{
-		printf("cd: usage: cd [ - | ~ ] [DIRECTORY]\n");
-		printf("\tChange working directory to [DIRECTORY]\n");
-		printf("\t'cd' without any arguments or 'cd ~' brings the user to $HOME\n");
-		printf("\t'cd -' brings the user to the last accessed directory\n");
+		simple_print("cd: usage: cd [ - | ~ ] [DIRECTORY]\n");
+		simple_print("\tChange working directory to [DIRECTORY]\n");
+		simple_print("\t'cd' without any arguments or 'cd ~' brings the user to $HOME\n");
+		simple_print("\t'cd -' brings the user to the last accessed directory\n");
 	}
 	else if (!_strncmp(tokens[1], "env", 4))
 	{
-		printf("env: usage: env\n");
-		printf("\tPrints out the current environment\n\tAccepts no arguments\n");
+		simple_print("env: usage: env\n");
+		simple_print("\tPrints out the current environment\n\tAccepts no arguments\n");
 	}
 	else if (!_strncmp(tokens[1], "exit", 5))
 	{
-		printf("exit: usage: exit [n]\n\tExits the shell.\n");
-		printf("\tIf [n] is supplied, exit with status of [n], ");
-		printf("otherwise, exit status is 0\n");
+		simple_print("exit: usage: exit [n]\n\tExits the shell.\n");
+		simple_print("\tIf [n] is supplied, exit with status of [n], ");
+		simple_print("otherwise, exit status is 0\n");
 	}
 	else if (!_strncmp(tokens[1], "history", 8))
 	{
-		printf("history: usage: history [-c]\n\tView the history of commands\n");
-		printf("\t'history -c' clears the history\n");
+		simple_print("history: usage: history [-c]\n\tView the history of commands\n");
+		simple_print("\t'history -c' clears the history\n");
 	}
 	else
 	{

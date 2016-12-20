@@ -2,6 +2,7 @@
 /**
   * _getenv - gets value of environment variable
   */
+/**
 char *_getenv(const char *name)
 {
 	int i, j, len;
@@ -19,7 +20,6 @@ char *_getenv(const char *name)
 /**
   * main - entry point
   * Return: 0
-  */
 int main(void)
 {
 	char *home;
@@ -28,3 +28,4 @@ int main(void)
 	printf("%s\n", home);
 	return (0);
 }
+**/

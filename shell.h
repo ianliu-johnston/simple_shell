@@ -85,5 +85,5 @@ int _isdigit(int c);
 
 /* In string_operations_2.c */
 unsigned int word_count(char *str, char delim);
-
+void simple_print(const char *str);
 #endif

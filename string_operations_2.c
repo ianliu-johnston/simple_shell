@@ -12,3 +12,18 @@ unsigned int word_count(char *str, char delim)
 	}
 	return (wc);
 }
+int _strlen_const(const char *s)
+{
+	int i;
+
+	for (i = 0; s[i] != '\0'; i++)
+		;
+	return (i);
+}
+void simple_print(const char *str)
+{
+	int len;
+
+	len = _strlen_const(str);
+	write(STDOUT_FILENO, str, len);
+}

@@ -5,9 +5,9 @@
   */
 int _alias(void)
 {
-	printf("alias: usage: alias [-p] [name[=value] ... ]\n");
-	printf("\tSet or view aliases.\n\tSet with name=value\n");
-	printf("\tView list of aliases with no arugments or -p\n");
+	simple_print("alias: usage: alias [-p] [name[=value] ... ]\n");
+	simple_print("\tSet or view aliases.\n\tSet with name=value\n");
+	simple_print("\tView list of aliases with no arugments or -p\n");
 	return (0);
 }
 /**
@@ -17,9 +17,9 @@ int _alias(void)
   */
 int _history(void)
 {
-	printf("history: usage: history [-c]\n");
-	printf("\tView the history of commands\n ");
-	printf("\t'history -c' clears the history\n");
+	simple_print("history: usage: history [-c]\n");
+	simple_print("\tView the history of commands\n ");
+	simple_print("\t'history -c' clears the history\n");
 	return (0);
 }
 /**
