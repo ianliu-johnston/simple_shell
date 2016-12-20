@@ -29,22 +29,13 @@
 
 ## C Programming
 * [Primary Resource, The Linux Programming Interface](https://www.nostarch.com/tlpi) Kerrisk, Michael. <em>The Linux Programming Interface: A Linux and UNIX System Programming Handbook.<em> San Francisco: No Starch, 2010. Print. 
-
-### getline() function
 * [About Getline](https://blog.udemy.com/c-getline/)
 * [Purdue CS Overview of Shell Structure](https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf)
 * [Some crazy in-depth thoughts on handling user input](http://www.azillionmonkeys.com/qed/userInput.html)
-
-### strtok() function
-* [Tutorials point simple example](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
-
-### Data types
+* [Tutorials point simple strtok() example](https://www.tutorialspoint.com/c_standard_library/c_function_strtok.htm)
 * [Difference between size_t and unsigned int](http://stackoverflow.com/questions/19732319/difference-between-size-t-and-unsigned-int) -- size_t is an unsigned struct definition that can accomodate any data types. ssize_t is the signed version of size_t.
-
-### File Access
+* [What are static functions?](http://www.geeksforgeeks.org/what-are-static-functions-in-c/)
 * [Testing File Access - GNU](https://www.gnu.org/software/libc/manual/html_node/Testing-File-Access.html)
-
-### MISC C programming
 * [Differences between `exit()` and `_exit()`](http://www.unixguide.net/unix/programming/1.1.3.shtml)
 
 ## MISC
