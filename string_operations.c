@@ -20,7 +20,7 @@ int _strncmp(char *s1, char *s2, size_t bytes)
   * @src: source to copy from
   * Return: pointer to malloc'd space
   **/
-void *_strdup(char *src)
+char *_strdup(char *src)
 {
 	int len, i;
 	char *dest;

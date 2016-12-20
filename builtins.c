@@ -87,16 +87,34 @@ int _cd(char **tokens)
 {
 	int dir_exists;
 	char *target;
+	char pwd[BUFSIZE];
 	char *home;
 
-	home = getenv("HOME");
+	home = _getenv("HOME");
+	if (tokens[1])
+	{
+		if (_strncmp(tokens[1], "~", 1))
+			target = tokens[1];
+		else
+			target = home;
+		if (_strncmp(tokens[1], "-", 1))
+			target = tokens[1];
+		else
+			target = _getenv("OLDPWD");
+	}
+	else
+		target = home;
+	/*
 	target = tokens[1] ? (_strncmp(tokens[1], "~", 1) ? tokens[1] : home ) : home;
+	*/
 	if (target == home)
 		chdir(target);
-	else if((dir_exists = access(target, F_OK)) == 0)
+	else if((dir_exists = access(target, F_OK | R_OK)) == 0)
 			chdir(target);
 	else
 		perror("Could not find directory\n");
+	_setenv("OLDPWD", _getenv("PWD"), 1);
+	_setenv("PWD", getcwd(pwd, sizeof(pwd)), 1);
 	return (0);
 }
 /**

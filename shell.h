@@ -13,7 +13,6 @@
 
 #define BUFSIZE 1024
 extern char **environ;
-
 /**
   * struct environ_path - linked list from PATH
   * @path: path in the format /usr/bin
@@ -78,7 +77,7 @@ char *_strtok_r(char *str, char *delim, char **saveptr);
 /* In string_operations.c */
 int _strlen(char *s);
 int _strncmp(char *s1, char *s2, size_t bytes);
-void *_strdup(char *src);
+char *_strdup(char *src);
 char *_strcat_realloc(char *dest, char *src);
 int _atoi(char *s);
 
