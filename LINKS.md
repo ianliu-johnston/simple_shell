@@ -8,6 +8,7 @@
 * [Manage and create new branches](https://github.com/Kunena/Kunena-Forum/wiki/Create-a-new-branch-with-git-and-manage-branches)
 * [Basics of branching and merging](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Branch Management](https://git-scm.com/book/en/v2/Git-Branching-Branch-Management)
+* [Delete local and remote branches](http://stackoverflow.com/questions/2003505/how-to-delete-a-git-branch-both-locally-and-remotely)
 * git repository management commands: 
 	* ``git diff <file>`` Displays the differences between your local repository and what is in the public repo
 	* ``git reset`` Resets your local repository to the current working state. 
