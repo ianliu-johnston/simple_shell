@@ -43,10 +43,19 @@ int (*is_builtin(char *cmd))()
   */
 int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 {
-	int exit_status;
+	unsigned char exit_status;
+	int i;
 
-	exit_status = tokens[1] ? _atoi(tokens[1]) : 0;
-	printf("exit status = %d\n", exit_status);
+	for (i = 0; tokens[1] && tokens[1][i]; i++)
+	{
+		if (!_isdigit(tokens[1][i]))
+		{
+			write(STDIN_FILENO, "numeric argument required, exiting\n", 35);
+			break;
+		}
+	}
+	exit_status = tokens[1] && i >= _strlen(tokens[1]) ? _atoi(tokens[1]) : 0;
+	printf("exit status = %u\n", exit_status);
 	free_list(linkedlist_path);
 	linkedlist_path = NULL;
 	printf("linked list freed\n");
@@ -85,7 +94,6 @@ int _env(void)
   */
 int _cd(char **tokens)
 {
-	int dir_exists;
 	char *target;
 	char pwd[BUFSIZE];
 	char *home;
@@ -104,12 +112,9 @@ int _cd(char **tokens)
 	}
 	else
 		target = home;
-	/*
-	target = tokens[1] ? (_strncmp(tokens[1], "~", 1) ? tokens[1] : home ) : home;
-	*/
 	if (target == home)
 		chdir(target);
-	else if((dir_exists = access(target, F_OK | R_OK)) == 0)
+	else if(access(target, F_OK | R_OK) == 0)
 			chdir(target);
 	else
 		perror("Could not find directory\n");
