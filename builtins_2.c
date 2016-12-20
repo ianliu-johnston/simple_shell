@@ -1,7 +1,7 @@
 #include "shell.h"
 /**
   * _alias - sets aliases or prints them out when no options are supplied
-  * @str: argument list
+  * Return: 0
   */
 int _alias(void)
 {
@@ -13,7 +13,6 @@ int _alias(void)
 /**
   * _history - prints out history with no options,
   *  or clears history with -c
-  * @tokens: list of arguments. tokens[1] is the only one needed
   * Return: 0 on success, 1 if history cannot be cleared.
   */
 int _history(void)
@@ -53,7 +52,5 @@ int bowie(void)
 	total += read_status;
 	close(txt_file);
 	return (1947);
-	/*
-	return (total);
-	*/
+/**	return (total); */
 }

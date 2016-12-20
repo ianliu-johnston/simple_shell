@@ -15,19 +15,19 @@
 extern char **environ;
 /**
   * struct environ_path - linked list from PATH
-  * @path: path in the format /usr/bin
+  * @str: path in the format /usr/bin
   * @len: length of the string
   * @next: points to the next node
   */
-typedef struct environ_path
+typedef struct environ_type
 {
 	char *str;
 	unsigned int len;
-	struct environ_path *next;
+	struct environ_type *next;
 } env_t;
 
 /**
-  * builtin_commands - stuct for function pointers to builtin commands 
+  * struct builtin_commands - stuct for function pointers to builtin commands
   * @cmd_str: commands (env, cd, alias, history, help)
   * @fun: function
   */
