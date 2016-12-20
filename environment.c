@@ -47,7 +47,7 @@ env_t *list_from_path(void)
 
 	ep = NULL;
 	len = i = j = 0;
-	env = getenv("PATH");
+	env = _getenv("PATH");
 	while (*env)
 	{
 		buffer[j++] = *env;
@@ -75,15 +75,16 @@ void free_list(env_t *head)
 char *search_os(char *cmd, env_t *linkedlist_path)
 {
 	int status;
+	unsigned int wc;
 	char *abs_path;
+	char *path;
+	char *token;
+	char *saveptr;
+	/*
 	env_t *ep;
-
 	ep = linkedlist_path;
 	if (ep == NULL || cmd == NULL)
-	{
-		perror("Essential pointers in search_os were NULL\n");
-		return(NULL);
-	}
+	*/
 	if((_strncmp(cmd, "/", 1) == 0
 			|| _strncmp(cmd, "./", 2) == 0)
 			&& access(cmd, F_OK | X_OK) == 0)
@@ -91,6 +92,13 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 		abs_path = _strdup(cmd);
 		return (abs_path);
 	}
+	path = _getenv("PATH");
+	if (path == NULL || cmd == NULL)
+	{
+		perror("Essential pointers in search_os were NULL\n");
+		return(NULL);
+	}
+	/*
 	while (ep != NULL)
 	{
 		abs_path = _strdup(ep->str);
@@ -105,11 +113,39 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 		free(abs_path);
 		ep = ep->next;
 	}
+	*/
+	wc = word_count(path, ':');
+	token = _strtok(path, ":", &saveptr);
+	while (wc >= 0)
+	{
+		abs_path = _strdup(token);
+		if (abs_path == NULL)
+			return (NULL);
+		abs_path = _strcat_realloc(abs_path, cmd);
+		if (abs_path == NULL)
+			return (NULL);
+		status = access(abs_path, F_OK | X_OK);
+		if (status == 0)
+			return(abs_path);
+		free(abs_path);
+		token = _strtok(NULL, ":", &saveptr);
+	}
 	return (NULL);
 }
 char *_getenv(const char *name)
 {
-	return (getenv(name));
+	int i;
+	char *token, *saveptr, *tmpname, **env;
+
+	env = environ;
+	tmpname = _strdup((char *)name);
+	for (i = 0; env[i] != NULL; i++)
+	{
+		token = _strtok_r(env[i], "=", &saveptr);
+		if (_strncmp(tmpname, token, _strlen(token)) == 0)
+			return (_strtok_r(NULL, "=", &saveptr));
+	}
+	return (NULL);
 }
 
 int _setenv(const char *name, const char *value, int overwrite)
