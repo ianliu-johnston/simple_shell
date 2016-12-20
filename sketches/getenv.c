@@ -4,16 +4,17 @@
   */
 char *_getenv(const char *name)
 {
-	int i, j, len;
-	char **env;
+	int i;
+	char *token, *saveptr, *tmpname, **env;
 
 	env = environ;
-	for (len = 0; name[len]; len++)
-		;
-	for (i = 0; env[i]; i++)
-		for ( j = 0; j < len && name[j] == env[i][j]; j++)
-			if (j == len)
-				return(env[i]);
+	tmpname = _strdup((char *)name);
+	for (i = 0; env[i] != NULL; i++)
+	{
+		token = _strtok_r(env[i], "=", &saveptr);
+		if (_strncmp(tmpname, token, _strlen(token)) == 0)
+			return (_strtok_r(NULL, "=", &saveptr));
+	}
 	return (NULL);
 }
 /**
@@ -24,7 +25,11 @@ int main(void)
 {
 	char *home;
 
-	home = _getenv("HOME");
-	printf("%s\n", home);
+	home = _getenv("PATH");
+	if (home == NULL)
+		printf("Funky");
+	else
+		printf("%s\n", home);
+
 	return (0);
 }
