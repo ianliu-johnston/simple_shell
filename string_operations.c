@@ -78,3 +78,12 @@ int _atoi(char *s)
 		result *= -1;
 	return (result);
 }
+/**
+  * _isdigit - checks if chars are digits
+  * @c: char to check
+  * Return: 1 if yes, 0 if no
+  */
+int _isdigit(int c)
+{
+	return((c >= '0' && c <= '9') ? 1 : 0);
+}
