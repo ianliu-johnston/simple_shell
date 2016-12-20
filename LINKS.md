@@ -19,6 +19,7 @@
 	* ``git pull`` Automatically merges commits from the remote repository without letting you review them first
 	* ``git branch -d <branch_name>`` Deletes a branch that has been merged.
 	* ``git branch -D <branch_name>`` Force deletes a branch that has not been fully merged. May loose unmerged work!
+	* ``git push origin --delete <branch_name`` Force deletes a branch locally and remote.
 
 ## Linux History
 * [Cannonical: Ken Thompson and Dennis Ritchie explain UNIX](https://www.youtube.com/watch?v=XvDZLjaCJuw)
