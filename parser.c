@@ -95,7 +95,7 @@ static void sighandler(int sig)
   */
 void reader(void)
 {
-	char *prompt, *buffer, **tokens;
+	char *buffer, **tokens;
 	env_t *linkedlist_path;
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
