@@ -80,6 +80,7 @@ int _strncmp(char *s1, char *s2, size_t bytes);
 char *_strdup(char *src);
 char *_strcat_realloc(char *dest, char *src);
 int _atoi(char *s);
+int _isdigit(int c);
 
 /* In string_operations_2.c */
 unsigned int word_count(char *str, char delim);
