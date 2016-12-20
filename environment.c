@@ -107,9 +107,22 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 	}
 	return (NULL);
 }
+/**
+  * _getenv - gets value of environment variable
+  */
 char *_getenv(const char *name)
 {
-	return (getenv(name));
+	int i, j, len;
+	char **env;
+
+	env = environ;
+	for (len = 0; name[len]; len++)
+		;
+	for (i = 0; env[i]; i++)
+		for ( j = 0; j < len && name[j] == env[i][j]; j++)
+			if (j == len)
+				return(env[i]);
+	return (NULL);
 }
 
 int _setenv(const char *name, const char *value, int overwrite)
