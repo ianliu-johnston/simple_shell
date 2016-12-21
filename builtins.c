@@ -87,7 +87,7 @@ int _env(char **tokens, env_t *environment)
   * _cd - changes working directory
   * @str: argument list
   */
-int _cd(char **tokens, env_t environment)
+int _cd(char **tokens)
 {
 	char *target;
 	char pwd[BUFSIZE];
@@ -113,8 +113,8 @@ int _cd(char **tokens, env_t environment)
 			chdir(target);
 	else
 		perror("Could not find directory\n");
-	_setenv("OLDPWD", _getenv("PWD"), 1);
-	_setenv("PWD", getcwd(pwd, sizeof(pwd)), 1);
+	setenv("OLDPWD", _getenv("PWD"), 1);
+	setenv("PWD", getcwd(pwd, sizeof(pwd)), 1);
 	return (0);
 }
 /**

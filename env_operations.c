@@ -11,17 +11,6 @@ char *_getenv(const char *name)
 
 	env = environ;
 	tmpname = _strdup((char *)name);
-	while (env)
-	{
-		token = _strtok_r(env->str, "=", &saveptr);
-		if (_strncmp(tmpname, token, env->len) == 0)
-		{
-			free(tmpname);
-			return (_strtok_r(NULL, "=", &saveptr));
-		}
-		env = env->next;
-	}
-	/*
 	for (i = 0; env[i] != NULL; i++)
 	{
 		token = _strtok_r(env[i], "=", &saveptr);
@@ -31,7 +20,6 @@ char *_getenv(const char *name)
 			return (_strtok_r(NULL, "=", &saveptr));
 		}
 	}
-	*/
 	free(tmpname);
 	return (NULL);
 }
@@ -86,4 +74,3 @@ int _setenv(const char *name, const char *value, int overwrite)
 			*/
 	   return (0);
 }
-

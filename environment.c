@@ -49,6 +49,10 @@ env_t *environ_linked_list(void)
 	}
 	return (ep);
 }
+env_t *linked_list_to_arr(env_t *env_list)
+{
+	return (env_list);
+}
 /**
   * search_os - search through os to find a command
   * @cmd: command to search for
