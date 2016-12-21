@@ -72,7 +72,7 @@ int _setenv(const char *name, const char *value, int overwrite)
 	}
 	if (overwrite && _getenv(name) != NULL)
 	{
-		sasdd;
+		;
 	}
 	return (0);
 }
