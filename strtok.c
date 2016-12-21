@@ -41,12 +41,18 @@ unsigned int _strspn(char *s, char *accept)
 	}
 	return (result);
 }
+/**
+ * _strpbrk - replicates strpbrk from standard library
+ * @s: haystack
+ * @accept: needle
+ * Return: pointer to first occurence in s of anything in accept
+ */
 char *_strpbrk(char *s, char *accept)
 {
 	char *temp;
 
 	temp = accept;
-	for (; *s!= '\0'; s++)
+	for (; *s != '\0'; s++)
 	{
 		while (*accept != '\0')
 		{
@@ -61,42 +67,37 @@ char *_strpbrk(char *s, char *accept)
 
 	return (s);
 }
+/**
+ * _strtok_r - replicates strtok_r, a tokenizer
+ * @s: string to be tokenized
+ * @delim: delimiter that determines where we split s
+ * @save_ptr: saves index in tokenized s so that repeated fn calls fetch tokens
+ * Return: pointer to next token
+ */
 char *_strtok_r(char *s, char *delim, char **save_ptr)
 {
-        char *token;
-        if (s == NULL)
-        {
-                if (*save_ptr == NULL)
-                        return (NULL);
-                s = *save_ptr;
-        }
-        s += _strspn(s, delim);
-        if (*s == '\0')
-        {
-                *save_ptr = NULL;
-                return (NULL);
-        }
-        token = s;
-        s = _strpbrk(token, delim);
-        if (s == NULL)
-                *save_ptr = NULL;
-        else
-        {
-		*s = '\0';
-                *save_ptr = s + 1;
-        }
-        return (token);
-}
-/**
+	char *token;
+
+	if (s == NULL)
+	{
+		if (*save_ptr == NULL)
+			return (NULL);
+		s = *save_ptr;
+	}
+	s += _strspn(s, delim);
+	if (*s == '\0')
+	{
+		*save_ptr = NULL;
+		return (NULL);
+	}
 	token = s;
 	s = _strpbrk(token, delim);
 	if (s == NULL)
-		*saveptr = NULL;
+		*save_ptr = NULL;
 	else
 	{
 		*s = '\0';
-		*saveptr = s + 1;
+		*save_ptr = s + 1;
 	}
 	return (token);
 }
-*/
