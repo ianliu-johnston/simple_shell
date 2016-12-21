@@ -17,7 +17,7 @@ env_t *list_from_path(void)
 	{
 		buffer[j++] = *env;
 		len++;
-		if(*env == ':')
+		if (*env == ':')
 		{
 			len--;
 			buffer[j - 1] = '/';
@@ -30,7 +30,7 @@ env_t *list_from_path(void)
 	return (ep);
 }
 /**
-  * list_from_path - builds a linked list from PATH
+  * environ_linked_list - builds a linked list from PATH
   * Return: pointer to linked list
   */
 env_t *environ_linked_list(void)
@@ -49,6 +49,11 @@ env_t *environ_linked_list(void)
 	}
 	return (ep);
 }
+/**
+ * linked_list_to_arr - not yet implemented. Will convert LL to array
+ * @env_list: LL to convert to array
+ * Return: just its parameter for now, pointer to array later
+ */
 env_t *linked_list_to_arr(env_t *env_list)
 {
 	return (env_list);
@@ -69,9 +74,9 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 	if (ep == NULL || cmd == NULL)
 	{
 		perror("Essential pointers in search_os were NULL\n");
-		return(NULL);
+		return (NULL);
 	}
-	if((_strncmp(cmd, "/", 1) == 0
+	if ((_strncmp(cmd, "/", 1) == 0
 			|| _strncmp(cmd, "./", 2) == 0)
 			&& access(cmd, F_OK | X_OK) == 0)
 	{
@@ -88,7 +93,7 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 			return (NULL);
 		status = access(abs_path, F_OK | X_OK);
 		if (status == 0)
-			return(abs_path);
+			return (abs_path);
 		free(abs_path);
 		ep = ep->next;
 	}
