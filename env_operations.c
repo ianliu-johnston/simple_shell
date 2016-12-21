@@ -64,8 +64,8 @@ int _setenv(const char *name, const char *value, int overwrite)
 	envir = environ_linked_list();
 	/* Checks if name is empty or pointer is NULL*/
 	if (name == NULL || *name == '\0' || value == NULL)
-	   return (-1);
-	if(!overwrite && _getenv(name) != NULL)
+		return (-1);
+	if (!overwrite && _getenv(name) != NULL)
 	{
 		perror("Cannot overwrite variable\n");
 		return (-1);
@@ -76,14 +76,3 @@ int _setenv(const char *name, const char *value, int overwrite)
 	}
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
