@@ -92,7 +92,7 @@ vagrant:simple_shell$
 #### Recreate standard library functions
 - [x] getline
 - [x] strtok
-- [ ] getenv
+- [x] getenv
 - [ ] setenv
 - [ ] unsetenv
 
@@ -100,7 +100,7 @@ vagrant:simple_shell$
 - [x] register builtins before executing commands
 - [x] cd
 - [ ] alias
-- [ ] help
+- [x] help
 - [ ] history
 - [ ] Deal with variables
 - [ ] Scripts as input
@@ -112,8 +112,6 @@ vagrant:simple_shell$
 - [x] Two unfreed mallocs somewhere. (Check with Valgrind.)
 - [ ] Only delimiters handled are spaces and newlines.
 - [ ] Optimization: Change the linked list for path to an array of strings
-- [ ] ``_exit_with_grace()`` should have a void type.
-- [ ] Change input type for ``_exit_with_grace()`` to a variadic function, instead of declaring each free call separately.
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
