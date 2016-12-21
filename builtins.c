@@ -43,7 +43,7 @@ int (*is_builtin(char *cmd))()
  (* * CHANGE TO VARIADIC LIST.
   * Return: -1 if exit fails.
   */
-int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
+int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, char *buffer)
 {
 	unsigned char exit_status;
 	int i;
@@ -59,6 +59,8 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 	exit_status = tokens[1] && i >= _strlen(tokens[1]) ? _atoi(tokens[1]) : 0;
 	free_list(linkedlist_path);
 	linkedlist_path = NULL;
+	free_list(environment);
+	environment = NULL;
 	free(buffer);
 	buffer = NULL;
 	free(tokens);
@@ -72,25 +74,20 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
   * _env - prints out the current environment
   * Return: 0 on success, -1 on catastrophic failure
   */
-int _env(void)
+int _env(char **tokens, env_t *environment)
 {
-	char **envir;
-
-	envir = environ;
-	if (!envir || !environ)
+	if (tokens[1])
+		simple_print("No arguments are necessary\n");
+	if (environment == NULL)
 		return (-1);
-	for ( ; *envir; envir++)
-	{
-		write(STDOUT_FILENO, *envir, _strlen(*envir));
-		write(STDOUT_FILENO, "\n", 1);
-	}
+	print_list(environment);
 	return (0);
 }
 /**
   * _cd - changes working directory
   * @str: argument list
   */
-int _cd(char **tokens)
+int _cd(char **tokens, env_t environment)
 {
 	char *target;
 	char pwd[BUFSIZE];

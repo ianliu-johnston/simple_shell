@@ -39,8 +39,8 @@ typedef struct builtin_commands
 
 /* In builtins.c */
 int (*is_builtin(char *cmd))();
-int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer);
-int _env(void);
+int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, char *buffer);
+int _env(char **tokens, env_t *environment);
 int _cd(char **tokens);
 int _help(char **tokens);
 /* In builtins_2.c */
@@ -49,13 +49,18 @@ int _history(void);
 int bowie(void);
 
 /* in environment.c */
-env_t *add_node(env_t **head, char *str, unsigned int len);
 env_t *list_from_path(void);
-void free_list(env_t *head);
+env_t *environ_linked_list(void);
 char *search_os(char *cmd, env_t *linkedlist_path);
+
+/* in env_operations.c */ 
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 int _unsetenv(const char *name);
+
+/* in linked_list_operations.c */
+env_t *add_node(env_t **head, char *str, unsigned int len);
+void free_list(env_t *head);
 
 
 /* In executor.c */
@@ -86,4 +91,7 @@ int _isdigit(int c);
 /* In string_operations_2.c */
 unsigned int word_count(char *str, char delim);
 void simple_print(const char *str);
+int _strlen_const(const char *s);
+size_t print_list(const env_t *h);
+
 #endif
