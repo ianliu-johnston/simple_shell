@@ -14,7 +14,7 @@
 #define BUFSIZE 1024
 extern char **environ;
 /**
-  * struct environ_path - linked list from PATH
+  * struct environ_type - linked list from PATH
   * @str: path in the format /usr/bin
   * @len: length of the string
   * @next: points to the next node
@@ -56,7 +56,7 @@ env_t *list_from_path(void);
 env_t *environ_linked_list(void);
 char *search_os(char *cmd, env_t *linkedlist_path);
 
-/* in env_operations.c */ 
+/* in env_operations.c */
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
 int _unsetenv(const char *name);
