@@ -15,7 +15,7 @@ void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
 	{
 		buff = malloc(new_size);
 		if (buff == NULL)
-			return(NULL);
+			return (NULL);
 		return (buff);
 	}
 	if (new_size == old_size)
@@ -34,17 +34,29 @@ void *_realloc(char *ptr, unsigned int old_size, unsigned int new_size)
 		for (i = 0; i < old_size; i++)
 			buff[i] = tmp[i];
 		free(ptr);
-		return(buff);
+		return (buff);
 	}
 	return (ptr);
 }
-
+/**
+ * _memset - fills a given string with n number of fill chars
+ * @str: string to be filled with fill
+ * @fill: the char to put into str
+ * @n: the number of chars to fill
+ */
 void _memset(char *str, int fill, int n)
 {
 	int i;
+
 	for (i = 0; i < n; i++)
 		str[i] = fill;
 }
+/**
+ * _memcpy - copies part or all of string src to string dest
+ * @dest: destination string
+ * @src: source string
+ * @bytes: number of bytes to copy
+ */
 void _memcpy(char *dest, char *src, unsigned int bytes)
 {
 	unsigned int i;
