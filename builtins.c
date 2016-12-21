@@ -43,7 +43,7 @@ int (*is_builtin(char *cmd))()
  (* * CHANGE TO VARIADIC LIST.
   * Return: -1 if exit fails.
   */
-int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, char *buffer)
+int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 {
 	unsigned char exit_status;
 	int i;
@@ -59,8 +59,6 @@ int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, 
 	exit_status = tokens[1] && i >= _strlen(tokens[1]) ? _atoi(tokens[1]) : 0;
 	free_list(linkedlist_path);
 	linkedlist_path = NULL;
-	free_list(environment);
-	environment = NULL;
 	free(buffer);
 	buffer = NULL;
 	free(tokens);
@@ -76,11 +74,25 @@ int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, 
   */
 int _env(char **tokens, env_t *environment)
 {
+	char **envir;
+
 	if (tokens[1])
 		simple_print("No arguments are necessary\n");
+	envir = environ;
+	if (!envir || !environ)
+		return (-1);
+	for ( ; *envir; envir++)
+	{
+		write(STDOUT_FILENO, *envir, _strlen(*envir));
+		write(STDOUT_FILENO, "\n", 1);
+	}
+	/*
+	printf("ENVIRONMENT LINKED LIST\n");
 	if (environment == NULL)
 		return (-1);
 	print_list(environment);
+	*/
+	environment++;
 	return (0);
 }
 /**
@@ -158,6 +170,14 @@ int _help(char **tokens)
 	{
 		simple_print("history: usage: history [-c]\n\tView the history of commands\n");
 		simple_print("\t'history -c' clears the history\n");
+	}
+	else if (!_strncmp(tokens[1], "setenv", 6))
+	{
+		simple_print("setenv: usage: setenv KEY=VALUE\n");
+		simple_print("\tsetenv creates environmental variables with KEY=VALUE\n");
+		simple_print("\tIt always overwrites existing variables\n");
+		simple_print("\tThe command fails if the number of arguments is not exactly 1\n");
+		simple_print("\tor if the argument is not in the format KEY=VALUE\n");
 	}
 	else
 	{

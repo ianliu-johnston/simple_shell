@@ -39,13 +39,13 @@ typedef struct builtin_commands
 
 /* In builtins.c */
 int (*is_builtin(char *cmd))();
-int _exit_with_grace(char **tokens, env_t *environment, env_t *linkedlist_path, char *buffer);
+int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer);
 int _env(char **tokens, env_t *environment);
 int _cd(char **tokens);
 int _help(char **tokens);
 
 /* In builtins_2.c */
-int _setenv_usr(void);
+int _setenv_usr(char **tokens);
 int _unsetenv_usr(void);
 int _alias(void);
 int _history(void);

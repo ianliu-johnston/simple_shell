@@ -96,11 +96,10 @@ static void sighandler(int sig)
 void reader(void)
 {
 	char *buffer, **tokens;
-	env_t *linkedlist_path, *environment;
+	env_t *linkedlist_path;
 
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
-	environment = environ_linked_list();
 	linkedlist_path = list_from_path();
 	while (1)
 	{
@@ -111,7 +110,7 @@ void reader(void)
 		if (is_alias(tokens[0]))
 			;
 		else if (is_builtin(tokens[0]))
-			is_builtin(tokens[0])(tokens, environment, linkedlist_path, buffer);
+			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
 		{
 			flag = 1;

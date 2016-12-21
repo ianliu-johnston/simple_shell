@@ -1,9 +1,32 @@
 #include "shell.h"
-int _setenv_usr(void)
+/**
+  * _setenv_usr - sets environmental variables as user defines
+  * @tokens: KEY=VALUE pair
+  * Return: 0 on success, -1 on failure
+  */
+int _setenv_usr(char **tokens)
 {
-	return (0);
+	int i, status, wc;
+	char *key, *value, *saveptr;
+
+	i = 0;
+	while (tokens[i])
+		i++;
+	wc = word_count(tokens[1], '=');
+	if (!tokens[1] || i == 0 || wc != 2)
+	{
+		simple_print("setenv: Usage: setenv KEY=VALUE\n");
+		return (-1);
+	}
+	key = _strtok_r(tokens[1], "=", &saveptr);
+	value = _strtok_r(NULL, "=", &saveptr);
+	status = setenv(key, value, 0);
+	if (status == 0)
+		return (status);
+	return (-1);
 }
-int _unsetenv_usr(void);
+
+int _unsetenv_usr(void)
 {
 	return (0);
 }

@@ -6,21 +6,37 @@
   */
 char *_getenv(const char *name)
 {
-	int i;
-	char *token, *saveptr, *tmpname, **env;
+	int i, j, len;
+	char **env, *tmp;
 
+	if (!name)
+		return (NULL);
 	env = environ;
-	tmpname = _strdup((char *)name);
-	for (i = 0; env[i] != NULL; i++)
+	for (i = 0; env[i]; i++)
 	{
-		token = _strtok_r(env[i], "=", &saveptr);
-		if (_strncmp(tmpname, token, _strlen(token)) == 0)
+		for (len = 0; env[i][len] != '='; len++)
+			;
+		len++;
+		tmp = malloc((len) * sizeof(char));
+		_memcpy(tmp, env[i], len - 1);
+		tmp[len - 1] = '\0';
+		if (_strncmp((char *)name, tmp, _strlen(tmp)) == 0)
 		{
-			free(tmpname);
-			return (_strtok_r(NULL, "=", &saveptr));
+			free(tmp);
+			tmp = NULL;
+			for (j = 0; env[i][j]; j++)
+			{
+				if (env[i][j] == '=')
+				{
+					tmp = &env[i][j + 1];
+					break;
+				}
+			}
+			return (tmp);
 		}
+		free(tmp);
+		tmp = NULL;
 	}
-	free(tmpname);
 	return (NULL);
 }
 /**
@@ -37,37 +53,37 @@ int _unsetenv(const char *name)
   * @name: name of key=value pair
   * @value: value of the key=value pair
   * @overwrite: flag to determine whether to update if key exists
-  * Return: Success or failure
+  * Return: 0 on success or -1 on failure
   */
 int _setenv(const char *name, const char *value, int overwrite)
 {
-       int i, len_value;
-       char *temp, **env;
-       env_t *envir;
+	int i, len_value;
+	char *temp;
+	env_t *envir;
 
-       envir = environ_linked_list();
-
-       if (name == NULL || *name == '\0')
-		   return (0);
-       for (i = 0; name[i] != '\0'; i++)
-       {
-		   if (name[i] == '=')
-			   return (0);
-       }
-       len_value = _strlen_const(value);
-
-       if ((temp = _getenv(name)) != NULL)
-       {
-		   if (overwrite == 0)
-			   return (0);
-		/*unset and add node*/
-       }
-	   len_value++;
-	   /*
-       else
-	   */
-		   /*
-			add_node
-			*/
-	   return (0);
+	envir = environ_linked_list();
+	/* Checks if name is empty or pointer is NULL*/
+	if (name == NULL || *name == '\0' || value == NULL)
+	   return (-1);
+	if(!overwrite && _getenv(name) != NULL)
+	{
+		perror("Cannot overwrite variable\n");
+		return (-1);
+	}
+	if (overwrite && _getenv(name) != NULL)
+	{
+		sasdd;
+	}
+	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
