@@ -43,12 +43,9 @@ int _setenv(const char *name, const char *value, int overwrite)
 {
        int i, len_value;
        char *temp, **env;
-       env_t *path;
+       env_t *envir;
 
-       env = environ;
-       path = list_from_path();
-	   env++;
-	   path++;
+       envir = environ_linked_list();
 
        if (name == NULL || *name == '\0')
 		   return (0);
