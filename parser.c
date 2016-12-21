@@ -1,5 +1,9 @@
 #include "shell.h"
-
+/**
+ * _getline - gets line from STDIN and places it in the buffer
+ * @file: int assigned to the read of STDIN
+ * Return: pointer to buffer with formatted input from STDIN
+ */
 char *_getline(int file)
 {
 	unsigned int i, index;
@@ -43,6 +47,8 @@ char *_getline(int file)
 /**
   * parser - parses a string into tokens
   * @str: string to parse
+  * @delimit: delimiters chosen by user
+  * @wd: char to determine wordcount of string
   * Return: Double pointer to array of tokens
   */
 char **parser(char *str, char *delimit, char wd)
@@ -70,6 +76,11 @@ char **parser(char *str, char *delimit, char wd)
 	}
 	return (tokenized);
 }
+/**
+ * is_alias - not really implemented. Checks if a command has an alias
+ * @cmd: command as string
+ * Return: 0 for now
+ */
 int is_alias(char *cmd)
 {
 	if (cmd == NULL)
