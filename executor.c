@@ -2,6 +2,7 @@
 /**
   * executor - executes a command from an array of tokens
   * @argv: array of tokens, ie. argument vectors
+  * @linkedlist_path: PATH in LL form
   * Return: 0 on success, -1 on failure
   */
 void executor(char *argv[], env_t *linkedlist_path)
@@ -32,4 +33,3 @@ void executor(char *argv[], env_t *linkedlist_path)
 		break;
 	}
 }
-
