@@ -45,6 +45,8 @@ int _cd(char **tokens);
 int _help(char **tokens);
 
 /* In builtins_2.c */
+int _setenv_usr(void);
+int _unsetenv_usr(void);
 int _alias(void);
 int _history(void);
 int bowie(void);

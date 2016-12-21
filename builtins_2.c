@@ -1,4 +1,12 @@
 #include "shell.h"
+int _setenv_usr(void)
+{
+	return (0);
+}
+int _unsetenv_usr(void);
+{
+	return (0);
+}
 /**
   * _alias - sets aliases or prints them out when no options are supplied
   * Return: 0
