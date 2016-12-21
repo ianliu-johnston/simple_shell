@@ -1,4 +1,9 @@
 #include "shell.h"
+/**
+ * _strlen - replicates strlen from the standard library
+ * @s: string to be measured
+ * Return: length of string
+ */
 int _strlen(char *s)
 {
 	int i;
@@ -7,6 +12,13 @@ int _strlen(char *s)
 		;
 	return (i);
 }
+/**
+ * _strncmp - compares two strings and returns their difference
+ * @s1: the first string
+ * @s2: the second string
+ * @bytes: number of bytes to compare
+ * Return: number of bytes that differ
+ */
 int _strncmp(char *s1, char *s2, size_t bytes)
 {
 	unsigned int i;
@@ -58,7 +70,7 @@ char *_strcat_realloc(char *dest, char *src)
 	{
 		dest[i + dest_len] = src[i];
 	}
-	dest[i+dest_len] = '\0';
+	dest[i + dest_len] = '\0';
 	return (dest);
 }
 /**
@@ -82,13 +94,4 @@ int _atoi(char *s)
 	if (sign > 0)
 		result *= -1;
 	return (result);
-}
-/**
-  * _isdigit - checks if chars are digits
-  * @c: char to check
-  * Return: 1 if yes, 0 if no
-  */
-int _isdigit(int c)
-{
-	return((c >= '0' && c <= '9') ? 1 : 0);
 }
