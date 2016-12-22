@@ -101,9 +101,9 @@ int _cd(char **tokens)
 	home = _getenv("HOME");
 	if (tokens[1])
 	{
-		if (_strncmp(tokens[1], "~", 1) == 0)
+		if (tokens[1][0] == '~' && !tokens[1][1])
 			target = home;
-		else if (_strncmp(tokens[1], "-", 1) == 0)
+		else if (tokens[1][0] == '-' && !tokens[1][1])
 			target = _getenv("OLDPWD");
 		else
 			target = tokens[1];

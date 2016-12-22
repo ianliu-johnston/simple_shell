@@ -84,9 +84,10 @@ static void sighandler(int sig)
 		simple_print("\n");
 }
 /**
-  * reader - reads user input and forms it into a string.
+  * main - entry point
+  * Return: 0 on successful termination. -1 on failure.
   */
-void reader(void)
+int main(void)
 {
 	char *buffer, **tokens;
 	env_t *linkedlist_path;
@@ -94,12 +95,18 @@ void reader(void)
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
 	linkedlist_path = list_from_path();
+	if (linkedlist_path == NULL)
+		return (-1);
 	while (1)
 	{
 		flag = 0;
 		simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
+		if (!buffer)
+			break;
 		tokens = parser(buffer, "\t\n ", ' ');
+		if (!tokens)
+			break;
 		if (is_builtin(tokens[0]))
 			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
@@ -110,4 +117,5 @@ void reader(void)
 		free(tokens);
 		free(buffer);
 	}
+	return (0);
 }
