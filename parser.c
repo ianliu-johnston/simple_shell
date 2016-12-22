@@ -34,7 +34,6 @@ char *_getline(int file)
 	}
 	if (i == 0)
 	{
-		simple_print("EOF happened\n");
 		_memcpy(buffer, "exit", 5);
 		return (buffer);
 	}
@@ -70,17 +69,6 @@ char **parser(char *str, char *delimit, char wd)
 	}
 	return (tokenized);
 }
-/**
- * is_alias - not really implemented. Checks if a command has an alias
- * @cmd: command as string
- * Return: 0 for now
- */
-int is_alias(char *cmd)
-{
-	if (cmd == NULL)
-		return (1);
-	return (0);
-}
 /** Global variable: Flag, to handle interrupt signals **/
 unsigned char flag = 0;
 /**
@@ -112,9 +100,7 @@ void reader(void)
 		simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
 		tokens = parser(buffer, "\n ", ' ');
-		if (is_alias(tokens[0]))
-			;
-		else if (is_builtin(tokens[0]))
+		if (is_builtin(tokens[0]))
 			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
 		{
