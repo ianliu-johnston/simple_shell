@@ -46,12 +46,12 @@ char *_getline(int file)
   * @wd: char to determine wordcount of string
   * Return: Double pointer to array of tokens
   */
-char **parser(char *str, char *delimit, char wd)
+char **parser(char *str, char *delimit)
 {
 	char **tokenized, *saveptr, *token;
 	unsigned int i, wc;
 
-	wc = word_count(str, wd);
+	wc = word_count(str);
 	tokenized = malloc((wc + 1) * sizeof(char *));
 	if (tokenized == NULL)
 	{
@@ -104,7 +104,7 @@ int main(void)
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;
-		tokens = parser(buffer, "\t\n ", ' ');
+		tokens = parser(buffer, "\t\n ");
 		if (!tokens)
 			break;
 		if (is_builtin(tokens[0]))

@@ -5,17 +5,25 @@
  * @delim: delimiter chosed by user
  * Return: word count as unsigned int
  */
-unsigned int word_count(char *str, char delim)
+unsigned int word_count(char *str)
 {
 	unsigned int i, wc, flag;
+	char *delims = "\n \t";
 
-	for (i = 0, wc = 1; str[i]; i++)
+	for (i = 0, wc = 1, flag = 0; str[i]; i++)
 	{
-	if (str[i] == delim  && flag == 0)
-		flag = 1, wc++;
-	if (str[i] != delim)
-		flag = 0;
+		if (flag == 0 &&
+			  (str[i] == delims[0]
+			|| str[i] == delims[1]
+			|| str[i] == delims[2])
+			&& str[i + 1] != delims[0]
+			&& str[i + 1] != delims[1]
+			&& str[i + 1] != delims[2])
+			flag = 1, wc++;
+		else
+			flag = 0;
 	}
+	wc--;
 	return (wc);
 }
 /**

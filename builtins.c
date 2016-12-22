@@ -57,14 +57,16 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 		}
 	}
 	exit_status = tokens[1] && i >= _strlen(tokens[1]) ? _atoi(tokens[1]) : 0;
-	free_list(linkedlist_path);
-	linkedlist_path = NULL;
-	free(buffer);
-	buffer = NULL;
-	free(tokens);
-	tokens = NULL;
+	if (linkedlist_path && buffer && tokens)
+	{
+		free_list(linkedlist_path);
+		linkedlist_path = NULL;
+		free(buffer);
+		buffer = NULL;
+		free(tokens);
+		tokens = NULL;
+	}
 	exit(exit_status);
-	perror("Exit failed\n");
 	return(-1);
 }
 /**
@@ -115,7 +117,7 @@ int _cd(char **tokens)
 	else if(access(target, F_OK | R_OK) == 0)
 			chdir(target);
 	else
-		perror("Could not find directory\n");
+		simple_print("Could not find directory\n");
 	setenv("OLDPWD", _getenv("PWD"), 1);
 	setenv("PWD", getcwd(pwd, sizeof(pwd)), 1);
 	return (0);

@@ -63,10 +63,7 @@ char *search_os(char *cmd, env_t *linkedlist_path)
 
 	ep = linkedlist_path;
 	if (ep == NULL || cmd == NULL)
-	{
-		perror("Essential pointers in search_os were NULL\n");
 		return (NULL);
-	}
 	if ((_strncmp(cmd, "/", 1) == 0
 			|| _strncmp(cmd, "./", 2) == 0)
 			&& access(cmd, F_OK | X_OK) == 0)

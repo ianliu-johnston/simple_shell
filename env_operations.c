@@ -57,24 +57,5 @@ int _unsetenv(const char *name)
   */
 int _setenv(const char *name, const char *value, int overwrite)
 {
-	/*
-	int i, len_value;
-	char *temp;
-	env_t *envir;
-
-	envir = environ_linked_list();
-	if (name == NULL || *name == '\0' || value == NULL)
-		return (-1);
-	if (!overwrite && _getenv(name) != NULL)
-	{
-		perror("Cannot overwrite variable\n");
-		return (-1);
-	}
-	if (overwrite && _getenv(name) != NULL)
-	{
-		;
-	}
-	return (0);
-	*/
 	return (setenv(name, value, overwrite));
 }

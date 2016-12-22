@@ -9,10 +9,11 @@ int _setenv_usr(char **tokens)
 	int i, status, wc;
 	char *key, *value, *saveptr;
 
-	i = 0;
-	while (tokens[i])
-		i++;
-	wc = word_count(tokens[1], '=');
+	for (i = 0, wc = 1; tokens[1][i]; i++)
+		if (tokens[1][i] == '=')
+			wc++;
+	for (i = 0; tokens[i]; i++)
+		;
 	if (!tokens[1] || i == 0 || wc != 2)
 	{
 		simple_print("setenv: Usage: setenv KEY=VALUE\n");

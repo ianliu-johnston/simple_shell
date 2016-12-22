@@ -76,7 +76,7 @@ void _memcpy(char *dest, char *src, unsigned int bytes);
 
 /* In parser.c */
 char *_getline(int file);
-char **parser(char *str, char *delim, char wd);
+char **parser(char *str, char *delim);
 void reader(void);
 
 /* In strtok.c */
@@ -92,7 +92,7 @@ int _atoi(char *s);
 int _isdigit(int c);
 
 /* In string_operations_2.c */
-unsigned int word_count(char *str, char delim);
+unsigned int word_count(char *str);
 void simple_print(const char *str);
 int _strlen_const(const char *s);
 size_t print_list(const env_t *h);
