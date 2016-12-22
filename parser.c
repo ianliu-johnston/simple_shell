@@ -99,7 +99,7 @@ void reader(void)
 		flag = 0;
 		simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
-		tokens = parser(buffer, "\n ", ' ');
+		tokens = parser(buffer, "\t\n ", ' ');
 		if (is_builtin(tokens[0]))
 			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
 		else
