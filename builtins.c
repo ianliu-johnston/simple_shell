@@ -69,6 +69,8 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 }
 /**
   * _env - prints out the current environment
+  * @tokens: tokenized strings
+  * @environment: linked list environment
   * Return: 0 on success, -1 on catastrophic failure
   */
 int _env(char **tokens, env_t *environment)
@@ -90,7 +92,8 @@ int _env(char **tokens, env_t *environment)
 }
 /**
   * _cd - changes working directory
-  * @str: argument list
+  * @tokens: argument list
+  * Return: 0 on success
   */
 int _cd(char **tokens)
 {
