@@ -46,19 +46,3 @@ void free_list(env_t *head)
 	free(head->str);
 	free(head);
 }
-/**
-  * print_list - prints all elements of a list_t list
-  * @h: singly linked list to print
-  * Return: number of nodes in the list
-  */
-size_t print_list(const env_t *h)
-{
-	size_t i;
-
-	for (i = 0; h; i++)
-	{
-		printf("[%d] %s\n", h->len, h->str);
-		h = h->next;
-	}
-	return (i);
-}
