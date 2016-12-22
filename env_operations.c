@@ -57,12 +57,12 @@ int _unsetenv(const char *name)
   */
 int _setenv(const char *name, const char *value, int overwrite)
 {
+	/*
 	int i, len_value;
 	char *temp;
 	env_t *envir;
 
 	envir = environ_linked_list();
-	/* Checks if name is empty or pointer is NULL*/
 	if (name == NULL || *name == '\0' || value == NULL)
 		return (-1);
 	if (!overwrite && _getenv(name) != NULL)
@@ -75,4 +75,6 @@ int _setenv(const char *name, const char *value, int overwrite)
 		;
 	}
 	return (0);
+	*/
+	return (setenv(name, value, overwrite));
 }
