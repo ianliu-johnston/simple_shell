@@ -2,7 +2,6 @@
 /**
  * word_count - counts words given a char delimiter
  * @str: string of words
- * @delim: delimiter chosed by user
  * Return: word count as unsigned int
  */
 unsigned int word_count(char *str)
