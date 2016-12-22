@@ -64,7 +64,7 @@ vagrant:simple_shell$
   * ``_exit_with_grace`` - exits the shell and frees any malloc'd space.
   * ``_env()`` - prints the current environment.
   * ``_cd()`` - change pwd. Can be used without arguments. ``cd -`` takes the user to the last directory. ``cd ~`` takes the user home.
-  * ``help()`` - Prints help for builtin commands. 
+  * ``help()`` - Prints help for builtin commands.<em>Not yet built</em> 
 2. [builtins_2.c](builtins_2.c) - Second file with builtin functions: 
   * ``_setenv_usr()`` - User creates or modifies an environment variable.
   * ``_unsetenv_usr()`` - User deletes an environment variable.<em>Not yet built</em>
@@ -78,7 +78,6 @@ vagrant:simple_shell$
   * ``list_from_path`` - creates a linked list from the PATH variable
   * ``environ_linked_list`` - creates a linked list from the ``environ`` variable. <em>Built, but is not in use yet. Still going to implement.</em>
   * ``search_os()`` - Search the absolute path provided, search current directory, or search in PATH``
-  * _getenv()``, ``_setenv()``, ``_unsetenv()``
 5. [executor.c](executor.c) - Includes only one function that is essential to the core functionality
   * ``executor()`` - Executes a command
 6. [linked_list_operations.c](linked_list_operations.c) - Includes general utilities for creating and maintaining linked lists.
