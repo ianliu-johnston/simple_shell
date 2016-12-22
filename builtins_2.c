@@ -26,11 +26,6 @@ int _setenv_usr(char **tokens)
 		return (status);
 	return (-1);
 }
-
-int _unsetenv_usr(void)
-{
-	return (0);
-}
 /**
   * _alias - sets aliases or prints them out when no options are supplied
   * Return: 0

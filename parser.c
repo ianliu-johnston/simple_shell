@@ -43,7 +43,6 @@ char *_getline(int file)
   * parser - parses a string into tokens
   * @str: string to parse
   * @delimit: delimiters chosen by user
-  * @wd: char to determine wordcount of string
   * Return: Double pointer to array of tokens
   */
 char **parser(char *str, char *delimit)
