@@ -46,7 +46,6 @@ int _help(char **tokens);
 
 /* In builtins_2.c */
 int _setenv_usr(char **tokens);
-int _unsetenv_usr(void);
 int _alias(void);
 int _history(void);
 int bowie(void);
@@ -59,7 +58,6 @@ char *search_os(char *cmd, env_t *linkedlist_path);
 /* in env_operations.c */
 char *_getenv(const char *name);
 int _setenv(const char *name, const char *value, int overwrite);
-int _unsetenv(const char *name);
 
 /* in linked_list_operations.c */
 env_t *add_node(env_t **head, char *str, unsigned int len);
