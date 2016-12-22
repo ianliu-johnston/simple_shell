@@ -122,7 +122,7 @@ vagrant:simple_shell$
 
 ## Program Flow
 
-[[bowie.jpg | alt=bowie]]
+[[https://github.com/ianliu-johnston/simple_shell/blob/master/bowie.jpg|alt=bowie]]
 
 ## TODO
 ### Mandatory
