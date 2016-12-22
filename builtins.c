@@ -18,10 +18,8 @@ int (*is_builtin(char *cmd))()
 		{"cd", _cd},
 		{"env", _env},
 		{"exit", _exit_with_grace},
-		{"help", _help},
 		{"history", _history},
 		{"setenv", _setenv_usr},
-		{"unsetenv", _unsetenv_usr},
 		{"bowie", bowie},
 		{NULL, NULL}
 	};

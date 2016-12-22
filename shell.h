@@ -28,7 +28,7 @@ typedef struct environ_type
 
 /**
   * struct builtin_commands - stuct for function pointers to builtin commands
-  * @cmd_str: commands (env, cd, alias, history, help)
+  * @cmd_str: commands (env, cd, alias, history)
   * @fun: function
   */
 typedef struct builtin_commands
@@ -42,7 +42,6 @@ int (*is_builtin(char *cmd))();
 int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer);
 int _env(char **tokens, env_t *environment);
 int _cd(char **tokens);
-int _help(char **tokens);
 
 /* In builtins_2.c */
 int _setenv_usr(char **tokens);
