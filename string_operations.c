@@ -21,6 +21,8 @@ int _strlen(char *s)
  */
 int _strncmp(char *s1, char *s2, size_t bytes)
 {
+	if (s1 == NULL | s2 == NULL)
+		return (-1);
 	unsigned int i;
 
 	for (i = 0; s1[i] && s2[i] && s2[i] == s1[i] && i < bytes - 1; i++)
