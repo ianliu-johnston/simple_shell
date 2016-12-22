@@ -20,7 +20,7 @@ int _setenv_usr(char **tokens)
 	}
 	key = _strtok_r(tokens[1], "=", &saveptr);
 	value = _strtok_r(NULL, "=", &saveptr);
-	status = setenv(key, value, 0);
+	status = _setenv(key, value, 0);
 	if (status == 0)
 		return (status);
 	return (-1);

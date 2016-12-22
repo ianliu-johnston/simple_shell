@@ -22,10 +22,7 @@ char *_getline(int file)
 	{
 
 		if (i < (buffer_size - index))
-		{
-			printf("in buffer: %s\n", buffer);
 			return (buffer);
-		}
 		buffer_size *= 2;
 		_realloc(buffer, buffer_size, buffer_size / 2);
 		if (buffer == NULL)
@@ -41,7 +38,6 @@ char *_getline(int file)
 		_memcpy(buffer, "exit", 5);
 		return (buffer);
 	}
-	printf("in buffer: %s\n", buffer);
 	return (buffer);
 }
 /**
@@ -65,13 +61,11 @@ char **parser(char *str, char *delimit, char wd)
 	}
 	token = _strtok_r(str, delimit, &saveptr);
 	tokenized[0] = token;
-	printf("Token 0:%s\n", token);
 	i = 1;
 	while (token)
 	{
 		token = _strtok_r(NULL, delimit, &saveptr);
 		tokenized[i] = token;
-		printf("Token %d:%s\n", i, token);
 		i++;
 	}
 	return (tokenized);

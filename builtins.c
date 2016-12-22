@@ -63,7 +63,6 @@ int _exit_with_grace(char **tokens, env_t *linkedlist_path, char *buffer)
 	buffer = NULL;
 	free(tokens);
 	tokens = NULL;
-	simple_print("All frees successful!\n");
 	exit(exit_status);
 	perror("Exit failed\n");
 	return(-1);
@@ -86,12 +85,6 @@ int _env(char **tokens, env_t *environment)
 		write(STDOUT_FILENO, *envir, _strlen(*envir));
 		write(STDOUT_FILENO, "\n", 1);
 	}
-	/*
-	printf("ENVIRONMENT LINKED LIST\n");
-	if (environment == NULL)
-		return (-1);
-	print_list(environment);
-	*/
 	environment++;
 	return (0);
 }
@@ -181,7 +174,7 @@ int _help(char **tokens)
 	}
 	else
 	{
-		printf("No help topics found for %s.\n", tokens[1]);
+		simple_print("No help topics found.\n");
 		return (1);
 	}
 	return (0);
