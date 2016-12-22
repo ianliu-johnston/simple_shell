@@ -76,8 +76,11 @@ vagrant:simple_shell$
   * ``environ_linked_list`` - creates a linked list from the ``environ`` variable. <em>Built, but is not in use yet. Still going to implement.</em>
   * ``search_os()`` - Search the absolute path provided, search current directory, or search in PATH``
   * _getenv()``, ``_setenv()``, ``_unsetenv()``
-6. [env_operations.c](env_operations.c) - 
-7. [linked_list_operations.c](linked_list_operations.c] - 
+6. [env_operations.c](env_operations.c)
+  * ``_getenv()`` - recreation of ``getenv()`` from ``<stdlib.h>. Gets the value of the provided key. Returns NULL if not found or on error.
+  * ``_unsetenv()`` - Unsets an environmental variable. <em>Not yet built</em>
+  * ``_setenv()`` - Adds or modifies an environmental variable. <em>Not yet built. Currently, just returns the output from the standard library.</em>
+7. [linked_list_operations.c](linked_list_operations.c) - 
   * ``add_node()``, ``list_from_path()``, ``free_list()``,  <em>(NOTE: there are a little too many functions in there.)</em>
 6. [memory_management.c](memory_management.c) - Includes all utility functions that deal with memory management: ``_realloc()``, ``_memset()``
 7. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere.
