@@ -69,10 +69,16 @@ vagrant:simple_shell$
   * global variable ``flag`` for ``signalhandler()`` - Triggers when ``^C`` is hit, then turns off.
   * `sighandler`` - Interrupts the running process if it is not a builtin then prints the prompt again.
   * ``reader()`` - Reads user input, turns it into a string and parses it into tokens. Then it performs actions based on the first token.
-
-4. [executor.c](executor.c) - Includes all functions related to executing an external program from the simple shell:
-  * ``executor()`` - 
-5. [environment.c](environment.c) - Includes all functions that deal with the environment and linked lists: ``add_node()``, ``list_from_path()``, ``free_list()``, ``search_os()``. The following are not built: ``_getenv()``, ``_setenv()``, ``_unsetenv()`` <em>(NOTE: there are a little too many functions in there.)</em>
+4. [executor.c](executor.c) - Includes only one function that is essential to the core functionality
+  * ``executor()`` - Executes a command
+5. [environment.c](environment.c) - Includes all functions that deal with the environment and linked lists:
+  * ``list_from_path`` - creates a linked list from the PATH variable
+  * ``environ_linked_list`` - creates a linked list from the ``environ`` variable. <em>Built, but is not in use yet. Still going to implement.</em>
+  * ``search_os()`` - Search the absolute path provided, search current directory, or search in PATH``
+  * _getenv()``, ``_setenv()``, ``_unsetenv()``
+6. [env_operations.c](env_operations.c) - 
+7. [linked_list_operations.c](linked_list_operations.c] - 
+  * ``add_node()``, ``list_from_path()``, ``free_list()``,  <em>(NOTE: there are a little too many functions in there.)</em>
 6. [memory_management.c](memory_management.c) - Includes all utility functions that deal with memory management: ``_realloc()``, ``_memset()``
 7. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere.
 8. [string_operations.c](string_operations.c) - Includes all utility functions that deal with string operations: ``_strlen()``, ``_strcmp()``, ``_strdup()``, ``_strcat_realloc()`` 

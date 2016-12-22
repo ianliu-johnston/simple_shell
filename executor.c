@@ -1,6 +1,7 @@
 #include "shell.h"
 /**
-  * executor - executes a command from an array of tokens
+  * executor - executes a command
+ (* by searching through PATH
   * @argv: array of tokens, ie. argument vectors
   * @linkedlist_path: PATH in LL form
   * Return: 0 on success, -1 on failure

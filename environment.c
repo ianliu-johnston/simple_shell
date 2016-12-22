@@ -50,15 +50,6 @@ env_t *environ_linked_list(void)
 	return (ep);
 }
 /**
- * linked_list_to_arr - not yet implemented. Will convert LL to array
- * @env_list: LL to convert to array
- * Return: just its parameter for now, pointer to array later
- */
-env_t *linked_list_to_arr(env_t *env_list)
-{
-	return (env_list);
-}
-/**
   * search_os - search through os to find a command
   * @cmd: command to search for
   * @linkedlist_path: path to search through
