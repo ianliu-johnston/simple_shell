@@ -118,10 +118,6 @@ vagrant:simple_shell$
 16. [man_1_simple_shell](man_1_simple_shell) - Basic manual page.
 17. [bowie](bowie.txt) - ASCII art of David Bowie.
 
-## Program Flow
-
-![alt tag](https://github.com/ianliu-johnston/simple_shell/blob/master/bowie.jpg)
-
 ## TODO
 ### Mandatory
 - [x] Deal with EOF
