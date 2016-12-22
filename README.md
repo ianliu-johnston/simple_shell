@@ -61,9 +61,17 @@ vagrant:simple_shell$
 
 ## Description of File Structure
 1. [shell.h](shell.h) - Header file: Contains all struct definitions, macros, standard library includes, and function prototypes.
-2. [main.c](main.c) - Entry point to program. May be deleted. 
-3. [parser.c](parser.c) - Includes all string parsing related functions: ``_getline()``, ``_strtok()``, ``parser()``, ``reader()``
-4. [executor.c](executor.c) - Includes all functions related to executing an external program from the simple shell: ``executor()``
+2. [main.c](main.c) - Entry point to program, contains only the opening message and a call to the reader() function.
+3. [parser.c](parser.c) - Includes all string parsing related functions, and includes functions critical to the basic functionality:
+  * ``_getline()`` - Recreation of ``getline()`` from ``<stdio.h>``. Gets a line from stdin, delimited by a ``\n`` character. Also handles ``EOF``. Returns the line, or NULL on error. 
+  * ``parser()`` - Parses a string into tokens. Returns a double pointer.
+  * ``is_alias`` - Filler function for handling aliases. Currently does not do anything. <em> This functionality has not been built.</em>
+  * global variable ``flag`` for ``signalhandler()`` - Triggers when ``^C`` is hit, then turns off.
+  * `sighandler`` - Interrupts the running process if it is not a builtin then prints the prompt again.
+  * ``reader()`` - Reads user input, turns it into a string and parses it into tokens. Then it performs actions based on the first token.
+
+4. [executor.c](executor.c) - Includes all functions related to executing an external program from the simple shell:
+  * ``executor()`` - 
 5. [environment.c](environment.c) - Includes all functions that deal with the environment and linked lists: ``add_node()``, ``list_from_path()``, ``free_list()``, ``search_os()``. The following are not built: ``_getenv()``, ``_setenv()``, ``_unsetenv()`` <em>(NOTE: there are a little too many functions in there.)</em>
 6. [memory_management.c](memory_management.c) - Includes all utility functions that deal with memory management: ``_realloc()``, ``_memset()``
 7. [strtok.c](strtok.c) - Includes the strtok function, as well as helper functions that do not need to be referenced elsewhere.

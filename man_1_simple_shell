@@ -1,8 +1,10 @@
-.TH man 1 "12 December 2016" "0.01" "hsh man page"
+.TH man 1 "21 December 2016" "0.01" "hsh man page"
 .SH NAME
 .B hsh
-- Simple Shell for Holberton School
+- Holberton SHell
 .SH SYNOPSIS
-Simple Shell Environment
+.B hsh
+[No options yet]
 .SH DESCRIPTION
-Simple Shell Environment
+.B hsh
+is a simple interactive command interpreter. It executes commands read from the standard input. hsh is not fully featured. It can only handle simple commands in the form: "<command> [options]"
