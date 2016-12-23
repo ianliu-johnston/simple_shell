@@ -101,18 +101,7 @@ int main(void)
 		perror("fstat error\n");
 		exit(98);
 	}
-
-	if ((fstat_buf.st_mode & S_IFMT) == S_IFIFO)
-	{
-		pipe_flag = 1;
-		printf("This is a pipe.\n");
-	}
-	else if((fstat_buf.st_mode & S_IFMT) == S_IFCHR)
-	{
-		pipe_flag = 0;
-		printf("Ceci n'est pas une pipe\n");
-	}
-
+	pipe_flag = (fstat_buf.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
 	linkedlist_path = list_from_path();
 	if (linkedlist_path == NULL)
 		return (-1);
