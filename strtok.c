@@ -42,25 +42,25 @@ unsigned int _strspn(char *s, char *accept)
 	return (result);
 }
 /**
- * _strpbrk - replicates strpbrk from standard library
- * @s: haystack
- * @accept: needle
+ * _strpbrk - searches through a string for any set of bytes.
+ * @s: string to search through
+ * @delims: bytes to search for in the string.
  * Return: pointer to first occurence in s of anything in accept
  */
-char *_strpbrk(char *s, char *accept)
+char *_strpbrk(char *s, char *delims)
 {
 	char *temp;
 
-	temp = accept;
+	temp = delims;
 	for (; *s != '\0'; s++)
 	{
-		while (*accept != '\0')
+		while (*delims != '\0')
 		{
-			if (*s == *accept)
+			if (*s == *delims)
 				return (s);
-			accept++;
+			delims++;
 		}
-		accept = temp;
+		delims = temp;
 	}
 	if (*s == '\0')
 		return (0);

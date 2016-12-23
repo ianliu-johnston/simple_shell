@@ -89,7 +89,7 @@ static void sighandler(int sig)
 int main(void)
 {
 	char pipe_flag;
-	char *buffer, **tokens;
+	char *buffer, *cmds, *saveptr, **tokens;
 	env_t *linkedlist_path;
 	struct stat fstat_buf;
 
@@ -97,14 +97,12 @@ int main(void)
 		perror("signal error\n");
 
 	if (fstat(STDIN_FILENO, &fstat_buf) == -1)
-	{
-		perror("fstat error\n");
-		exit(98);
-	}
+		perror("fstat error\n"), exit(98);
 	pipe_flag = (fstat_buf.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
 	linkedlist_path = list_from_path();
 	if (linkedlist_path == NULL)
 		return (-1);
+saveptr = NULL;
 	while (1)
 	{
 		flag = 0;
@@ -113,17 +111,22 @@ int main(void)
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;
-		tokens = parser(buffer, "\t\n ");
-		if (!tokens)
-			break;
-		if (is_builtin(tokens[0]))
-			is_builtin(tokens[0])(tokens, linkedlist_path, buffer);
-		else
+		cmds = _strtok_r(buffer, "\n;", &saveptr);
+		while(cmds)
 		{
-			flag = 1;
-			executor(tokens, linkedlist_path);
+			tokens = parser(cmds, "\t ");
+			if (!tokens)
+				break;
+			if (is_builtin(tokens[0]))
+				is_builtin(tokens[0])(tokens, linkedlist_path, cmds);
+			else
+			{
+				flag = 1;
+				executor(tokens, linkedlist_path);
+			}
+			free(tokens);
+			cmds = _strtok_r(NULL, "\n;", &saveptr);
 		}
-		free(tokens);
 		free(buffer);
 	}
 	return (0);
