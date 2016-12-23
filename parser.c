@@ -88,18 +88,39 @@ static void sighandler(int sig)
   */
 int main(void)
 {
+	char pipe_flag;
 	char *buffer, **tokens;
 	env_t *linkedlist_path;
+	struct stat fstat_buf;
 
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
+
+	if (fstat(STDIN_FILENO, &fstat_buf) == -1)
+	{
+		perror("fstat error\n");
+		exit(98);
+	}
+
+	if ((fstat_buf.st_mode & S_IFMT) == S_IFIFO)
+	{
+		pipe_flag = 1;
+		printf("This is a pipe.\n");
+	}
+	else if((fstat_buf.st_mode & S_IFMT) == S_IFCHR)
+	{
+		pipe_flag = 0;
+		printf("Ceci n'est pas une pipe\n");
+	}
+
 	linkedlist_path = list_from_path();
 	if (linkedlist_path == NULL)
 		return (-1);
 	while (1)
 	{
 		flag = 0;
-		simple_print("And baby says: ");
+		if (pipe_flag == 0)
+			simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;
