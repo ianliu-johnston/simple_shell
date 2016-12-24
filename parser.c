@@ -33,10 +33,7 @@ char *_getline(int file)
 		index += i;
 	}
 	if (i == 0)
-	{
 		_memcpy(buffer, "exit", 5);
-		return (buffer);
-	}
 	return (buffer);
 }
 /**
@@ -52,24 +49,18 @@ char **parser(char *str, char *delimit)
 
 	wc = word_count(str);
 	tokenized = malloc((wc + 1) * sizeof(char *));
-	if (tokenized == NULL)
+	if (!tokenized)
 	{
 		perror("malloc failed\n");
 		return (NULL);
 	}
-	token = _strtok_r(str, delimit, &saveptr);
-	tokenized[0] = token;
-	i = 1;
-	while (token)
-	{
-		token = _strtok_r(NULL, delimit, &saveptr);
-		tokenized[i] = token;
-		i++;
-	}
+	tokenized[0] = token = _strtok_r(str, delimit, &saveptr);
+	for (i = 1; token; i++)
+		tokenized[i] = token = _strtok_r(NULL, delimit, &saveptr);
 	return (tokenized);
 }
 /** Global variable: Flag, to handle interrupt signals **/
-unsigned char flag = 0;
+unsigned char sig_flag = 0;
 /**
   * sighandler - handles signals from keyboard interrupts
   * @sig: the signal caught
@@ -77,9 +68,9 @@ unsigned char flag = 0;
 static void sighandler(int sig)
 {
 
-	if (sig == SIGINT && flag == 0)
+	if (sig == SIGINT && sig_flag == 0)
 		simple_print("\nAnd baby says: ");
-	else if (flag != 0)
+	else if (sig_flag != 0)
 		simple_print("\n");
 }
 /**
@@ -88,31 +79,29 @@ static void sighandler(int sig)
   */
 int main(void)
 {
-	char pipe_flag;
-	char *buffer, *cmds, *saveptr, **tokens;
+	char pipe_flag, *buffer, *cmds, *saveptr, **tokens;
 	env_t *linkedlist_path;
 	struct stat fstat_buf;
 
 	if (signal(SIGINT, sighandler) == SIG_ERR)
 		perror("signal error\n");
-
 	if (fstat(STDIN_FILENO, &fstat_buf) == -1)
 		perror("fstat error\n"), exit(98);
 	pipe_flag = (fstat_buf.st_mode & S_IFMT) == S_IFCHR ? 0 : 1;
 	linkedlist_path = list_from_path();
 	if (linkedlist_path == NULL)
 		return (-1);
-saveptr = NULL;
+	saveptr = NULL;
 	while (1)
 	{
-		flag = 0;
+		sig_flag = 0;
 		if (pipe_flag == 0)
 			simple_print("And baby says: ");
 		buffer = _getline(STDIN_FILENO);
 		if (!buffer)
 			break;
 		cmds = _strtok_r(buffer, "\n;", &saveptr);
-		while(cmds)
+		while (cmds)
 		{
 			tokens = parser(cmds, "\t ");
 			if (!tokens)
@@ -120,10 +109,7 @@ saveptr = NULL;
 			if (is_builtin(tokens[0]))
 				is_builtin(tokens[0])(tokens, linkedlist_path, cmds);
 			else
-			{
-				flag = 1;
-				executor(tokens, linkedlist_path);
-			}
+				sig_flag = 1, executor(tokens, linkedlist_path);
 			free(tokens);
 			cmds = _strtok_r(NULL, "\n;", &saveptr);
 		}
