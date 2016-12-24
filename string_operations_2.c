@@ -22,7 +22,6 @@ unsigned int word_count(char *str)
 		else
 			flag = 0;
 	}
-	wc--;
 	return (wc);
 }
 /**
