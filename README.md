@@ -145,7 +145,7 @@ vagrant:simple_shell$
 - [x] register builtins before executing commands
 - [x] cd
 - [ ] alias
-- [x] help
+- [ ] help
 - [ ] history
 - [ ] Deal with variables
 - [ ] Scripts as input
@@ -155,8 +155,9 @@ vagrant:simple_shell$
 - [x] When ``^C`` is hit, it stays on one line.
 - [x] EOF (``^D``) it segfaults
 - [x] Two unfreed mallocs somewhere. (Check with Valgrind.)
-- [ ] Only delimiters handled are spaces and newlines.
+- [x] Only delimiters handled are spaces and newlines.
 - [ ] Optimization: Change the linked list for path to an array of strings
+- [ ] In ``_getline()``, ``read()`` fails the second time, because read happens before the buffer is reallocated. Need to rework the logic.
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)

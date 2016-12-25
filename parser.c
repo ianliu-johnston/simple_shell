@@ -1,43 +1,44 @@
 #include "shell.h"
 /**
  * _getline - gets line from STDIN and places it in the buffer
+ * @buffer: where to store the line
+ * @size: number of chars in the buffer
  * @file: int assigned to the read of STDIN
  * Return: pointer to buffer with formatted input from STDIN
  */
-char *_getline(int file)
+ssize_t _getline(char **buffer, size_t *size, int file)
 {
-	unsigned int i, index;
-	char *buffer;
-	static unsigned int buffer_size = BUFSIZE;
+	size_t i, index;
+	unsigned int buffer_size = BUFSIZE;
 
-	buffer = malloc(sizeof(char) * buffer_size);
-	if (buffer == NULL)
+	*buffer = malloc(sizeof(char) * buffer_size);
+	if (!(*buffer))
 	{
 		perror("malloc for buffer failed\n");
-		return (NULL);
+		return (-1);
 	}
 	index = 0;
-	_memset(buffer, '\0', buffer_size);
-	while ((i = read(file, buffer + index, buffer_size - index)) > 0)
+	_memset(*buffer, '\0', buffer_size);
+	while ((i = read(file, *buffer + index, buffer_size - index)) > 0 && buffer_size < BUFSIZE * 2)
 	{
-
+		*size += i;
 		if (i < (buffer_size - index))
-			return (buffer);
+			return ((ssize_t) *size);
 		buffer_size *= 2;
-		_realloc(buffer, buffer_size, buffer_size / 2);
-		if (buffer == NULL)
+		_realloc(*buffer, buffer_size, buffer_size / 2);
+		if (*buffer == NULL)
 		{
 			perror("realloc failed\n");
-			return (NULL);
+			return (-1);
 		}
 		index += i;
 	}
 	if (i == 0)
-		_memcpy(buffer, "exit", 5);
-	return (buffer);
+		_memcpy(*buffer, "exit", 5);
+	return ((ssize_t) *size);
 }
 /**
-  * parser - parses a string into tokens
+  * parser - parses a string into tokens, based on spaces, \t and \n.
   * @str: string to parse
   * @delimit: delimiters chosen by user
   * Return: Double pointer to array of tokens
@@ -79,6 +80,8 @@ static void sighandler(int sig)
   */
 int main(void)
 {
+	size_t size = 0;
+	ssize_t read = 0;
 	char pipe_flag, *buffer, *cmds, *saveptr, **tokens;
 	env_t *linkedlist_path;
 	struct stat fstat_buf;
@@ -91,13 +94,12 @@ int main(void)
 	linkedlist_path = list_from_path();
 	if (linkedlist_path == NULL)
 		return (-1);
-	saveptr = NULL;
-	while (1)
+	while (read != -1)
 	{
 		sig_flag = 0;
 		if (pipe_flag == 0)
 			simple_print("And baby says: ");
-		buffer = _getline(STDIN_FILENO);
+		read = _getline(&buffer, &size, STDIN_FILENO);
 		if (!buffer)
 			break;
 		cmds = _strtok_r(buffer, "\n;", &saveptr);

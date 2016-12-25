@@ -73,7 +73,7 @@ void _memset(char *str, int fill, int n);
 void _memcpy(char *dest, char *src, unsigned int bytes);
 
 /* In parser.c */
-char *_getline(int file);
+ssize_t _getline(char **buffer, size_t *n, int file);
 char **parser(char *str, char *delim);
 void reader(void);
 
