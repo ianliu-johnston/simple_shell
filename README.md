@@ -1,5 +1,6 @@
 # Holberton School - Holberton Shell(hsh)
 Code a simple shell for [Holberton School](https://www.holbertonschool.com/). This assignment incorporates all topics covered so far, and marks the conclusion of the section of the course that is strictly about learning C programming.
+<em>If you want to know how it works, build it yourself.</em>
 
 ### Prerequisites
 Only use the following functions and system calls:
@@ -45,13 +46,9 @@ The ``-g`` is for tracing Valgrind errors
 Currently, when run, it looks like this:
 ```
 vagrant:simple_shell $ ./hsh
-Dance Magic Dance
-and baby says: cat main.c
-#include "shell.h"
-
+and baby says: cat dummy.c
 int main(void)
 {
-	reader();
 	return(0);
 }
 and baby says: exit 
@@ -119,20 +116,36 @@ vagrant:simple_shell$
 17. [bowie](bowie.txt) - ASCII art of David Bowie.
 
 ## TODO
-### Mandatory
-- [x] Deal with EOF
-- [x] Parser interprets ``exit`` -- Currently, if the first 4 characters of the string are ``exit``, the shell will exit. Does it need to call a function to gracefully kill all running processes and exit the program?
-- [x] Deal with path
-- [x] Build env function
+### Main Algorithm design
+- [x] Program flow design
+- [x] Shell builtin incorporation
+- [x] Command Execution ``/bin/ls``
+- [x] Command argument handling ``/bin/ls -la``
+- [x] Command Execution without absolute paths ``ls -la``
+- [x] Environment
+  - [x] ``$PATH``
+  - [ ] Other elements of the environment
+- [x] Signal Handling
+- [ ] Input files
+- [x] Interactive mode
+- [x] Non-interactive mode
 
-### Advanced
-- [x] ``exit`` handles arguments to exit -- What is ``exit status 4``?
+### Parsing 
+- [x] Parser splits strings into tokens.
+- [x] Parser interprets ``exit`` 
+- [x] ``exit`` handles exit status 
+- [x] Exiting frees malloc'd memory
 
-#### Parser
-- [x] Catch ``^C`` (CTRL + C) -- Find the signal and change its behavior.
-- [ ] Handle ``;``
+#### Control Operators
+- [x] Handle EOF
+- [x] Handle ``\n``
+- [x] Handle ``;``
 - [ ] Handle ``&&``, and ``||``
+- [ ] Handle the bitwise operators or ``|`` and ``&``
 - [ ] Handle ``#`` Comments
+- [ ] Handle output redirection ``echo "ls" > run_ls.sh``
+- [ ] Handle input redirection
+- [ ] Remove redirection symbols from argument list
 
 #### Recreate standard library functions
 - [x] getline
@@ -140,15 +153,47 @@ vagrant:simple_shell$
 - [x] getenv
 - [ ] setenv
 - [ ] unsetenv
+- [ ] More to come
 
 #### Shell Builtins
 - [x] register builtins before executing commands
 - [x] cd
-- [ ] alias
+- [x] env
 - [ ] help
 - [ ] history
-- [ ] Deal with variables
+- [ ] cat
+
+### Expansions
+- [ ] Variables ``TEST="hello!"``
+- [ ] Alias ``alias ls='ls -la'``
+- [ ] Exit status of last process ``echo $?``
+- [ ] Brace expansion
+  - [ ] ``[ ]``
+  - [ ] ``{ }``
+- [ ] Escaping backslash``\{\ \}``
+- [ ] Single quotes
+- [ ] Double quotes
+- [ ] Wildcard expansion ``cat *.c *.h``
+- [ ] Command grouping ``$( )`` or ``\`\```
+- [ ] Arithmetic Expansion ``$(( ))``
+
+### Startup Files
 - [ ] Scripts as input
+- [ ] Colors
+- [ ] Profile
+
+### Signals
+- [x] Stopping Jobs: ``^C``
+- [ ] Job handling: ``^Z`` suspends processes with ``wait()`` and ``kill()``
+- [ ] Clearing the Screen: ``^L``
+- [ ] reverse i-search: ``^R`` 
+
+### Interactive Mode
+- [ ] Cursor Movement
+- [ ] Auto-complete with ``<tab>``
+
+### Advanced Features
+- [ ] Looping Constructs
 
 ## Bugs
 - [x] When ``enter`` is hit, it segfaults
@@ -158,6 +203,9 @@ vagrant:simple_shell$
 - [x] Only delimiters handled are spaces and newlines.
 - [ ] Optimization: Change the linked list for path to an array of strings
 - [ ] In ``_getline()``, ``read()`` fails the second time, because read happens before the buffer is reallocated. Need to rework the logic.
+
+## Optimizations
+- [ ] Change the linked list for path to an array of strings
 
 ## Links
 For a list of resources and commands used, refer to [LINKS.md](LINKS.md)
