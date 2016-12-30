@@ -40,5 +40,9 @@
 * [Testing File Access - GNU](https://www.gnu.org/software/libc/manual/html_node/Testing-File-Access.html)
 * [Differences between `exit()` and `_exit()`](http://www.unixguide.net/unix/programming/1.1.3.shtml) -- ``exit()`` is usually called only once in a function. ``_exit()`` is usually called by child processes from ``fork()``
 
+## Bash Ninja Skillz
+* [Redirection from catonmat.net](http://www.catonmat.net/blog/bash-one-liners-explained-part-three/)
+* [bash-hackers wiki on Redirection](http://wiki.bash-hackers.org/syntax/redirection)
+
 ## MISC
 * [Picture to ASCII Art](http://picascii.com/)

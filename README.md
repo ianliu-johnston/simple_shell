@@ -131,21 +131,22 @@ vagrant:simple_shell$
 - [x] Non-interactive mode
 
 ### Parsing 
+- [x] Handle common white spaces: ``\t`` and spaces
+- [ ] Handle uncommon white spaces: ``\f`` (form feed), ``\r`` (carriage return), ``\v`` (vertical tab)
 - [x] Parser splits strings into tokens.
-- [x] Parser interprets ``exit`` 
-- [x] ``exit`` handles exit status 
-- [x] Exiting frees malloc'd memory
 
 #### Control Operators
-- [x] Handle EOF
-- [x] Handle ``\n``
-- [x] Handle ``;``
-- [ ] Handle ``&&``, and ``||``
-- [ ] Handle the bitwise operators or ``|`` and ``&``
-- [ ] Handle ``#`` Comments
-- [ ] Handle output redirection ``echo "ls" > run_ls.sh``
-- [ ] Handle input redirection
-- [ ] Remove redirection symbols from argument list
+- [x] EOF
+- [x] ``\n``
+- [x] ``;``
+- [ ] logical operators: ``&&``, and ``||``
+- [ ] grouping operators: ``|``, and ``&``
+- [ ] comments: ``#``
+- [ ] output redirection: ``gcc dummy.c -o dummy 2> /dev/null``, ``exec 1> /dev/null``
+- [ ] appended output redirection: ``cat main.c test.c >> maintest.c``
+- [ ] output redirection to file descriptors: ``cat main.c test.c nonexisting.c &> commandANDerrorsLog``
+- [ ] input redirection ``sed 's|http://|https://|' >>EOL``
+- [ ] Remove redirection symbols and control operators from argument list
 
 #### Recreate standard library functions
 - [x] getline
@@ -162,6 +163,10 @@ vagrant:simple_shell$
 - [ ] help
 - [ ] history
 - [ ] cat
+- [ ] pwd
+- [x] exit
+- [x] exit handles numeric argument for custom exit status
+- [x] Exiting frees malloc'd memory
 
 ### Expansions
 - [ ] Variables ``TEST="hello!"``
@@ -174,7 +179,7 @@ vagrant:simple_shell$
 - [ ] Single quotes
 - [ ] Double quotes
 - [ ] Wildcard expansion ``cat *.c *.h``
-- [ ] Command grouping ``$( )`` or ``\`\```
+- [ ] Command grouping ``$( )`` or backticks
 - [ ] Arithmetic Expansion ``$(( ))``
 
 ### Startup Files
@@ -201,7 +206,6 @@ vagrant:simple_shell$
 - [x] EOF (``^D``) it segfaults
 - [x] Two unfreed mallocs somewhere. (Check with Valgrind.)
 - [x] Only delimiters handled are spaces and newlines.
-- [ ] Optimization: Change the linked list for path to an array of strings
 - [ ] In ``_getline()``, ``read()`` fails the second time, because read happens before the buffer is reallocated. Need to rework the logic.
 
 ## Optimizations
