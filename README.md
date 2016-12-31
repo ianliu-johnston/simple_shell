@@ -129,6 +129,8 @@ vagrant:simple_shell$
 - [ ] Input files
 - [x] Interactive mode
 - [x] Non-interactive mode
+- [ ] Expansion
+- [ ] Aliases
 
 ### Parsing 
 - [x] Handle common white spaces: ``\t`` and spaces
@@ -139,16 +141,13 @@ vagrant:simple_shell$
 - [x] EOF
 - [x] ``\n``
 - [x] ``;``
+- [ ] ``;;``
 - [ ] logical operators: ``&&``, and ``||``
-- [ ] grouping operators: ``|``, and ``&``
+- [ ] grouping operators: ``|``, and ``&`` - Pipelines
+- [ ] combined grouping operators: ``|&``
 - [ ] comments: ``#``
-- [ ] output redirection: ``gcc dummy.c -o dummy 2> /dev/null``, ``exec 1> /dev/null``
-- [ ] appended output redirection: ``cat main.c test.c >> maintest.c``
-- [ ] output redirection to file descriptors: ``cat main.c test.c nonexisting.c &> commandANDerrorsLog``
-- [ ] input redirection ``sed 's|http://|https://|' >>EOL``
-- [ ] Remove redirection symbols and control operators from argument list
 
-#### Recreate standard library functions
+### Recreate standard library functions
 - [x] getline
 - [x] strtok
 - [x] getenv
@@ -156,31 +155,56 @@ vagrant:simple_shell$
 - [ ] unsetenv
 - [ ] More to come
 
-#### Shell Builtins
+### Shell Builtins
 - [x] register builtins before executing commands
 - [x] cd
 - [x] env
 - [ ] help
 - [ ] history
-- [ ] cat
-- [ ] pwd
 - [x] exit
-- [x] exit handles numeric argument for custom exit status
-- [x] Exiting frees malloc'd memory
+  - [x] exit handles numeric argument for custom exit status
+  - [x] Exiting frees malloc'd memory
+- [ ] ``:`` - Null Command
+- [ ] alias
+- [ ] unalias
+- [ ] cat
+- [ ] echo
+- [ ] type
+- [ ] jobs
+- [ ] fg
+- [ ] bg
+- [ ] kill
+- [ ] pwd
+- [ ] pushd
+- [ ] popd
+- [ ] dirs
 
 ### Expansions
-- [ ] Variables ``TEST="hello!"``
-- [ ] Alias ``alias ls='ls -la'``
-- [ ] Exit status of last process ``echo $?``
 - [ ] Brace expansion
-  - [ ] ``[ ]``
-  - [ ] ``{ }``
-- [ ] Escaping backslash``\{\ \}``
-- [ ] Single quotes
-- [ ] Double quotes
-- [ ] Wildcard expansion ``cat *.c *.h``
-- [ ] Command grouping ``$( )`` or backticks
+  - [ ] ``{ }`` - ``mkdir /home/username/{old,new,gold,blue}``
+- [ ] Tilde expansion - ``echo ~+``, echo ~-``
+- [ ] Variables ``TEST="hello!"``
+  - [ ] Special expansions
+    - [ ] ``$?`` - Exit status of last process
+    - [ ] ``$-`` - Flags used on shell invocation
+    - [ ] ``$$`` - Current PID of the shell
+    - [ ] ``$0`` - Name of the shell or shell script
+- [ ] Command substitution ``$( )`` or backticks
 - [ ] Arithmetic Expansion ``$(( ))``
+- [ ] Word Splitting
+- [ ] Filename Expansion
+  - [ ] ``*`` - ``cat *.c`` - matches any string
+  - [ ] ``?`` - matches any single character
+  - [ ] ``[...]`` - ``ls [0-9][0-9]``
+- [ ] Escaping backslash``\{\ \}`` - Preserves the literal value of the next character that follows. 
+- [ ] Single quotes - Preserves the literal value of each character within the quote pair.
+- [ ] Double quotes - Preserves the literal value of each character within the quote pair, except for the characters $, ', \, and !.
+
+### Redirection
+- [ ] output redirection: ``gcc dummy.c -o dummy 2> /dev/null``, ``exec 1> /dev/null``
+- [ ] appended output redirection: ``cat main.c test.c >> maintest.c``
+- [ ] input redirection ``sed 's|http://|https://|' << EOL``
+- [ ] Remove redirection symbols and control operators from argument list
 
 ### Startup Files
 - [ ] Scripts as input
@@ -198,7 +222,28 @@ vagrant:simple_shell$
 - [ ] Auto-complete with ``<tab>``
 
 ### Advanced Features
+- [ ] Shell Functions
 - [ ] Looping Constructs
+  - [ ] Reserved Keywords
+    - [ ] time
+    - [ ] for ``for name [ [in [words ...] ] ; ] do commands; done``, ``for (( expr1; expr2; expr3 )) ; do commands; done
+    - [ ] do
+    - [ ] while ``while test-commands; do consequent-commands; done``
+    - [ ] until ``until test-commands; do consequent-commands; done``
+    - [ ] done
+  - [ ] Builtins
+    - [ ] break
+    - [ ] continue
+- [ ] Conditional Constructs
+  - [ ] Reserved Keywords
+    - [ ] if
+    - [ ] then
+    - [ ] elif
+    - [ ] else
+    - [ ] fi
+    - [ ] case
+    - [ ] esac
+  - [ ] Builtins
 
 ## Bugs
 - [x] When ``enter`` is hit, it segfaults

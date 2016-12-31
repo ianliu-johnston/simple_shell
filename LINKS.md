@@ -31,6 +31,7 @@
 
 ## C Programming
 * [Primary Resource, The Linux Programming Interface](https://www.nostarch.com/tlpi) Kerrisk, Michael. <em>The Linux Programming Interface: A Linux and UNIX System Programming Handbook.<em> San Francisco: No Starch, 2010. Print. 
+* [Primary Resource, Bash Reference Manual](https://www.gnu.org/software/bash/manual/) Ramey, Chet, and Brian Fox. Bash reference manual: <em>reference documentation for Bash edition 4.4b, for Bash version 4.04b</em>. Bristol: Network Theory, 2016.
 * [About Getline](https://blog.udemy.com/c-getline/)
 * [Purdue CS Overview of Shell Structure](https://www.cs.purdue.edu/homes/grr/SystemsProgrammingBook/Book/Chapter5-WritingYourOwnShell.pdf)
 * [Some crazy in-depth thoughts on handling user input](http://www.azillionmonkeys.com/qed/userInput.html)
